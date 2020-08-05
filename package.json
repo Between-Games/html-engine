@@ -4,7 +4,7 @@
   "description": "A collection of mixed HTML-related functionalities",
   "main": "source/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "open test/index.html",
     "build": "npx webpack --watch"
   },
   "repository": {
