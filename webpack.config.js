@@ -13,7 +13,7 @@ module.exports = {
 
     output: {
         filename: 'index.js',
-        library: 'utility-engine',
+        library: 'html-engine',
         libraryTarget: 'commonjs2',
         path: path.resolve(__dirname, 'build'),
     },
