@@ -1,0 +1,19 @@
+{
+  "name": "html-engine",
+  "version": "0.1.0",
+  "description": "A collection of mixed HTML-related functionalities",
+  "main": "source/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/S-A-R-C/html-engine.git"
+  },
+  "author": "S-A-R-C",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/S-A-R-C/html-engine/issues"
+  },
+  "homepage": "https://github.com/S-A-R-C/html-engine#readme"
+}
