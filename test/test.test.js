@@ -14,6 +14,8 @@
 // ╔══╝ ╚══╗║ ║║ ║║ ║║ ║      ║ ╚═══╝ ║║ ║ ║ ╚═╗   ║ ║
 // ╚═══════╝╚═╝╚═╝╚═╝╚═╝      ╚═══════╝╚═╝ ╚═══╝   ╚═╝
 
+import * as HtmlEngine from '../source/index.js';
+
 const expect = chai.expect;
 
 // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗
@@ -31,9 +33,9 @@ describe('Test', function() {
     // ╔══╝ ╚══╗╔═════╝ ║            ║ ║   ║ ║ ║ ╚═╗║ ╚═══╝ ║║ ╚═════╗
     // ╚═══════╝╚═══════╝            ╚═╝   ╚═╝ ╚═══╝╚═══════╝╚═══════╝
 
-    describe('#isTrue()', function () {
-        it('Should return true when value is true', () => {
-            expect(true).to.equal(true);
+    describe('#returnTrue()', function () {
+        it('Should return true', () => {
+            expect(HtmlEngine.returnTrue()).to.equal(true);
         });
     });
 
@@ -44,9 +46,9 @@ describe('Test', function() {
     // ╔══╝ ╚══╗╔═════╝ ║         ║ ║      ║ ║   ║ ║║ ╚═════╗╔═════╝ ║║ ╚═════╗
     // ╚═══════╝╚═══════╝         ╚═╝      ╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝
 
-    describe('#isFalse()', function () {
-        it('Should return true when value is false', () => {
-            expect(false).to.equal(false);
+    describe('#returnFalse()', function () {
+        it('Should return false', () => {
+            expect(HtmlEngine.returnFalse()).to.equal(false);
         });
     });
 });
