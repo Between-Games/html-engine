@@ -13,8 +13,9 @@ module.exports = {
 
     output: {
         filename: 'index.js',
-        library: 'html-engine',
-        libraryTarget: 'commonjs2',
+        library: 'HtmlEngine',
+        libraryTarget: 'umd',
+        globalObject: 'this',
         path: path.resolve(__dirname, 'build'),
     },
 };
