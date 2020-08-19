@@ -26,5 +26,8 @@
     "mocha": "^8.1.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "@sarc-test/utility-engine": "^0.2.7"
   }
 }
