@@ -49,8 +49,10 @@ export function isValidElementId(value) {       //
     return UtilityEngine.isFilledString(value); //
 }
 
-export function getElementById(id) {                                        //
-    throw new Error('The provided function has not yet been implemented');  //
+export function getElementById(id) {        //
+    return isValidElementId(id) ?           //
+        getDocument().getElementById(id) :  //
+        null;                               //
 }
 
 // ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗

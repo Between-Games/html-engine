@@ -153,4 +153,132 @@ describe('Id', function() {
             expect(HtmlEngine.isValidElementId(class Class {})).to.equal(false);
         });
     });
+
+    // ╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔══════╗ ╔═╗   ╔═╗         ╔═══════╗╔═══════╗
+    // ║ ╔═════╝║ ╔═════╝╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔══╗ ║ ║ ║   ║ ║         ╚══╗ ╔══╝╚╗ ╔══╗ ║
+    // ║ ║ ╔═══╗║ ╚═════╗   ║ ║   ╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ╚══╝ ╚╗║ ╚═══╝ ║╔═══════╗   ║ ║    ║ ║  ║ ║
+    // ║ ║ ╚═╗ ║║ ╔═════╝   ║ ║   ╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ╔═══╗ ║╚═════╗ ║╚═══════╝   ║ ║    ║ ║  ║ ║
+    // ║ ╚═══╝ ║║ ╚═════╗   ║ ║            ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═══╝ ║╔═════╝ ║         ╔══╝ ╚══╗╔╝ ╚══╝ ║
+    // ╚═══════╝╚═══════╝   ╚═╝            ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝
+
+    describe('#getElementById(ID)', function () {
+        it('Should return element when element ID parameter is a used identifier', () => {
+            expect(HtmlEngine.getElementById('div-test-element-id')).to.satisfy((element) => {
+                return HtmlEngine.isElement(element);
+            });
+        });
+
+
+        it('Should return null when element ID parameter is a unused identifier', () => {
+            expect(HtmlEngine.getElementById('div-test-unused-element-id')).to.equal(null)
+        });
+
+        it('Should return null when element ID parameter is a whitespace', () => {
+            expect(HtmlEngine.getElementById(' ')).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is an empty string', () => {
+            expect(HtmlEngine.getElementById('')).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is an empty primitive string', () => {
+            expect(HtmlEngine.getElementById(String(''))).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is an empty wrapped primitive string', () => {
+            expect(HtmlEngine.getElementById(new String(''))).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a whitespace', () => {
+            expect(HtmlEngine.getElementById(' ')).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is empty', () => {
+            expect(HtmlEngine.getElementById()).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is null', () => {
+            expect(HtmlEngine.getElementById(null)).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is NaN', () => {
+            expect(HtmlEngine.getElementById(NaN)).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is undefined', () => {
+            expect(HtmlEngine.getElementById(undefined)).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is false boolean', () => {
+            expect(HtmlEngine.getElementById(false)).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is true boolean', () => {
+            expect(HtmlEngine.getElementById(true)).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is an empty object', () => {
+            expect(HtmlEngine.getElementById({})).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is an empty array', () => {
+            expect(HtmlEngine.getElementById([])).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a function', () => {
+            expect(HtmlEngine.getElementById(function() {})).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a filled object', () => {
+            expect(HtmlEngine.getElementById({foo: 'bar'})).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a number', () => {
+            expect(HtmlEngine.getElementById(1)).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a zero', () => {
+            expect(HtmlEngine.getElementById(0)).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a positive false', () => {
+            expect(HtmlEngine.getElementById(+0)).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a negative zero', () => {
+            expect(HtmlEngine.getElementById(-0)).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a primitive number', () => {
+            expect(HtmlEngine.getElementById(Number('1'))).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a wrapped primitive number', () => {
+            expect(HtmlEngine.getElementById(new Number('1'))).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a filled array', () => {
+            expect(HtmlEngine.getElementById([1, 2, 3])).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a map', () => {
+            expect(HtmlEngine.getElementById(new Map())).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a date', () => {
+            expect(HtmlEngine.getElementById(new Date())).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a class instance', () => {
+            expect(HtmlEngine.getElementById(new (class Class {})())).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a class instance', () => {
+            expect(HtmlEngine.getElementById(new (class Class {}))).to.equal(null);
+        });
+
+        it('Should return null when element ID parameter is a class declaration', () => {
+            expect(HtmlEngine.getElementById(class Class {})).to.equal(null);
+        });
+    });
 });
