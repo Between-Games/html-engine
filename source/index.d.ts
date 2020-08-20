@@ -50,8 +50,8 @@ export function isElement(value: any): boolean;
 //  ║ ╚═╝ ║ ║ ║   ║ ║║ ╚═════╗║ ╚═══╝ ║║ ╚═════╗
 //  ╚═════╝ ╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝
 
-export function setValue(element: any, value): boolean;
-export function getValue(element: any): any;
+export function setElementValue(element: any, value): boolean;
+export function getElementValue(element: any): any;
 
 // ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
 // ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
@@ -60,13 +60,15 @@ export function getValue(element: any): any;
 // ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
 // ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function insertClasses(element: any, classNames: string[]): boolean;
-export function removeClasses(element: any, classNames: string[]): boolean;
-export function insertClass(element: any, className: string): boolean;
-export function removeClass(element: any, className: string): boolean;
-export function hasClasses(element: any, classNames: string[]): boolean;
-export function hasClass(element: any, className: string): boolean;
-export function isClassname(value: any): boolean;
+export function insertElementClasses(element: any, classNames: string[]): boolean;
+export function removeElementClasses(element: any, classNames: string[]): boolean;
+export function toggleElementClasses(element: any, classNames: string[]): boolean;
+export function insertElementClass(element: any, className: string): boolean;
+export function removeElementClass(element: any, className: string): boolean;
+export function toggleElementClass(element: any, className: string): boolean;
+export function isElementClasses(element: any, classNames: string[]): boolean;
+export function isElementClass(element: any, className: string): boolean;
+export function isValidClassName(value: any): boolean;
 
 // ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝║ ╔═════╝
@@ -75,14 +77,15 @@ export function isClassname(value: any): boolean;
 // ╔═════╝ ║   ║ ║   ╔═════╝ ║║ ╚═════╗║ ╚═════╗╔═════╝ ║
 // ╚═══════╝   ╚═╝   ╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function insertStyles(element: any, styles): boolean;
-export function removeStyles(element: any, styleNames): boolean;
-export function insertStyle(element: any, style): boolean;
-export function removeStyle(element: any, styleName): boolean;
-export function hasStyleValue(element: any, styleName, styleValue): boolean;
-export function hasStyle(element: any, styleName): boolean;
-export function isStyleName(value: any): boolean;
-export function isStyleValue(value: any): boolean;
+export function insertElementStyles(element: any, styles: object[]): boolean;
+export function removeElementStyles(element: any, styleNames: string[]): boolean;
+export function insertElementStyle(element: any, styleName:string, styleValue: string): boolean;
+export function removeElementStyle(element: any, styleName: string): boolean;
+export function isElementStyleValue(element: any, styleName:string, styleValue: string): boolean;
+export function isValidStyleValue(value: any): boolean;
+export function isValidStyleName(value: any): boolean;
+export function getElementStyleValue(element: any): string;
+export function getElementStyles(element: any): object[];
 
 // ╔═══════╗╔════╗╔═╗╔═══════╗╔══════╗ ╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝║ ╔╗ ║║ ║║ ╔═══╗ ║║ ╔══╗ ║ ║ ║      ║ ╔═════╝╚╗ ╔══╗ ║
@@ -94,7 +97,7 @@ export function isStyleValue(value: any): boolean;
 export function enableElement(element: any): boolean;
 export function disableElement(element: any): boolean;
 export function isEnabledElement(element: any): boolean;
-export function idDisabledElement(element: any): boolean;
+export function isDisabledElement(element: any): boolean;
 
 // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗      ╔═══════╗╔═╗   ╔═╗╔═══════╗╔═══════╗
 // ╚╗ ╔══╗ ║╚══╗ ╔══╝║ ╔═════╝║ ╔═══╗ ║║ ║      ║ ╔═══╗ ║║ ║   ║ ║║ ╔═════╝╚╗ ╔══╗ ║
@@ -115,10 +118,10 @@ export function isHiddenElement(element: any): boolean;
 // ╔══╝ ╚══╗║ ║║ ╚╝ ║║ ║║ ╚╝ ║║ ╚═════╗║ ║ ║ ╚═╗         ║ ║   ║ ║   ║ ║   ║ ║║ ║║ ║║ ╚═════╗
 // ╚═══════╝╚═╝╚════╝╚═╝╚════╝╚═══════╝╚═╝ ╚═══╝         ╚═╝   ╚═╝   ╚═╝   ╚═╝╚═╝╚═╝╚═══════╝
 
-export function clearInnerHtml(element: any): boolean;
-export function appendInnerHtml(element: any, innerHTML): boolean;
-export function setInnerHtml(element: any, innerHTML): boolean;
-export function getInnerHtml(element: any, innerHTML): any;
+export function clearElementInnerHtml(element: any): boolean;
+export function appendElementInnerHtml(element: any, innerHTML): boolean;
+export function setElementInnerHtml(element: any, innerHTML): boolean;
+export function getElementInnerHtml(element: any, innerHTML): any;
 
 // ╔═══════╗╔═╗   ╔═╗╔═══════╗╔═══════╗╔═══════╗         ╔═╗   ╔═╗╔═══════╗╔═══════╗╔═╗
 // ║ ╔═══╗ ║║ ║   ║ ║╚══╗ ╔══╝║ ╔═════╝║ ╔═══╗ ║         ║ ║   ║ ║╚══╗ ╔══╝║ ╔╗ ╔╗ ║║ ║
@@ -127,7 +130,7 @@ export function getInnerHtml(element: any, innerHTML): any;
 // ║ ╚═══╝ ║║ ╚═══╝ ║   ║ ║   ║ ╚═════╗║ ║ ║ ╚═╗         ║ ║   ║ ║   ║ ║   ║ ║║ ║║ ║║ ╚═════╗
 // ╚═══════╝╚═══════╝   ╚═╝   ╚═══════╝╚═╝ ╚═══╝         ╚═╝   ╚═╝   ╚═╝   ╚═╝╚═╝╚═╝╚═══════╝
 
-export function getOuterHtml(element: any): any;
+export function getElementOuterHtml(element: any): any;
 
 // ╔═══════╗╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗
 // ║ ╔╗ ╔╗ ║║ ╔═══╗ ║╚╗ ╔══╗ ║║ ║   ║ ║║ ║      ║ ╔═════╝
@@ -147,40 +150,43 @@ declare module 'HtmlEngine' {
 
     export function isElement(value: any): boolean;
 
-    export function setValue(element: any, value): boolean;
-    export function getValue(element: any): any;
+    export function setElementValue(element: any, value): boolean;
+    export function getElementValue(element: any): any;
 
-    export function insertClasses(element: any, classNames: string[]): boolean;
-    export function removeClasses(element: any, classNames: string[]): boolean;
-    export function insertClass(element: any, className: string): boolean;
-    export function removeClass(element: any, className: string): boolean;
-    export function hasClasses(element: any, classNames: string[]): boolean;
-    export function hasClass(element: any, className: string): boolean;
-    export function isClassname(value: any): boolean;
+    export function insertElementClasses(element: any, classNames: string[]): boolean;
+    export function removeElementClasses(element: any, classNames: string[]): boolean;
+    export function toggleElementClasses(element: any, classNames: string[]): boolean;
+    export function insertElementClass(element: any, className: string): boolean;
+    export function removeElementClass(element: any, className: string): boolean;
+    export function toggleElementClass(element: any, className: string): boolean;
+    export function isElementClasses(element: any, classNames: string[]): boolean;
+    export function isElementClass(element: any, className: string): boolean;
+    export function isValidClassName(value: any): boolean;
 
-    export function insertStyles(element: any, styles): boolean;
-    export function removeStyles(element: any, styleNames): boolean;
-    export function insertStyle(element: any, style): boolean;
-    export function removeStyle(element: any, styleName): boolean;
-    export function hasStyleValue(element: any, styleName, styleValue): boolean;
-    export function hasStyle(element: any, styleName): boolean;
-    export function isStyleName(value: any): boolean;
-    export function isStyleValue(value: any): boolean;
+    export function insertElementStyles(element: any, styles: object[]): boolean;
+    export function removeElementStyles(element: any, styleNames: string[]): boolean;
+    export function insertElementStyle(element: any, styleName:string, styleValue: string): boolean;
+    export function removeElementStyle(element: any, styleName: string): boolean;
+    export function isElementStyleValue(element: any, styleName:string, styleValue: string): boolean;
+    export function isValidStyleValue(value: any): boolean;
+    export function isValidStyleName(value: any): boolean;
+    export function getElementStyleValue(element: any): string;
+    export function getElementStyles(element: any): object[];
 
     export function enableElement(element: any): boolean;
     export function disableElement(element: any): boolean;
     export function isEnabledElement(element: any): boolean;
-    export function idDisabledElement(element: any): boolean;
+    export function isDisabledElement(element: any): boolean;
 
     export function showElement(element: any): boolean;
     export function hideElement(element: any): boolean;
     export function isShownElement(element: any): boolean;
     export function isHiddenElement(element: any): boolean;
 
-    export function clearInnerHtml(element: any): boolean;
-    export function appendInnerHtml(element: any, innerHTML): boolean;
-    export function setInnerHtml(element: any, innerHTML): boolean;
-    export function getInnerHtml(element: any, innerHTML): any;
+    export function clearElementInnerHtml(element: any): boolean;
+    export function appendElementInnerHtml(element: any, innerHTML): boolean;
+    export function setElementInnerHtml(element: any, innerHTML): boolean;
+    export function getElementInnerHtml(element: any, innerHTML): any;
 
-    export function getOuterHtml(element: any): any;
+    export function getElementOuterHtml(element: any): any;
 }

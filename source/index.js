@@ -78,13 +78,13 @@ export function isElement(value) {      //
 //  ║ ╚═╝ ║ ║ ║   ║ ║║ ╚═════╗║ ╚═══╝ ║║ ╚═════╗
 //  ╚═════╝ ╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝
 
-export function setValue(element, value) {                              //
+export function setElementValue(element, value) {                       //
     if (isValidElementId(element)) element = getElementById(element);   //
 
     if (isElement(element)) element.value = value;                      //
 }
 
-export function getValue(element) {                                     //
+export function getElementValue(element) {                              //
     if (isValidElementId(element)) element = getElementById(element);   //
 
     return isElement(element) ? element.value : null;                   //
@@ -97,31 +97,39 @@ export function getValue(element) {                                     //
 // ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
 // ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function insertClasses(element, classNames) {                        //
+export function insertElementClasses(element, classNames) {                 //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function removeClasses(element, classNames) {                        //
+export function removeElementClasses(element, classNames) {                 //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function insertClass(element, className) {                           //
+export function toggleElementClasses(element, classNames) {                 //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function removeClass(element, className) {                           //
+export function insertElementClass(element, className) {                    //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function hasClasses(element, classNames) {                           //
+export function removeElementClass(element, className) {                    //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function hasClass(element, className) {                              //
+export function toggleElementClass(element, className) {                    //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function isClassname(value) {                                        //
+export function isElementClasses(element, classNames) {                     //
+    throw new Error('The provided function has not yet been implemented');  //
+}
+
+export function isElementClass(element, className) {                        //
+    throw new Error('The provided function has not yet been implemented');  //
+}
+
+export function isValidClassName(value) {                                   //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
@@ -132,35 +140,43 @@ export function isClassname(value) {                                        //
 // ╔═════╝ ║   ║ ║   ╔═════╝ ║║ ╚═════╗║ ╚═════╗╔═════╝ ║
 // ╚═══════╝   ╚═╝   ╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function insertStyles(element, styles) {                             //
+export function insertElementStyles(element, styles) {                      //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function removeStyles(element, styleNames) {                         //
+export function removeElementStyles(element, styleNames) {                  //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function insertStyle(element, style) {                               //
+export function insertElementStyle(element, style) {                        //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function removeStyle(element, styleName) {                           //
+export function removeElementStyle(element, styleName) {                    //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function hasStyleValue(element, styleName, styleValue) {             //
+export function isElementStyleValue(element, styleName, styleValue) {       //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function hasStyle(element, styleName) {                              //
+export function isElementStyle(element, styleName) {                        //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function isStyleName(value) {                                        //
+export function isValidStyleValue(value) {                                  //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function isStyleValue(value) {                                       //
+export function isValidStyleName(value) {                                   //
+    throw new Error('The provided function has not yet been implemented');  //
+}
+
+export function getElementStyleValue(element) {                             //
+    throw new Error('The provided function has not yet been implemented');  //
+}
+
+export function getElementStyles(element) {                                 //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
@@ -217,19 +233,19 @@ export function isHiddenElement(element) {                                  //
 // ╔══╝ ╚══╗║ ║║ ╚╝ ║║ ║║ ╚╝ ║║ ╚═════╗║ ║ ║ ╚═╗         ║ ║   ║ ║   ║ ║   ║ ║║ ║║ ║║ ╚═════╗
 // ╚═══════╝╚═╝╚════╝╚═╝╚════╝╚═══════╝╚═╝ ╚═══╝         ╚═╝   ╚═╝   ╚═╝   ╚═╝╚═╝╚═╝╚═══════╝
 
-export function clearInnerHtml(element) {                                   //
+export function clearElementInnerHtml(element) {                            //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function appendInnerHtml(element, innerHTML) {                       //
+export function appendElementInnerHtml(element, innerHTML) {                //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function setInnerHtml(element, innerHTML) {                          //
+export function setElementInnerHtml(element, innerHTML) {                   //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function getInnerHtml(element, innerHTML) {                          //
+export function getElementInnerHtml(element, innerHTML) {                   //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
@@ -240,7 +256,7 @@ export function getInnerHtml(element, innerHTML) {                          //
 // ║ ╚═══╝ ║║ ╚═══╝ ║   ║ ║   ║ ╚═════╗║ ║ ║ ╚═╗         ║ ║   ║ ║   ║ ║   ║ ║║ ║║ ║║ ╚═════╗
 // ╚═══════╝╚═══════╝   ╚═╝   ╚═══════╝╚═╝ ╚═══╝         ╚═╝   ╚═╝   ╚═╝   ╚═╝╚═╝╚═╝╚═══════╝
 
-export function getOuterHtml(element) {                                     //
+export function getElementOuterHtml(element) {                              //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
@@ -253,6 +269,7 @@ export function getOuterHtml(element) {                                     //
 
 export default {
     getWindow,
+
     getDocument,
 
     setElementId,
@@ -261,40 +278,43 @@ export default {
 
     isElement,
 
-    setValue,
-    getValue,
+    setElementValue,
+    getElementValue,
 
-    insertClasses,
-    removeClasses,
-    insertClass,
-    removeClass,
-    hasClasses,
-    hasClass,
-    isClassname,
+    insertElementClasses,
+    removeElementClasses,
+    toggleElementClasses,
+    insertElementClass,
+    removeElementClass,
+    toggleElementClass,
+    isElementClasses,
+    isElementClass,
+    isValidClassName,
 
-    insertStyles,
-    removeStyles,
-    insertStyle,
-    removeStyle,
-    hasStyleValue,
-    hasStyle,
-    isStyleName,
-    isStyleValue,
+    insertElementStyles,
+    removeElementStyles,
+    insertElementStyle,
+    removeElementStyle,
+    isElementStyleValue,
+    isElementStyle,
+    isValidStyleValue,
+    isValidStyleName,
+    getElementStyleValue,
+    getElementStyles,
 
     enableElement,
     disableElement,
     isEnabledElement,
     isDisabledElement,
-
     showElement,
     hideElement,
     isShownElement,
     isHiddenElement,
 
-    clearInnerHtml,
-    appendInnerHtml,
-    setInnerHtml,
-    getInnerHtml,
+    clearElementInnerHtml,
+    appendElementInnerHtml,
+    setElementInnerHtml,
+    getElementInnerHtml,
 
-    getOuterHtml,
+    getElementOuterHtml,
 }
