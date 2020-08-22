@@ -121,8 +121,12 @@ export function insertElementClass(element, className) {                //
         false;                                                          //
 }
 
-export function removeElementClass(element, className) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
+export function removeElementClass(element, className) {                //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    return isElement(element) && isValidClassName(className) ?          //
+        element.classList.remove(className) || true :                   //
+        false;                                                          //
 }
 
 export function toggleElementClass(element, className) {                    //
