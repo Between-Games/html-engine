@@ -113,8 +113,12 @@ export function toggleElementClasses(element, classNames) {                 //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function insertElementClass(element, className) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
+export function insertElementClass(element, className) {                //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    return isElement(element) && isValidClassName(className) ?          //
+        element.classList.add(className) || true :                      //
+        false;                                                          //
 }
 
 export function removeElementClass(element, className) {                    //
@@ -125,9 +129,11 @@ export function toggleElementClass(element, className) {                    //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function areElementClasses(element, classNames = []) {       //
-    return !UtilityEngine.toArray(classNames).some((className) => { //
-        return !isElementClass(element, className);                 //
+export function areElementClasses(element, classNames = []) {           //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    return !UtilityEngine.toArray(classNames).some((className) => {     //
+        return !isElementClass(element, className);                     //
     });
 }
 
