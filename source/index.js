@@ -133,8 +133,8 @@ export function isElementClass(element, className) {                        //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function isValidClassName(value) {                                   //
-    throw new Error('The provided function has not yet been implemented');  //
+export function isValidClassName(value) {       //
+    return UtilityEngine.isFilledString(value); //
 }
 
 // ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗╔═══════╗
