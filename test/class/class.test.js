@@ -201,6 +201,18 @@ describe('Class', function() {
         });
 
         describe('#areElementClasses(element, CLASSNAMES)', function () {
+            it('Should return false when class name  parameter is empty', () => {
+                expect(HtmlEngine.areElementClasses(elementWith1Class)).to.equal(true);
+            });
+
+            it('Should return false when class name  parameter is undefined', () => {
+                expect(HtmlEngine.areElementClasses(elementWith1Class, undefined)).to.equal(true);
+            });
+
+            it('Should return false when class name  parameter is an empty array', () => {
+                expect(HtmlEngine.areElementClasses(elementWith1Class, [])).to.equal(true);
+            });
+
             it('Should return true when class name parameter is a class in element', () => {
                 expect(HtmlEngine.areElementClasses(elementWith1Class, 'class1')).to.equal(true);
             });
@@ -225,20 +237,68 @@ describe('Class', function() {
                 expect(HtmlEngine.areElementClasses(elementWith3Classes, 'class3')).to.equal(true);
             });
 
+            it('Should return true when class name parameter are classes in element', () => {
+                expect(HtmlEngine.areElementClasses(elementWith1Class, ['class1'])).to.equal(true);
+            });
 
-            it('Should return false when class name parameter is a not class in element', () => {
+            it('Should return true when class name parameter are classes in element', () => {
+                expect(HtmlEngine.areElementClasses(elementWith2Classes, ['class1'])).to.equal(true);
+            });
+
+            it('Should return true when class name parameter are classes in element', () => {
+                expect(HtmlEngine.areElementClasses(elementWith2Classes, ['class1', 'class2'])).to.equal(true);
+            });
+
+            it('Should return true when class name parameter are classes in element', () => {
+                expect(HtmlEngine.areElementClasses(elementWith3Classes, ['class1'])).to.equal(true);
+            });
+
+            it('Should return true when class name parameter are classes in element', () => {
+                expect(HtmlEngine.areElementClasses(elementWith3Classes, ['class1', 'class2'])).to.equal(true);
+            });
+
+            it('Should return true when class name parameter are classes in element', () => {
+                expect(HtmlEngine.areElementClasses(elementWith3Classes, ['class1', 'class3'])).to.equal(true);
+            });
+
+
+            it('Should return false when class name parameter is not a class in element', () => {
                 expect(HtmlEngine.areElementClasses(elementWithNoClass, 'class1')).to.equal(false);
             });
 
-            it('Should return false when class name parameter is a not class in element', () => {
+            it('Should return false when class name parameter are classes that are not all in class', () => {
+                expect(HtmlEngine.areElementClasses(elementWithNoClass, ['class1'])).to.equal(false);
+            });
+
+            it('Should return false when class name parameter are classes in element', () => {
+                expect(HtmlEngine.areElementClasses(elementWith1Class, ['class4'])).to.equal(false);
+            });
+
+            it('Should return false when class name parameter are classes that are not all in class', () => {
+                expect(HtmlEngine.areElementClasses(elementWith2Classes, ['class3', 'class2', 'class1'])).to.equal(false);
+            });
+
+            it('Should return false when class name parametera are classes that are not all in class', () => {
+                expect(HtmlEngine.areElementClasses(elementWith2Classes, ['class1', 'class2', 'class3'])).to.equal(false);
+            });
+
+            it('Should return false when class name parameter are classes that are not all in class', () => {
+                expect(HtmlEngine.areElementClasses(elementWith3Classes, ['class4', 'class5', 'class6'])).to.equal(false);
+            });
+
+            it('Should return false when class name parameter are classes that are not all in class', () => {
+                expect(HtmlEngine.areElementClasses(elementWith3Classes, ['class1', 'class2', 'class3', 'class4'])).to.equal(false);
+            });
+
+            it('Should return false when class name parameter is not a class in element', () => {
                 expect(HtmlEngine.areElementClasses(elementWith1Class, 'class2')).to.equal(false);
             });
 
-            it('Should return false when class name parameter is a not class in element', () => {
+            it('Should return false when class name parameter is not a class in element', () => {
                 expect(HtmlEngine.areElementClasses(elementWith2Classes, 'class3')).to.equal(false);
             });
 
-            it('Should return false when class name parameter is a not class in element', () => {
+            it('Should return false when class name parameter is not a class in element', () => {
                 expect(HtmlEngine.areElementClasses(elementWith3Classes, 'class4')).to.equal(false);
             });
 
@@ -262,20 +322,12 @@ describe('Class', function() {
                 expect(HtmlEngine.areElementClasses(elementWithNoClass, ' ')).to.equal(false);
             });
 
-            it('Should return false when class name  parameter is empty', () => {
-                expect(HtmlEngine.areElementClasses(elementWithNoClass, )).to.equal(false);
-            });
-
             it('Should return false when class name  parameter is null', () => {
                 expect(HtmlEngine.areElementClasses(elementWithNoClass, null)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is NaN', () => {
                 expect(HtmlEngine.areElementClasses(elementWithNoClass, NaN)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is undefined', () => {
-                expect(HtmlEngine.areElementClasses(elementWithNoClass, undefined)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is false boolean', () => {
@@ -288,10 +340,6 @@ describe('Class', function() {
 
             it('Should return false when class name  parameter is an empty object', () => {
                 expect(HtmlEngine.areElementClasses(elementWithNoClass, {})).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty array', () => {
-                expect(HtmlEngine.areElementClasses(elementWithNoClass, [])).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a function', () => {
