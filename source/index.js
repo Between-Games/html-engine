@@ -125,8 +125,10 @@ export function toggleElementClass(element, className) {                    //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function isElementClasses(element, classNames) {                     //
-    throw new Error('The provided function has not yet been implemented');  //
+export function areElementClasses(element, classNames = []) {       //
+    return !UtilityEngine.toArray(classNames).some((className) => { //
+        return !isElementClass(element, className);                 //
+    });
 }
 
 export function isElementClass(element, className) {        //
@@ -297,7 +299,7 @@ export default {
     insertElementClass,
     removeElementClass,
     toggleElementClass,
-    isElementClasses,
+    areElementClasses,
     isElementClass,
     isValidClassName,
     getElementClasses,
