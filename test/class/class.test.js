@@ -24,27 +24,42 @@ const expect = chai.expect;
 // ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
 
 describe('Class', function() {
-    let classElement;
-    let classlessElement;
+    let elementWith1Class;
+    let elementWith2Classes;
+    let elementWith3Classes;
+    let elementWithNoClass;
 
     beforeEach(function () {
-        classElement = document.createElement('button');
-        classElement.setAttribute('id', 'test-class');
+        elementWith1Class = document.createElement('button');
+        elementWith2Classes = document.createElement('button');
+        elementWith3Classes = document.createElement('button');
+        elementWithNoClass = document.createElement('button');
 
-        classlessElement = document.createElement('button');
-        classlessElement.setAttribute('id', 'test-no-class');
+        elementWith1Class.setAttribute('id', 'element-with-1-class');
+        elementWith2Classes.setAttribute('id', 'element-with-2-classes');
+        elementWith3Classes.setAttribute('id', 'element-with-3-classes');
+        elementWithNoClass.setAttribute('id', 'element-with-no-class');
 
-        classElement.classList.add('class1')
-        classElement.classList.add('class2')
-        classElement.classList.add('class3')
+        elementWith1Class.classList.add('class1');
 
-        document.body.appendChild(classElement);
-        document.body.appendChild(classlessElement);
+        elementWith2Classes.classList.add('class1');
+        elementWith2Classes.classList.add('class2');
+
+        elementWith3Classes.classList.add('class1');
+        elementWith3Classes.classList.add('class2');
+        elementWith3Classes.classList.add('class3');
+
+        document.body.appendChild(elementWith1Class);
+        document.body.appendChild(elementWith2Classes);
+        document.body.appendChild(elementWith3Classes);
+        document.body.appendChild(elementWithNoClass);
     });
 
     afterEach(function () {
-        classElement.remove();
-        classlessElement.remove();
+        elementWith1Class.remove();
+        elementWith2Classes.remove();
+        elementWith3Classes.remove();
+        elementWithNoClass.remove();
     });
 
     // ╔═══════╗╔═══════╗         ╔═╗   ╔═╗╔═══════╗╔═╗      ╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗         ╔════╗╔═╗╔═══════╗╔═══════╗╔═══════╗
@@ -188,21 +203,44 @@ describe('Class', function() {
 
     describe('#getElementClasses(element)', function () {
         describe('#getElementClasses(ELEMENT)', function () {
-            it('Should return class array when element parameter is a used identifier', () => {
-                expect(HtmlEngine.getElementClasses('test-class')).to.deep.equal(['class1', 'class2', 'class3']);
+            it('Should return class array when element parameter is an elementID with one or more classes', () => {
+                expect(HtmlEngine.getElementClasses('element-with-3-classes')).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
-            it('Should return class array when element parameter is an element', () => {
-                expect(HtmlEngine.getElementClasses(classElement)).to.deep.equal(['class1', 'class2', 'class3']);
+            it('Should return class array when element parameter is an elementIDwith one or more classes', () => {
+                expect(HtmlEngine.getElementClasses('element-with-2-classes')).to.deep.equal(['class1', 'class2']);
             });
 
-            it('Should return empty array when element parameter is a classless element', () => {
-                expect(HtmlEngine.getElementClasses(classlessElement)).to.deep.equal([]);
+            it('Should return class array when element parameter is an elementID with one or more classes', () => {
+                expect(HtmlEngine.getElementClasses('element-with-1-class')).to.deep.equal(['class1',]);
             });
 
+            it('Should return class array when element parameter is a elementID with one or more classes', () => {
+                expect(HtmlEngine.getElementClasses('element-with-3-classes')).to.deep.equal(['class1', 'class2', 'class3']);
+            });
+
+            it('Should return empty array when element parameter is an elementID with no class', () => {
+                expect(HtmlEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+            });
+
+            it('Should return class array when element parameter is an element with one or more classes', () => {
+                expect(HtmlEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+            });
+
+            it('Should return class array when element parameter is an element with one or more classes', () => {
+                expect(HtmlEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
+            });
+
+            it('Should return class array when element parameter is an element with one or more classes', () => {
+                expect(HtmlEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
+            });
+
+            it('Should return empty array when element parameter is an element with no class', () => {
+                expect(HtmlEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+            });
 
             it('Should return empty array when element parameter is a unused identifier', () => {
-                expect(HtmlEngine.getElementClasses('unused-test-class')).to.deep.equal([])
+                expect(HtmlEngine.getElementClasses('unused-element-id')).to.deep.equal([])
             });
 
             it('Should return empty array when element parameter is an empty string', () => {
