@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "A collection of mixed HTML-related functionalities",
   "main": "build/index.js",
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "scripts": {
     "test": "open test/index.html",
     "build": "npx webpack --watch"
@@ -20,8 +22,12 @@
   "homepage": "https://github.com/S-A-R-C/html-engine#readme",
   "devDependencies": {
     "chai": "^4.2.0",
+    "copy-webpack-plugin": "^6.0.3",
     "mocha": "^8.1.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "@sarc-test/utility-engine": "^0.2.7"
   }
 }

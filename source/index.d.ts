@@ -1,20 +1,9 @@
-// ╔═══════╗╔════╗╔═╗╔═══════╗╔═══════╗╔════╗╔═╗   ╔═══════╗╔═══════╗
-// ╚══╗ ╔══╝║ ╔╗ ║║ ║╚╗ ╔══╗ ║║ ╔═════╝╚══╗ ║║ ║   ╚═══╗ ╔═╝║ ╔═════╝
-//    ║ ║   ║ ║║ ║║ ║ ║ ║  ║ ║║ ╚═════╗╔══╝ ╚╝ ║       ║ ║  ║ ╚═════╗
-//    ║ ║   ║ ║║ ║║ ║ ║ ║  ║ ║║ ╔═════╝║ ╔╗ ╔══╝       ║ ║  ╚═════╗ ║
-// ╔══╝ ╚══╗║ ║║ ╚╝ ║╔╝ ╚══╝ ║║ ╚═════╗║ ║║ ╚══╗╔═╗╔═══╝ ║  ╔═════╝ ║
-// ╚═══════╝╚═╝╚════╝╚═══════╝╚═══════╝╚═╝╚════╝╚═╝╚═════╝  ╚═══════╝
-
-'use strict';   // Extend JavaScript strict mode to the entire script
-
-// ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
-// ╚══╗ ╔══╝║ ╔╗ ╔╗ ║║ ╔═══╗ ║║ ╔═══╗ ║║ ╔═══╗ ║╚══╗ ╔══╝
-//    ║ ║   ║ ║║ ║║ ║║ ╚═══╝ ║║ ║   ║ ║║ ╚═══╝ ║   ║ ║
-//    ║ ║   ║ ║║ ║║ ║║ ╔═════╝║ ║   ║ ║║ ╔═╗ ╔═╝   ║ ║
-// ╔══╝ ╚══╗║ ║║ ║║ ║║ ║      ║ ╚═══╝ ║║ ║ ║ ╚═╗   ║ ║
-// ╚═══════╝╚═╝╚═╝╚═╝╚═╝      ╚═══════╝╚═╝ ╚═══╝   ╚═╝
-
-import * as UtilityEngine from '@sarc-test/utility-engine';
+// ╔═══════╗╔════╗╔═╗╔═══════╗╔═══════╗╔════╗╔═╗   ╔═══════╗   ╔═══════╗╔═══════╗
+// ╚══╗ ╔══╝║ ╔╗ ║║ ║╚╗ ╔══╗ ║║ ╔═════╝╚══╗ ║║ ║   ╚╗ ╔══╗ ║   ╚══╗ ╔══╝║ ╔═════╝
+//    ║ ║   ║ ║║ ║║ ║ ║ ║  ║ ║║ ╚═════╗╔══╝ ╚╝ ║    ║ ║  ║ ║      ║ ║   ║ ╚═════╗
+//    ║ ║   ║ ║║ ║║ ║ ║ ║  ║ ║║ ╔═════╝║ ╔╗ ╔══╝    ║ ║  ║ ║      ║ ║   ╚═════╗ ║
+// ╔══╝ ╚══╗║ ║║ ╚╝ ║╔╝ ╚══╝ ║║ ╚═════╗║ ║║ ╚══╗╔═╗╔╝ ╚══╝ ║╔═╗   ║ ║   ╔═════╝ ║
+// ╚═══════╝╚═╝╚════╝╚═══════╝╚═══════╝╚═╝╚════╝╚═╝╚═══════╝╚═╝   ╚═╝   ╚═══════╝
 
 // ╔═╗╔═╗╔═╗╔═══════╗╔════╗╔═╗╔═══════╗╔═══════╗╔═╗╔═╗╔═╗
 // ║ ║║ ║║ ║╚══╗ ╔══╝║ ╔╗ ║║ ║╚╗ ╔══╗ ║║ ╔═══╗ ║║ ║║ ║║ ║
@@ -23,9 +12,7 @@ import * as UtilityEngine from '@sarc-test/utility-engine';
 // ║ ╚╝ ╚╝ ║╔══╝ ╚══╗║ ║║ ╚╝ ║╔╝ ╚══╝ ║║ ╚═══╝ ║║ ╚╝ ╚╝ ║
 // ╚═══════╝╚═══════╝╚═╝╚════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function getWindow() {   //
-    return window;              //
-}
+export function getWindow(): object;
 
 // ╔═══════╗╔═══════╗╔═══════╗╔═╗   ╔═╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗
 // ╚╗ ╔══╗ ║║ ╔═══╗ ║║ ╔═════╝║ ║   ║ ║║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝
@@ -34,9 +21,7 @@ export function getWindow() {   //
 // ╔╝ ╚══╝ ║║ ╚═══╝ ║║ ╚═════╗║ ╚═══╝ ║║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║
 // ╚═══════╝╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝
 
-export function getDocument() { //
-    return document;            //
-}
+export function getDocument(): object;
 
 // ╔═══════╗╔═══════╗
 // ╚══╗ ╔══╝╚╗ ╔══╗ ║
@@ -45,19 +30,9 @@ export function getDocument() { //
 // ╔══╝ ╚══╗╔╝ ╚══╝ ║
 // ╚═══════╝╚═══════╝
 
-export function setElementId(element, id) {                                 //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isValidElementId(value) {       //
-    return UtilityEngine.isFilledString(value); //
-}
-
-export function getElementById(id) {        //
-    return isValidElementId(id) ?           //
-        getDocument().getElementById(id) :  //
-        null;                               //
-}
+export function setElementId(element: any, id: string): boolean;
+export function isValidElementId(value: any): boolean;
+export function getElementById(id: string): any;
 
 // ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗
 // ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝
@@ -66,14 +41,7 @@ export function getElementById(id) {        //
 // ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║
 // ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝
 
-export function isElement(value) {      //
-    return value instanceof Element ||  //
-        value instanceof HTMLDocument;  //
-}
-
-function _getElement(value = {}) {                              //
-    return isElement(value) ? value : getElementById(value);    //
-}
+export function isElement(value: any): boolean;
 
 // ╔═╗   ╔═╗╔═══════╗╔═╗      ╔═╗   ╔═╗╔═══════╗
 // ║ ║   ║ ║║ ╔═══╗ ║║ ║      ║ ║   ║ ║║ ╔═════╝
@@ -82,17 +50,8 @@ function _getElement(value = {}) {                              //
 //  ║ ╚═╝ ║ ║ ║   ║ ║║ ╚═════╗║ ╚═══╝ ║║ ╚═════╗
 //  ╚═════╝ ╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝
 
-export function setElementValue(element, value = '') {                          //
-    if (isValidElementId(element)) element = getElementById(element);           //
-
-    return isElement(element) && `${(element.value = value)}` === `${value}`;   //
-}
-
-export function getElementValue(element) {                              //
-    if (isValidElementId(element)) element = getElementById(element);   //
-
-    return isElement(element) ? element.value : null;                   //
-}
+export function setElementValue(element: any, value): boolean;
+export function getElementValue(element: any): any;
 
 // ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
 // ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
@@ -101,41 +60,15 @@ export function getElementValue(element) {                              //
 // ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
 // ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function insertElementClasses(element, classNames) {                 //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function removeElementClasses(element, classNames) {                 //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function toggleElementClasses(element, classNames) {                 //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function insertElementClass(element, className) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function removeElementClass(element, className) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function toggleElementClass(element, className) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isElementClasses(element, classNames) {                     //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isElementClass(element, className) {                        //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isValidClassName(value) {                                   //
-    throw new Error('The provided function has not yet been implemented');  //
-}
+export function insertElementClasses(element: any, classNames: string[]): boolean;
+export function removeElementClasses(element: any, classNames: string[]): boolean;
+export function toggleElementClasses(element: any, classNames: string[]): boolean;
+export function insertElementClass(element: any, className: string): boolean;
+export function removeElementClass(element: any, className: string): boolean;
+export function toggleElementClass(element: any, className: string): boolean;
+export function isElementClasses(element: any, classNames: string[]): boolean;
+export function isElementClass(element: any, className: string): boolean;
+export function isValidClassName(value: any): boolean;
 
 // ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝║ ╔═════╝
@@ -144,45 +77,15 @@ export function isValidClassName(value) {                                   //
 // ╔═════╝ ║   ║ ║   ╔═════╝ ║║ ╚═════╗║ ╚═════╗╔═════╝ ║
 // ╚═══════╝   ╚═╝   ╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function insertElementStyles(element, styles) {                      //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function removeElementStyles(element, styleNames) {                  //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function insertElementStyle(element, style) {                        //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function removeElementStyle(element, styleName) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isElementStyleValue(element, styleName, styleValue) {       //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isElementStyle(element, styleName) {                        //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isValidStyleValue(value) {                                  //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isValidStyleName(value) {                                   //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function getElementStyleValue(element) {                             //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function getElementStyles(element) {                                 //
-    throw new Error('The provided function has not yet been implemented');  //
-}
+export function insertElementStyles(element: any, styles: object[]): boolean;
+export function removeElementStyles(element: any, styleNames: string[]): boolean;
+export function insertElementStyle(element: any, styleName:string, styleValue: string): boolean;
+export function removeElementStyle(element: any, styleName: string): boolean;
+export function isElementStyleValue(element: any, styleName:string, styleValue: string): boolean;
+export function isValidStyleValue(value: any): boolean;
+export function isValidStyleName(value: any): boolean;
+export function getElementStyleValue(element: any): string;
+export function getElementStyles(element: any): object[];
 
 // ╔═══════╗╔════╗╔═╗╔═══════╗╔══════╗ ╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝║ ╔╗ ║║ ║║ ╔═══╗ ║║ ╔══╗ ║ ║ ║      ║ ╔═════╝╚╗ ╔══╗ ║
@@ -191,21 +94,10 @@ export function getElementStyles(element) {                                 //
 // ║ ╚═════╗║ ║║ ╚╝ ║║ ║   ║ ║║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗╔╝ ╚══╝ ║
 // ╚═══════╝╚═╝╚════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function enableElement(element) {                                    //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function disableElement(element) {                                   //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isEnabledElement(element) {                                 //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isDisabledElement(element) {                                //
-    throw new Error('The provided function has not yet been implemented');  //
-}
+export function enableElement(element: any): boolean;
+export function disableElement(element: any): boolean;
+export function isEnabledElement(element: any): boolean;
+export function isDisabledElement(element: any): boolean;
 
 // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗      ╔═══════╗╔═╗   ╔═╗╔═══════╗╔═══════╗
 // ╚╗ ╔══╗ ║╚══╗ ╔══╝║ ╔═════╝║ ╔═══╗ ║║ ║      ║ ╔═══╗ ║║ ║   ║ ║║ ╔═════╝╚╗ ╔══╗ ║
@@ -214,21 +106,10 @@ export function isDisabledElement(element) {                                //
 // ╔╝ ╚══╝ ║╔══╝ ╚══╗╔═════╝ ║║ ║      ║ ╚═════╗║ ║   ║ ║╔═════╝ ║║ ╚═════╗╔╝ ╚══╝ ║
 // ╚═══════╝╚═══════╝╚═══════╝╚═╝      ╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝
 
-export function showElement(element) {                                      //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function hideElement(element) {                                      //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isShownElement(element) {                                   //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function isHiddenElement(element) {                                  //
-    throw new Error('The provided function has not yet been implemented');  //
-}
+export function showElement(element: any): boolean;
+export function hideElement(element: any): boolean;
+export function isShownElement(element: any): boolean;
+export function isHiddenElement(element: any): boolean;
 
 // ╔═══════╗╔════╗╔═╗╔════╗╔═╗╔═══════╗╔═══════╗         ╔═╗   ╔═╗╔═══════╗╔═══════╗╔═╗
 // ╚══╗ ╔══╝║ ╔╗ ║║ ║║ ╔╗ ║║ ║║ ╔═════╝║ ╔═══╗ ║         ║ ║   ║ ║╚══╗ ╔══╝║ ╔╗ ╔╗ ║║ ║
@@ -237,21 +118,10 @@ export function isHiddenElement(element) {                                  //
 // ╔══╝ ╚══╗║ ║║ ╚╝ ║║ ║║ ╚╝ ║║ ╚═════╗║ ║ ║ ╚═╗         ║ ║   ║ ║   ║ ║   ║ ║║ ║║ ║║ ╚═════╗
 // ╚═══════╝╚═╝╚════╝╚═╝╚════╝╚═══════╝╚═╝ ╚═══╝         ╚═╝   ╚═╝   ╚═╝   ╚═╝╚═╝╚═╝╚═══════╝
 
-export function clearElementInnerHtml(element) {                            //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function appendElementInnerHtml(element, innerHTML) {                //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function setElementInnerHtml(element, innerHTML) {                   //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function getElementInnerHtml(element, innerHTML) {                   //
-    throw new Error('The provided function has not yet been implemented');  //
-}
+export function clearElementInnerHtml(element: any): boolean;
+export function appendElementInnerHtml(element: any, innerHTML): boolean;
+export function setElementInnerHtml(element: any, innerHTML): boolean;
+export function getElementInnerHtml(element: any, innerHTML): any;
 
 // ╔═══════╗╔═╗   ╔═╗╔═══════╗╔═══════╗╔═══════╗         ╔═╗   ╔═╗╔═══════╗╔═══════╗╔═╗
 // ║ ╔═══╗ ║║ ║   ║ ║╚══╗ ╔══╝║ ╔═════╝║ ╔═══╗ ║         ║ ║   ║ ║╚══╗ ╔══╝║ ╔╗ ╔╗ ║║ ║
@@ -260,65 +130,63 @@ export function getElementInnerHtml(element, innerHTML) {                   //
 // ║ ╚═══╝ ║║ ╚═══╝ ║   ║ ║   ║ ╚═════╗║ ║ ║ ╚═╗         ║ ║   ║ ║   ║ ║   ║ ║║ ║║ ║║ ╚═════╗
 // ╚═══════╝╚═══════╝   ╚═╝   ╚═══════╝╚═╝ ╚═══╝         ╚═╝   ╚═╝   ╚═╝   ╚═╝╚═╝╚═╝╚═══════╝
 
-export function getElementOuterHtml(element) {                              //
-    throw new Error('The provided function has not yet been implemented');  //
-}
+export function getElementOuterHtml(element: any): any;
 
-// ╔═══════╗╔════╗╔═╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
-// ║ ╔═════╝╚══╗ ║║ ║║ ╔═══╗ ║║ ╔═══╗ ║║ ╔═══╗ ║╚══╗ ╔══╝
-// ║ ╚═════╗╔══╝ ╚╝ ║║ ╚═══╝ ║║ ║   ║ ║║ ╚═══╝ ║   ║ ║
-// ║ ╔═════╝║ ╔╗ ╔══╝║ ╔═════╝║ ║   ║ ║║ ╔═╗ ╔═╝   ║ ║
-// ║ ╚═════╗║ ║║ ╚══╗║ ║      ║ ╚═══╝ ║║ ║ ║ ╚═╗   ║ ║
-// ╚═══════╝╚═╝╚════╝╚═╝      ╚═══════╝╚═╝ ╚═══╝   ╚═╝
+// ╔═══════╗╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗
+// ║ ╔╗ ╔╗ ║║ ╔═══╗ ║╚╗ ╔══╗ ║║ ║   ║ ║║ ║      ║ ╔═════╝
+// ║ ║║ ║║ ║║ ║   ║ ║ ║ ║  ║ ║║ ║   ║ ║║ ║      ║ ╚═════╗
+// ║ ║║ ║║ ║║ ║   ║ ║ ║ ║  ║ ║║ ║   ║ ║║ ║      ║ ╔═════╝
+// ║ ║║ ║║ ║║ ╚═══╝ ║╔╝ ╚══╝ ║║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
+// ╚═╝╚═╝╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export default {
-    getWindow,
+declare module 'HtmlEngine' {
+    export function getWindow(): object;
 
-    getDocument,
+    export function getDocument(): object;
 
-    setElementId,
-    isValidElementId,
-    getElementById,
+    export function setElementId(element: any, id: string): boolean;
+    export function isValidElementId(value: any): boolean;
+    export function getElementById(id: string): any;
 
-    isElement,
+    export function isElement(value: any): boolean;
 
-    setElementValue,
-    getElementValue,
+    export function setElementValue(element: any, value): boolean;
+    export function getElementValue(element: any): any;
 
-    insertElementClasses,
-    removeElementClasses,
-    toggleElementClasses,
-    insertElementClass,
-    removeElementClass,
-    toggleElementClass,
-    isElementClasses,
-    isElementClass,
-    isValidClassName,
+    export function insertElementClasses(element: any, classNames: string[]): boolean;
+    export function removeElementClasses(element: any, classNames: string[]): boolean;
+    export function toggleElementClasses(element: any, classNames: string[]): boolean;
+    export function insertElementClass(element: any, className: string): boolean;
+    export function removeElementClass(element: any, className: string): boolean;
+    export function toggleElementClass(element: any, className: string): boolean;
+    export function isElementClasses(element: any, classNames: string[]): boolean;
+    export function isElementClass(element: any, className: string): boolean;
+    export function isValidClassName(value: any): boolean;
 
-    insertElementStyles,
-    removeElementStyles,
-    insertElementStyle,
-    removeElementStyle,
-    isElementStyleValue,
-    isElementStyle,
-    isValidStyleValue,
-    isValidStyleName,
-    getElementStyleValue,
-    getElementStyles,
+    export function insertElementStyles(element: any, styles: object[]): boolean;
+    export function removeElementStyles(element: any, styleNames: string[]): boolean;
+    export function insertElementStyle(element: any, styleName:string, styleValue: string): boolean;
+    export function removeElementStyle(element: any, styleName: string): boolean;
+    export function isElementStyleValue(element: any, styleName:string, styleValue: string): boolean;
+    export function isValidStyleValue(value: any): boolean;
+    export function isValidStyleName(value: any): boolean;
+    export function getElementStyleValue(element: any): string;
+    export function getElementStyles(element: any): object[];
 
-    enableElement,
-    disableElement,
-    isEnabledElement,
-    isDisabledElement,
-    showElement,
-    hideElement,
-    isShownElement,
-    isHiddenElement,
+    export function enableElement(element: any): boolean;
+    export function disableElement(element: any): boolean;
+    export function isEnabledElement(element: any): boolean;
+    export function isDisabledElement(element: any): boolean;
 
-    clearElementInnerHtml,
-    appendElementInnerHtml,
-    setElementInnerHtml,
-    getElementInnerHtml,
+    export function showElement(element: any): boolean;
+    export function hideElement(element: any): boolean;
+    export function isShownElement(element: any): boolean;
+    export function isHiddenElement(element: any): boolean;
 
-    getElementOuterHtml,
+    export function clearElementInnerHtml(element: any): boolean;
+    export function appendElementInnerHtml(element: any, innerHTML): boolean;
+    export function setElementInnerHtml(element: any, innerHTML): boolean;
+    export function getElementInnerHtml(element: any, innerHTML): any;
+
+    export function getElementOuterHtml(element: any): any;
 }
