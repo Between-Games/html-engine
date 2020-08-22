@@ -129,8 +129,8 @@ export function isElementClasses(element, classNames) {                     //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function isElementClass(element, className) {                        //
-    throw new Error('The provided function has not yet been implemented');  //
+export function isElementClass(element, className) {        //
+    return getElementClasses(element).includes(className);  //
 }
 
 export function isValidClassName(value) {       //
