@@ -33,128 +33,125 @@ describe('Id', function() {
 
     describe('#isValidElementId(value)', function () {
         describe('#isValidElementId(VALUE)', function () {
-            it('Should return true when value is a filled string', () => {
+            it('Should return true when value parameter is a filled string', () => {
                 expect(HtmlEngine.isValidElementId('string')).to.equal(true);
             });
 
-            it('Should return true when value is a filled primitive string', () => {
+            it('Should return true when value parameter is a filled primitive string', () => {
                 expect(HtmlEngine.isValidElementId(String('string'))).to.equal(true);
             });
 
-            it('Should return true when value is a filled wrapped primitive string', () => {
+            it('Should return true when value parameter is a filled wrapped primitive string', () => {
                 expect(HtmlEngine.isValidElementId(new String('string'))).to.equal(true);
             });
 
 
-            it('Should return false when value is a whitespace', () => {
+            it('Should return false when value parameter is a whitespace', () => {
                 expect(HtmlEngine.isValidElementId(' ')).to.equal(false);
             });
 
-            it('Should return false when value is an empty string', () => {
+            it('Should return false when value parameter is an empty string', () => {
                 expect(HtmlEngine.isValidElementId('')).to.equal(false);
             });
 
-            it('Should return false when value is an empty primitive string', () => {
+            it('Should return false when value parameter is an empty primitive string', () => {
                 expect(HtmlEngine.isValidElementId(String(''))).to.equal(false);
             });
 
-            it('Should return false when value is an empty wrapped primitive string', () => {
+            it('Should return false when value parameter is an empty wrapped primitive string', () => {
                 expect(HtmlEngine.isValidElementId(new String(''))).to.equal(false);
             });
 
-            it('Should return false when value is a whitespace', () => {
+            it('Should return false when value parameter is a whitespace', () => {
                 expect(HtmlEngine.isValidElementId(' ')).to.equal(false);
             });
 
-            it('Should return false when value is empty', () => {
+            it('Should return false when value parameter is empty', () => {
                 expect(HtmlEngine.isValidElementId()).to.equal(false);
             });
 
-            it('Should return false when value is null', () => {
+            it('Should return false when value parameter is null', () => {
                 expect(HtmlEngine.isValidElementId(null)).to.equal(false);
             });
 
-            it('Should return false when value is NaN', () => {
+            it('Should return false when value parameter is NaN', () => {
                 expect(HtmlEngine.isValidElementId(NaN)).to.equal(false);
             });
 
-            it('Should return false when value is undefined', () => {
+            it('Should return false when value parameter is undefined', () => {
                 expect(HtmlEngine.isValidElementId(undefined)).to.equal(false);
             });
 
-            it('Should return false when value is false boolean', () => {
+            it('Should return false when value parameter is false boolean', () => {
                 expect(HtmlEngine.isValidElementId(false)).to.equal(false);
             });
 
-            it('Should return false when value is true boolean', () => {
+            it('Should return false when value parameter is true boolean', () => {
                 expect(HtmlEngine.isValidElementId(true)).to.equal(false);
             });
 
-            it('Should return false when value is an empty object', () => {
+            it('Should return false when value parameter is an empty object', () => {
                 expect(HtmlEngine.isValidElementId({})).to.equal(false);
             });
 
-            it('Should return false when value is an empty array', () => {
+            it('Should return false when value parameter is an empty array', () => {
                 expect(HtmlEngine.isValidElementId([])).to.equal(false);
             });
 
-            it('Should return false when value is a function', () => {
+            it('Should return false when value parameter is a function', () => {
                 expect(HtmlEngine.isValidElementId(function () {})).to.equal(false);
             });
 
-            it('Should return false when value is a filled object', () => {
+            it('Should return false when value parameter is a filled object', () => {
                 expect(HtmlEngine.isValidElementId({foo: 'bar'})).to.equal(false);
             });
 
-            it('Should return false when value is a number', () => {
+            it('Should return false when value parameter is a number', () => {
                 expect(HtmlEngine.isValidElementId(1)).to.equal(false);
             });
 
-            it('Should return false when value is a zero', () => {
+            it('Should return false when value parameter is a zero', () => {
                 expect(HtmlEngine.isValidElementId(0)).to.equal(false);
             });
 
-            it('Should return false when value is a positive false', () => {
+            it('Should return false when value parameter is a positive false', () => {
                 expect(HtmlEngine.isValidElementId(+0)).to.equal(false);
             });
 
-            it('Should return false when value is a negative zero', () => {
+            it('Should return false when value parameter is a negative zero', () => {
                 expect(HtmlEngine.isValidElementId(-0)).to.equal(false);
             });
 
-            it('Should return false when value is a primitive number', () => {
+            it('Should return false when value parameter is a primitive number', () => {
                 expect(HtmlEngine.isValidElementId(Number('1'))).to.equal(false);
             });
 
-            it('Should return false when value is a wrapped primitive number', () => {
+            it('Should return false when value parameter is a wrapped primitive number', () => {
                 expect(HtmlEngine.isValidElementId(new Number('1'))).to.equal(false);
             });
 
-            it('Should return false when value is a filled array', () => {
+            it('Should return false when value parameter is a filled array', () => {
                 expect(HtmlEngine.isValidElementId([1, 2, 3])).to.equal(false);
             });
 
-            it('Should return false when value is a map', () => {
+            it('Should return false when value parameter is a map', () => {
                 expect(HtmlEngine.isValidElementId(new Map())).to.equal(false);
             });
 
-            it('Should return false when value is a date', () => {
+            it('Should return false when value parameter is a date', () => {
                 expect(HtmlEngine.isValidElementId(new Date())).to.equal(false);
             });
 
-            it('Should return false when value is a class instance', () => {
-                expect(HtmlEngine.isValidElementId(new (class Class {
-                })())).to.equal(false);
+            it('Should return false when value parameter is a class instance', () => {
+                expect(HtmlEngine.isValidElementId(new (class Class {})())).to.equal(false);
             });
 
-            it('Should return false when value is a class instance', () => {
-                expect(HtmlEngine.isValidElementId(new (class Class {
-                }))).to.equal(false);
+            it('Should return false when value parameter is a class instance', () => {
+                expect(HtmlEngine.isValidElementId(new (class Class {}))).to.equal(false);
             });
 
-            it('Should return false when value is a class declaration', () => {
-                expect(HtmlEngine.isValidElementId(class Class {
-                })).to.equal(false);
+            it('Should return false when value parameter is a class declaration', () => {
+                expect(HtmlEngine.isValidElementId(class Class {})).to.equal(false);
             });
         });
     });
@@ -167,16 +164,28 @@ describe('Id', function() {
     // ╚═══════╝╚═══════╝   ╚═╝            ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝
 
     describe('#getElementById(id)', function () {
+        let element;
+
+        before(function () {
+            element = document.createElement('button');
+            element.setAttribute('id', 'test-id');
+            element.setAttribute('value', 'value');
+
+            document.body.appendChild(element);
+        });
+
+        after(function () {
+            element.remove();
+        });
+
         describe('#getElementById(ID)', function () {
             it('Should return element when element ID parameter is a used identifier', () => {
-                expect(HtmlEngine.getElementById('div-test-element-id')).to.satisfy((element) => {
-                    return HtmlEngine.isElement(element);
-                });
+                expect(HtmlEngine.getElementById('test-id')).to.equal(element);
             });
 
 
             it('Should return null when element ID parameter is a unused identifier', () => {
-                expect(HtmlEngine.getElementById('div-test-unused-element-id')).to.equal(null)
+                expect(HtmlEngine.getElementById('fake-test-id')).to.equal(null)
             });
 
             it('Should return null when element ID parameter is a whitespace', () => {
@@ -232,8 +241,7 @@ describe('Id', function() {
             });
 
             it('Should return null when element ID parameter is a function', () => {
-                expect(HtmlEngine.getElementById(function () {
-                })).to.equal(null);
+                expect(HtmlEngine.getElementById(function () {})).to.equal(null);
             });
 
             it('Should return null when element ID parameter is a filled object', () => {
@@ -277,18 +285,15 @@ describe('Id', function() {
             });
 
             it('Should return null when element ID parameter is a class instance', () => {
-                expect(HtmlEngine.getElementById(new (class Class {
-                })())).to.equal(null);
+                expect(HtmlEngine.getElementById(new (class Class {})())).to.equal(null);
             });
 
             it('Should return null when element ID parameter is a class instance', () => {
-                expect(HtmlEngine.getElementById(new (class Class {
-                }))).to.equal(null);
+                expect(HtmlEngine.getElementById(new (class Class {}))).to.equal(null);
             });
 
             it('Should return null when element ID parameter is a class declaration', () => {
-                expect(HtmlEngine.getElementById(class Class {
-                })).to.equal(null);
+                expect(HtmlEngine.getElementById(class Class {})).to.equal(null);
             });
         });
     });

@@ -177,177 +177,173 @@ describe('Element', function() {
     describe('#isElement(value)', function () {
         describe('#isElement(VALUE)', function () {
             for (const elementType in metadataElements) {
-                it(`Should return true when value is a metadata-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a metadata-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(metadataElements[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in contentElements) {
-                it(`Should return true when value is a content-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a content-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(contentElements[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in multimediaElements) {
-                it(`Should return true when value is a multimedia-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a multimedia-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(multimediaElements[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in inlineElements) {
-                it(`Should return true when value is a inline-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a inline-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(inlineElements[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in embeddedContent) {
-                it(`Should return true when value is a embedded-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a embedded-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(embeddedContent[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in scriptingElement) {
-                it(`Should return true when value is a scripting-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a scripting-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(scriptingElement[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in demarcationElements) {
-                it(`Should return true when value is a demarcation-related element (${elementType})`, () => {
+                it(`Should return true when value parameter parameter is a demarcation-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(demarcationElements[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in tableElements) {
-                it(`Should return true when value is a table-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a table-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(tableElements[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in formElements) {
-                it(`Should return true when value is a form-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a form-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(formElements[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in interactiveElements) {
-                it(`Should return true when value is a interaction-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a interaction-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(interactiveElements[elementType])).to.equal(true);
                 });
             }
 
             for (const elementType in webComponentElements) {
-                it(`Should return true when value is a web components-related element (${elementType})`, () => {
+                it(`Should return true when value parameter is a web components-related element (${elementType})`, () => {
                     expect(HtmlEngine.isElement(webComponentElements[elementType])).to.equal(true);
                 });
             }
 
-            it('Should return false when value is empty', () => {
+            it('Should return false when value parameter is empty', () => {
                 expect(HtmlEngine.isElement()).to.equal(false);
             });
 
-            it('Should return false when value is null', () => {
+            it('Should return false when value parameter is null', () => {
                 expect(HtmlEngine.isElement(null)).to.equal(false);
             });
 
-            it('Should return false when value is NaN', () => {
+            it('Should return false when value parameter is NaN', () => {
                 expect(HtmlEngine.isElement(NaN)).to.equal(false);
             });
 
-            it('Should return false when value is undefined', () => {
+            it('Should return false when value parameter is undefined', () => {
                 expect(HtmlEngine.isElement(undefined)).to.equal(false);
             });
 
-            it('Should return false when value is false boolean', () => {
+            it('Should return false when value parameter is false boolean', () => {
                 expect(HtmlEngine.isElement(false)).to.equal(false);
             });
 
-            it('Should return false when value is an empty string', () => {
+            it('Should return false when value parameter is an empty string', () => {
                 expect(HtmlEngine.isElement('')).to.equal(false);
             });
 
-            it('Should return false when value is true boolean', () => {
+            it('Should return false when value parameter is true boolean', () => {
                 expect(HtmlEngine.isElement(true)).to.equal(false);
             });
 
-            it('Should return false when value is an empty object', () => {
+            it('Should return false when value parameter is an empty object', () => {
                 expect(HtmlEngine.isElement({})).to.equal(false);
             });
 
-            it('Should return false when value is an empty array', () => {
+            it('Should return false when value parameter is an empty array', () => {
                 expect(HtmlEngine.isElement([])).to.equal(false);
             });
 
-            it('Should return false when value is a function', () => {
-                expect(HtmlEngine.isElement(function () {
-                })).to.equal(false);
+            it('Should return false when value  parameteris a function', () => {
+                expect(HtmlEngine.isElement(function () {})).to.equal(false);
             });
 
-            it('Should return false when value is a filled object', () => {
+            it('Should return false when value parameter is a filled object', () => {
                 expect(HtmlEngine.isElement({foo: 'bar'})).to.equal(false);
             });
 
-            it('Should return false when value is a number', () => {
+            it('Should return false when value parameter is a number', () => {
                 expect(HtmlEngine.isElement(1)).to.equal(false);
             });
 
-            it('Should return false when value is a zero', () => {
+            it('Should return false when value parameter is a zero', () => {
                 expect(HtmlEngine.isElement(0)).to.equal(false);
             });
 
-            it('Should return false when value is a positive false', () => {
+            it('Should return false when value parameter is a positive false', () => {
                 expect(HtmlEngine.isElement(+0)).to.equal(false);
             });
 
-            it('Should return false when value is a negative zero', () => {
+            it('Should return false when value parameter is a negative zero', () => {
                 expect(HtmlEngine.isElement(-0)).to.equal(false);
             });
 
-            it('Should return false when value is a primitive number', () => {
+            it('Should return false when value parameter is a primitive number', () => {
                 expect(HtmlEngine.isElement(Number('1'))).to.equal(false);
             });
 
-            it('Should return false when value is a wrapped primitive number', () => {
+            it('Should return false when value parameter is a wrapped primitive number', () => {
                 expect(HtmlEngine.isElement(new Number('1'))).to.equal(false);
             });
 
-            it('Should return false when value is a filled string', () => {
+            it('Should return false when value parameter is a filled string', () => {
                 expect(HtmlEngine.isElement('string')).to.equal(false);
             });
 
-            it('Should return false when value is a primitive string', () => {
+            it('Should return false when value parameter is a primitive string', () => {
                 expect(HtmlEngine.isElement(String('string'))).to.equal(false);
             });
 
-            it('Should return false when value is a wrapped primitive string', () => {
+            it('Should return false when value parameter is a wrapped primitive string', () => {
                 expect(HtmlEngine.isElement(new String('string'))).to.equal(false);
             });
 
-            it('Should return false when value is a filled array', () => {
+            it('Should return false when value parameter is a filled array', () => {
                 expect(HtmlEngine.isElement([1, 2, 3])).to.equal(false);
             });
 
-            it('Should return false when value is a map', () => {
+            it('Should return false when value parameter is a map', () => {
                 expect(HtmlEngine.isElement(new Map())).to.equal(false);
             });
 
-            it('Should return false when value is a date', () => {
+            it('Should return false when value parameter is a date', () => {
                 expect(HtmlEngine.isElement(new Date())).to.equal(false);
             });
 
-            it('Should return false when value is a class instance', () => {
-                expect(HtmlEngine.isElement(new (class Class {
-                })())).to.equal(false);
+            it('Should return false when value parameter is a class instance', () => {
+                expect(HtmlEngine.isElement(new (class Class {})())).to.equal(false);
             });
 
-            it('Should return false when value is a class instance', () => {
-                expect(HtmlEngine.isElement(new (class Class {
-                }))).to.equal(false);
+            it('Should return false when value parameter is a class instance', () => {
+                expect(HtmlEngine.isElement(new (class Class {}))).to.equal(false);
             });
 
-            it('Should return false when value is a class declaration', () => {
-                expect(HtmlEngine.isElement(class Class {
-                })).to.equal(false);
+            it('Should return false when value parameter is a class declaration', () => {
+                expect(HtmlEngine.isElement(class Class {})).to.equal(false);
             });
         });
 
