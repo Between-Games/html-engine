@@ -69,6 +69,7 @@ export function toggleElementClass(element: any, className: string): boolean;
 export function isElementClasses(element: any, classNames: string[]): boolean;
 export function isElementClass(element: any, className: string): boolean;
 export function isValidClassName(value: any): boolean;
+export function getElementClasses(element: any): string[];
 
 // ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝║ ╔═════╝

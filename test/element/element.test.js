@@ -278,7 +278,7 @@ describe('Element', function() {
                 expect(HtmlEngine.isElement([])).to.equal(false);
             });
 
-            it('Should return false when value  parameteris a function', () => {
+            it('Should return false when value parameter is a function', () => {
                 expect(HtmlEngine.isElement(function () {})).to.equal(false);
             });
 

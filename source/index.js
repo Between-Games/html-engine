@@ -137,6 +137,12 @@ export function isValidClassName(value) {       //
     return UtilityEngine.isFilledString(value); //
 }
 
+export function getElementClasses(element) {                            //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    return isElement(element) ? Array.from(element.classList) : [];     //
+}
+
 // ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝║ ╔═════╝
 // ║ ╚═════╗   ║ ║   ║ ╚═══╝ ║║ ║      ║ ╚═════╗║ ╚═════╗
@@ -294,6 +300,7 @@ export default {
     isElementClasses,
     isElementClass,
     isValidClassName,
+    getElementClasses,
 
     insertElementStyles,
     removeElementStyles,

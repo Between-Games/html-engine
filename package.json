@@ -28,6 +28,6 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "@sarc-test/utility-engine": "^0.2.7"
+    "@sarc-test/utility-engine": "^0.2.8"
   }
 }
