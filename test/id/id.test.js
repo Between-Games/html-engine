@@ -99,8 +99,7 @@ describe('Id', function() {
             });
 
             it('Should return false when value is a function', () => {
-                expect(HtmlEngine.isValidElementId(function () {
-                })).to.equal(false);
+                expect(HtmlEngine.isValidElementId(function () {})).to.equal(false);
             });
 
             it('Should return false when value is a filled object', () => {

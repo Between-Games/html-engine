@@ -71,6 +71,10 @@ export function isElement(value) {      //
         value instanceof HTMLDocument;  //
 }
 
+function _getElement(value = {}) {                              //
+    return isElement(value) ? value : getElementById(value);    //
+}
+
 // ╔═╗   ╔═╗╔═══════╗╔═╗      ╔═╗   ╔═╗╔═══════╗
 // ║ ║   ║ ║║ ╔═══╗ ║║ ║      ║ ║   ║ ║║ ╔═════╝
 // ║ ╚╗ ╔╝ ║║ ╚═══╝ ║║ ║      ║ ║   ║ ║║ ╚═════╗
@@ -78,10 +82,10 @@ export function isElement(value) {      //
 //  ║ ╚═╝ ║ ║ ║   ║ ║║ ╚═════╗║ ╚═══╝ ║║ ╚═════╗
 //  ╚═════╝ ╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝
 
-export function setElementValue(element, value) {                       //
-    if (isValidElementId(element)) element = getElementById(element);   //
+export function setElementValue(element, value = '') {                          //
+    if (isValidElementId(element)) element = getElementById(element);           //
 
-    if (isElement(element)) element.value = value;                      //
+    return isElement(element) && `${(element.value = value)}` === `${value}`;   //
 }
 
 export function getElementValue(element) {                              //
