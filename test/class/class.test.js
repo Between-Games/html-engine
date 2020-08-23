@@ -62,6 +62,317 @@ describe('Class', function() {
         elementWithNoClass.remove();
     });
 
+    // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗      ╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
+    // ╚══╗ ╔══╝║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ║      ║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
+    //    ║ ║   ║ ║   ║ ║║ ║ ╔═══╗║ ║ ╔═══╗║ ║      ║ ╚═════╗╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
+    //    ║ ║   ║ ║   ║ ║║ ║ ╚═╗ ║║ ║ ╚═╗ ║║ ║      ║ ╔═════╝╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║
+    //    ║ ║   ║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║
+    //    ╚═╝   ╚═══════╝╚═══════╝╚═══════ ╝╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
+
+    describe('#toggleElementClass(element, className)', function () {
+        describe('#toggleElementClass(ELEMENT, className)', function () {
+            it('Should return true when element parameter is an element', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['className']);
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+            });
+
+            it('Should return true when element parameter is a filled string', () => {
+                expect(HtmlEngine.toggleElementClass('element-with-1-class', 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
+                expect(HtmlEngine.toggleElementClass('element-with-1-class', 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
+            });
+
+            it('Should return true when element parameter is a filled primitive string', () => {
+                expect(HtmlEngine.toggleElementClass(String('element-with-2-classes'), 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
+                expect(HtmlEngine.toggleElementClass(String('element-with-2-classes'), 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
+            });
+
+            it('Should return true when element parameter is a filled wrapped primitive string', () => {
+                expect(HtmlEngine.toggleElementClass(new String('element-with-3-classes'), 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
+                expect(HtmlEngine.toggleElementClass(new String('element-with-3-classes'), 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+            });
+
+
+            it('Should return false when element parameter is an unused element ID', () => {
+                expect(HtmlEngine.toggleElementClass('unused-element-id', 'className')).to.equal(false)
+            });
+
+            it('Should return false when element parameter is an empty string', () => {
+                expect(HtmlEngine.toggleElementClass('', 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a whitespace', () => {
+                expect(HtmlEngine.toggleElementClass(' ', 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty primitive string', () => {
+                expect(HtmlEngine.toggleElementClass(String(''), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty wrapped primitive string', () => {
+                expect(HtmlEngine.toggleElementClass(new String(''), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is null', () => {
+                expect(HtmlEngine.toggleElementClass(null, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is NaN', () => {
+                expect(HtmlEngine.toggleElementClass(NaN, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is undefined', () => {
+                expect(HtmlEngine.toggleElementClass(undefined, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is false boolean', () => {
+                expect(HtmlEngine.toggleElementClass(false, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is true boolean', () => {
+                expect(HtmlEngine.toggleElementClass(true, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty object', () => {
+                expect(HtmlEngine.toggleElementClass({}, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty array', () => {
+                expect(HtmlEngine.toggleElementClass([], 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a function', () => {
+                expect(HtmlEngine.toggleElementClass(function () {}, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a filled object', () => {
+                expect(HtmlEngine.toggleElementClass({foo: 'bar'}, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a number', () => {
+                expect(HtmlEngine.toggleElementClass(1, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a zero', () => {
+                expect(HtmlEngine.toggleElementClass(0, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a positive zero', () => {
+                expect(HtmlEngine.toggleElementClass(+0, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a negative zero', () => {
+                expect(HtmlEngine.toggleElementClass(-0, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a primitive number', () => {
+                expect(HtmlEngine.toggleElementClass(Number('1'), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a wrapped primitive number', () => {
+                expect(HtmlEngine.toggleElementClass(new Number('1'), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is positive infinity', () => {
+                expect(HtmlEngine.toggleElementClass(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is negative infinity', () => {
+                expect(HtmlEngine.toggleElementClass(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a filled array', () => {
+                expect(HtmlEngine.toggleElementClass([1, 2, 3], 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a map', () => {
+                expect(HtmlEngine.toggleElementClass(new Map(), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a date', () => {
+                expect(HtmlEngine.toggleElementClass(new Date(), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a class instance', () => {
+                expect(HtmlEngine.toggleElementClass(new (class Class {})(), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a class instance', () => {
+                expect(HtmlEngine.toggleElementClass(new (class Class {}), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a class declaration', () => {
+                expect(HtmlEngine.toggleElementClass(class Class {}, 'className')).to.equal(false);
+            });
+        });
+
+        describe('#toggleElementClass(element, CLASSNAME)', function () {
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlEngine.toggleElementClass(elementWith1Class, 'class1')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith1Class)).to.deep.equal([]);
+                expect(HtmlEngine.toggleElementClass(elementWith1Class, 'class1')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlEngine.toggleElementClass(elementWith2Classes, 'class2')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1']);
+                expect(HtmlEngine.toggleElementClass(elementWith2Classes, 'class2')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlEngine.toggleElementClass(elementWith3Classes, 'class3')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlEngine.toggleElementClass(elementWith3Classes, 'class3')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+            });
+
+            it('Should return true when class name parameter is not a class in element', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['className']);
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+            });
+
+            it('Should return true when class name parameter is not a class in element', () => {
+                expect(HtmlEngine.toggleElementClass(elementWith1Class, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
+                expect(HtmlEngine.toggleElementClass(elementWith1Class, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
+            });
+
+            it('Should return true when class name parameter is not a class in element', () => {
+                expect(HtmlEngine.toggleElementClass(elementWith2Classes, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
+                expect(HtmlEngine.toggleElementClass(elementWith2Classes, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
+            });
+
+            it('Should return true when class name parameter is not a class in element', () => {
+                expect(HtmlEngine.toggleElementClass(elementWith3Classes, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
+                expect(HtmlEngine.toggleElementClass(elementWith3Classes, 'className')).to.equal(true);
+                expect(HtmlEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+            });
+
+
+            it('Should return false when class name parameter is a whitespace', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, ' ')).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty string', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, '')).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty primitive string', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, String(''))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, new String(''))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a whitespace', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, ' ')).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is empty', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, )).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is null', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, null)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is NaN', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, NaN)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is undefined', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, undefined)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is false boolean', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, false)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is true boolean', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, true)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty object', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, {})).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty array', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, [])).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a function', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, function () {})).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a filled object', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, {foo: 'bar'})).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a number', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, 1)).to.equal(false);
+            });
+
+            it('Should return false when class name  name  parameter is a zero', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, 0)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a positive false', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, +0)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a negative zero', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, -0)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a primitive number', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a wrapped primitive number', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, new Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a filled array', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, [1, 2, 3])).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a map', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, new Map())).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a date', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, new Date())).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a class instance', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, new (class Class {})())).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a class instance', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, new (class Class {}))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a class declaration', () => {
+                expect(HtmlEngine.toggleElementClass(elementWithNoClass, class Class {})).to.equal(false);
+            });
+        });
+    });
     // ╔═══════╗╔════╗╔═╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
     // ╚══╗ ╔══╝║ ╔╗ ║║ ║║ ╔═════╝║ ╔═════╝║ ╔═══╗ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
     //    ║ ║   ║ ║║ ║║ ║║ ╚═════╗║ ╚═════╗║ ╚═══╝ ║   ║ ║   ╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗

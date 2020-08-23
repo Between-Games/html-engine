@@ -129,8 +129,10 @@ export function removeElementClass(element, className) {                //
         false;                                                          //
 }
 
-export function toggleElementClass(element, className) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
+export function toggleElementClass(element, className) {    //
+    return isElementClass(element, className) ?             //
+        removeElementClass(element, className) :            //
+        insertElementClass(element, className);             //
 }
 
 export function areElementClasses(element, classNames = []) {           //
