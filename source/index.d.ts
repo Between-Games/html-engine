@@ -140,7 +140,7 @@ export function getElementOuterHtml(element: any): any;
 // ║ ║║ ║║ ║║ ╚═══╝ ║╔╝ ╚══╝ ║║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
 // ╚═╝╚═╝╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-declare module 'HtmlEngine' {
+declare module 'HtmlElementEngine' {
     export function getWindow(): object;
 
     export function getDocument(): object;
