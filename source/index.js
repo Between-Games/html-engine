@@ -113,7 +113,7 @@ export function removeClasses(element, classNames) {    //
 
     return UtilityEngine.isFilledArray(classNames) &&   //
         classNames.every((className) => {               //
-            return addClass(element, className);        //
+            return removeClass(element, className);     //
         });
 }
 

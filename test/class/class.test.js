@@ -62,2444 +62,2447 @@ describe('Class', function() {
         elementWithNoClass.remove();
     });
 
-    // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗      ╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
-    // ╚══╗ ╔══╝║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ║      ║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
-    //    ║ ║   ║ ║   ║ ║║ ║ ╔═══╗║ ║ ╔═══╗║ ║      ║ ╚═════╗╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
-    //    ║ ║   ║ ║   ║ ║║ ║ ╚═╗ ║║ ║ ╚═╗ ║║ ║      ║ ╔═════╝╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
-    //    ║ ║   ║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
-    //    ╚═╝   ╚═══════╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
+    // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗      ╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
+    // ╚══╗ ╔══╝║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ║      ║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
+    //    ║ ║   ║ ║   ║ ║║ ║ ╔═══╗║ ║ ╔═══╗║ ║      ║ ╚═════╗╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
+    //    ║ ║   ║ ║   ║ ║║ ║ ╚═╗ ║║ ║ ╚═╗ ║║ ║      ║ ╔═════╝╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
+    //    ║ ║   ║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
+    //    ╚═╝   ╚═══════╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-    describe('#toggleElementClasses(element, classNames)', function () {
-        describe('#toggleElementClasses(ELEMENT, classNames)', function () {
+    describe('#toggleClasses(element, classNames)', function () {
+        describe('#toggleClasses(ELEMENT, classNames)', function () {
             it('Should return true when element parameter is an element', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['class1']);
             });
 
             it('Should return true when element parameter is a filled string', () => {
-                expect(HtmlElementEngine.toggleElementClasses('element-with-1-class', 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal([]);
+                expect(HtmlElementEngine.toggleClasses('element-with-1-class', 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal([]);
             });
 
             it('Should return true when element parameter is a filled primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(String('element-with-2-classes'), 'class2')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.toggleClasses(String('element-with-2-classes'), 'class2')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1']);
             });
 
             it('Should return true when element parameter is a filled wrapped primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(new String('element-with-3-classes'), ['class2'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class3']);
+                expect(HtmlElementEngine.toggleClasses(new String('element-with-3-classes'), ['class2'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class3']);
             });
 
 
             it('Should return false when element parameter is an unused element ID', () => {
-                expect(HtmlElementEngine.toggleElementClasses('unused-element-id', 'className')).to.equal(false)
+                expect(HtmlElementEngine.toggleClasses('unused-element-id', 'className')).to.equal(false)
             });
 
             it('Should return false when element parameter is an empty string', () => {
-                expect(HtmlElementEngine.toggleElementClasses('', 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses('', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a whitespace', () => {
-                expect(HtmlElementEngine.toggleElementClasses(' ', 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(' ', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(new String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(new String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is null', () => {
-                expect(HtmlElementEngine.toggleElementClasses(null, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(null, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is NaN', () => {
-                expect(HtmlElementEngine.toggleElementClasses(NaN, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(NaN, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is undefined', () => {
-                expect(HtmlElementEngine.toggleElementClasses(undefined, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(undefined, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is false boolean', () => {
-                expect(HtmlElementEngine.toggleElementClasses(false, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(false, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is true boolean', () => {
-                expect(HtmlElementEngine.toggleElementClasses(true, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(true, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty object', () => {
-                expect(HtmlElementEngine.toggleElementClasses({}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses({}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty array', () => {
-                expect(HtmlElementEngine.toggleElementClasses([], 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses([], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a function', () => {
-                expect(HtmlElementEngine.toggleElementClasses(function () {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(function () {}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled object', () => {
-                expect(HtmlElementEngine.toggleElementClasses({foo: 'bar'}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses({foo: 'bar'}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a number', () => {
-                expect(HtmlElementEngine.toggleElementClasses(1, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(1, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a zero', () => {
-                expect(HtmlElementEngine.toggleElementClasses(0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a positive zero', () => {
-                expect(HtmlElementEngine.toggleElementClasses(+0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(+0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a negative zero', () => {
-                expect(HtmlElementEngine.toggleElementClasses(-0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(-0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a primitive number', () => {
-                expect(HtmlElementEngine.toggleElementClasses(Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.toggleElementClasses(new Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(new Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is positive infinity', () => {
-                expect(HtmlElementEngine.toggleElementClasses(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is negative infinity', () => {
-                expect(HtmlElementEngine.toggleElementClasses(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled array', () => {
-                expect(HtmlElementEngine.toggleElementClasses([1, 2, 3], 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses([1, 2, 3], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a map', () => {
-                expect(HtmlElementEngine.toggleElementClasses(new Map(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(new Map(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a date', () => {
-                expect(HtmlElementEngine.toggleElementClasses(new Date(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(new Date(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.toggleElementClasses(new (class Class {})(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(new (class Class {})(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.toggleElementClasses(new (class Class {}), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(new (class Class {}), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class declaration', () => {
-                expect(HtmlElementEngine.toggleElementClasses(class Class {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(class Class {}, 'className')).to.equal(false);
             });
         });
 
-        describe('#toggleElementClasses(element, CLASSNAMES)', function () {
+        describe('#toggleClasses(element, CLASSNAMES)', function () {
             it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['class1']);
-            });
-
-            it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWith1Class, 'class2')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWith2Classes, 'class3')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.toggleClasses(elementWith1Class, 'class2')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWith3Classes, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class2', 'class3']);
+                expect(HtmlElementEngine.toggleClasses(elementWith2Classes, 'class3')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+            });
+
+            it('Should return true when class name parameter is a string', () => {
+                expect(HtmlElementEngine.toggleClasses(elementWith3Classes, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class2', 'class3']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, String('class1'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, String('class1'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWith1Class, String('class2'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.toggleClasses(elementWith1Class, String('class2'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWith2Classes, String('class1'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class2']);
+                expect(HtmlElementEngine.toggleClasses(elementWith2Classes, String('class1'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class2']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWith3Classes, String('class3'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.toggleClasses(elementWith3Classes, String('class3'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return true when class name parameter is an array with one string element', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, ['class1'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, ['class1'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is an array with two string element', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWith1Class, ['class1', 'class2', 'class3'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class2', 'class3']);
+                expect(HtmlElementEngine.toggleClasses(elementWith1Class, ['class1', 'class2', 'class3'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class2', 'class3']);
             });
 
             it('Should return true when class name parameter is an array with two string element', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWith2Classes, ['class2', 'class3'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class3']);
+                expect(HtmlElementEngine.toggleClasses(elementWith2Classes, ['class2', 'class3'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class3']);
             });
 
             it('Should return true when class name parameter is an array with three string element', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWith3Classes, ['class1', 'class2', 'class4'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class3', 'class4']);
+                expect(HtmlElementEngine.toggleClasses(elementWith3Classes, ['class1', 'class2', 'class4'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class3', 'class4']);
             });
 
 
             it('Should return false when class name  parameter is empty', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, )).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, )).to.equal(false);
             });
 
             it('Should return false when class name  parameter is undefined', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, undefined)).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, undefined)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty array', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, [])).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, [])).to.equal(false);
             });
 
             it('Should return false when class name parameter is a whitespace', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, '')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, '')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, String(''))).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, new String(''))).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, new String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a whitespace', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is null', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, null)).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, null)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is NaN', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, NaN)).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, NaN)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is false boolean', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, false)).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, false)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is true boolean', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, true)).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, true)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty object', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, {})).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a function', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, function () {})).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, function () {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled object', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, {foo: 'bar'})).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, {foo: 'bar'})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a number', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, 1)).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, 1)).to.equal(false);
             });
 
             it('Should return false when class name  name  parameter is a zero', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, 0)).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, 0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a positive false', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, +0)).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, +0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a negative zero', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, -0)).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, -0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a primitive number', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, new Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, new Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled array', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, [1, 2, 3])).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, [1, 2, 3])).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a map', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, new Map())).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, new Map())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a date', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, new Date())).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, new Date())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, new (class Class {})())).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, new (class Class {})())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, new (class Class {}))).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, new (class Class {}))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class declaration', () => {
-                expect(HtmlElementEngine.toggleElementClasses(elementWithNoClass, class Class {})).to.equal(false);
+                expect(HtmlElementEngine.toggleClasses(elementWithNoClass, class Class {})).to.equal(false);
             });
         });
     });
 
-    // ╔═══════╗╔════╗╔═╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
-    // ╚══╗ ╔══╝║ ╔╗ ║║ ║║ ╔═════╝║ ╔═════╝║ ╔═══╗ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
-    //    ║ ║   ║ ║║ ║║ ║║ ╚═════╗║ ╚═════╗║ ╚═══╝ ║   ║ ║   ╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
-    //    ║ ║   ║ ║║ ║║ ║╚═════╗ ║║ ╔═════╝║ ╔═╗ ╔═╝   ║ ║   ╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
-    // ╔══╝ ╚══╗║ ║║ ╚╝ ║╔═════╝ ║║ ╚═════╗║ ║ ║ ╚═╗   ║ ║            ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
-    // ╚═══════╝╚═╝╚════╝╚═══════╝╚═══════╝╚═╝ ╚═══╝   ╚═╝            ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
+    // ╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
+    // ║ ╔═══╗ ║╚╗ ╔══╗ ║╚╗ ╔══╗ ║         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
+    // ║ ╚═══╝ ║ ║ ║  ║ ║ ║ ║  ║ ║╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
+    // ║ ╔═══╗ ║ ║ ║  ║ ║ ║ ║  ║ ║╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
+    // ║ ║   ║ ║╔╝ ╚══╝ ║╔╝ ╚══╝ ║         ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
+    // ╚═╝   ╚═╝╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-    describe('#insertElementClasses(element, classNames)', function () {
-        describe('#insertElementClasses(ELEMENT, classNames)', function () {
+    describe('#addClasses(element, classNames)', function () {
+        describe('#addClasses(ELEMENT, classNames)', function () {
             it('Should return true when element parameter is an element', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['className']);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['className']);
             });
 
             it('Should return true when element parameter is a filled string', () => {
-                expect(HtmlElementEngine.insertElementClasses('element-with-1-class', 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
+                expect(HtmlElementEngine.addClasses('element-with-1-class', 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
             });
 
             it('Should return true when element parameter is a filled primitive string', () => {
-                expect(HtmlElementEngine.insertElementClasses(String('element-with-2-classes'), 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
+                expect(HtmlElementEngine.addClasses(String('element-with-2-classes'), 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
             });
 
             it('Should return true when element parameter is a filled wrapped primitive string', () => {
-                expect(HtmlElementEngine.insertElementClasses(new String('element-with-3-classes'), ['className'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
+                expect(HtmlElementEngine.addClasses(new String('element-with-3-classes'), ['className'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
             });
 
 
             it('Should return false when element parameter is an unused element ID', () => {
-                expect(HtmlElementEngine.insertElementClasses('unused-element-id', 'className')).to.equal(false)
+                expect(HtmlElementEngine.addClasses('unused-element-id', 'className')).to.equal(false)
             });
 
             it('Should return false when element parameter is an empty string', () => {
-                expect(HtmlElementEngine.insertElementClasses('', 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses('', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a whitespace', () => {
-                expect(HtmlElementEngine.insertElementClasses(' ', 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(' ', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.insertElementClass(String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClass(String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.insertElementClass(new String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClass(new String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is null', () => {
-                expect(HtmlElementEngine.insertElementClasses(null, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(null, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is NaN', () => {
-                expect(HtmlElementEngine.insertElementClasses(NaN, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(NaN, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is undefined', () => {
-                expect(HtmlElementEngine.insertElementClasses(undefined, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(undefined, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is false boolean', () => {
-                expect(HtmlElementEngine.insertElementClasses(false, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(false, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is true boolean', () => {
-                expect(HtmlElementEngine.insertElementClasses(true, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(true, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty object', () => {
-                expect(HtmlElementEngine.insertElementClasses({}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses({}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty array', () => {
-                expect(HtmlElementEngine.insertElementClasses([], 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses([], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a function', () => {
-                expect(HtmlElementEngine.insertElementClasses(function () {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(function () {}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled object', () => {
-                expect(HtmlElementEngine.insertElementClasses({foo: 'bar'}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses({foo: 'bar'}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a number', () => {
-                expect(HtmlElementEngine.insertElementClasses(1, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(1, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a zero', () => {
-                expect(HtmlElementEngine.insertElementClasses(0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a positive zero', () => {
-                expect(HtmlElementEngine.insertElementClasses(+0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(+0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a negative zero', () => {
-                expect(HtmlElementEngine.insertElementClasses(-0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(-0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a primitive number', () => {
-                expect(HtmlElementEngine.insertElementClasses(Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.insertElementClasses(new Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(new Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is positive infinity', () => {
-                expect(HtmlElementEngine.insertElementClasses(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is negative infinity', () => {
-                expect(HtmlElementEngine.insertElementClasses(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled array', () => {
-                expect(HtmlElementEngine.insertElementClasses([1, 2, 3], 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses([1, 2, 3], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a map', () => {
-                expect(HtmlElementEngine.insertElementClasses(new Map(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(new Map(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a date', () => {
-                expect(HtmlElementEngine.insertElementClasses(new Date(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(new Date(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.insertElementClasses(new (class Class {})(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(new (class Class {})(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.insertElementClasses(new (class Class {}), 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(new (class Class {}), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class declaration', () => {
-                expect(HtmlElementEngine.insertElementClasses(class Class {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(class Class {}, 'className')).to.equal(false);
             });
         });
 
-        describe('#insertElementClasses(element, CLASSNAMES)', function () {
+        describe('#addClasses(element, CLASSNAMES)', function () {
             it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['class1']);
-            });
-
-            it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWith1Class, 'class2')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWith2Classes, 'class3')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.addClasses(elementWith1Class, 'class2')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWith3Classes, 'class4')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'class4']);
+                expect(HtmlElementEngine.addClasses(elementWith2Classes, 'class3')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+            });
+
+            it('Should return true when class name parameter is a string', () => {
+                expect(HtmlElementEngine.addClasses(elementWith3Classes, 'class4')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'class4']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, String('class1'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, String('class1'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWith1Class, String('class2'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.addClasses(elementWith1Class, String('class2'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWith2Classes, String('class3'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.addClasses(elementWith2Classes, String('class3'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWith3Classes, String('class4'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'class4']);
+                expect(HtmlElementEngine.addClasses(elementWith3Classes, String('class4'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'class4']);
             });
 
             it('Should return true when class name parameter is an array with one string element', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, ['class1'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, ['class1'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is an array with two string element', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWith1Class, ['class2', 'class3'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.addClasses(elementWith1Class, ['class2', 'class3'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
             it('Should return true when class name parameter is an array with two string element', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWith2Classes, ['class2', 'class3'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.addClasses(elementWith2Classes, ['class2', 'class3'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
             it('Should return true when class name parameter is an array with three string element', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWith3Classes, ['class1', 'class2', 'class4'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'class4']);
+                expect(HtmlElementEngine.addClasses(elementWith3Classes, ['class1', 'class2', 'class4'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'class4']);
             });
 
 
             it('Should return false when class name  parameter is empty', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, )).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, )).to.equal(false);
             });
 
             it('Should return false when class name  parameter is undefined', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, undefined)).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, undefined)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty array', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, [])).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, [])).to.equal(false);
             });
 
             it('Should return false when class name parameter is a whitespace', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, '')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, '')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, String(''))).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, new String(''))).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, new String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a whitespace', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is null', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, null)).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, null)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is NaN', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, NaN)).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, NaN)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is false boolean', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, false)).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, false)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is true boolean', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, true)).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, true)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty object', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, {})).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a function', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, function () {})).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, function () {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled object', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, {foo: 'bar'})).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, {foo: 'bar'})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a number', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, 1)).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, 1)).to.equal(false);
             });
 
             it('Should return false when class name  name  parameter is a zero', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, 0)).to.equal(false);
+                expect(HtmlElementEngine.addClass(elementWithNoClass, 0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a positive false', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, +0)).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, +0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a negative zero', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, -0)).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, -0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a primitive number', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, new Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, new Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled array', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, [1, 2, 3])).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, [1, 2, 3])).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a map', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, new Map())).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, new Map())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a date', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, new Date())).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, new Date())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, new (class Class {})())).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, new (class Class {})())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, new (class Class {}))).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, new (class Class {}))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class declaration', () => {
-                expect(HtmlElementEngine.insertElementClasses(elementWithNoClass, class Class {})).to.equal(false);
+                expect(HtmlElementEngine.addClasses(elementWithNoClass, class Class {})).to.equal(false);
             });
         });
     });
 
-    // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗   ╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
-    // ║ ╔═══╗ ║║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═══╗ ║║ ║   ║ ║║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
-    // ║ ╚═══╝ ║║ ╚═════╗║ ║║ ║║ ║║ ║   ║ ║║ ╚╗ ╔╝ ║║ ╚═════╗╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
-    // ║ ╔═╗ ╔═╝║ ╔═════╝║ ║║ ║║ ║║ ║   ║ ║╚╗ ║ ║ ╔╝║ ╔═════╝╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
-    // ║ ║ ║ ╚═╗║ ╚═════╗║ ║║ ║║ ║║ ╚═══╝ ║ ║ ╚═╝ ║ ║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
-    // ╚═╝ ╚═══╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝ ╚═════╝ ╚═══════╝         ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
+    // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗   ╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
+    // ║ ╔═══╗ ║║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═══╗ ║║ ║   ║ ║║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
+    // ║ ╚═══╝ ║║ ╚═════╗║ ║║ ║║ ║║ ║   ║ ║║ ╚╗ ╔╝ ║║ ╚═════╗╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
+    // ║ ╔═╗ ╔═╝║ ╔═════╝║ ║║ ║║ ║║ ║   ║ ║╚╗ ║ ║ ╔╝║ ╔═════╝╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
+    // ║ ║ ║ ╚═╗║ ╚═════╗║ ║║ ║║ ║║ ╚═══╝ ║ ║ ╚═╝ ║ ║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
+    // ╚═╝ ╚═══╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝ ╚═════╝ ╚═══════╝         ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-    describe('#removeElementClasses(element, classNames)', function () {
-        describe('#removeElementClasses(ELEMENT, classNames)', function () {
+    describe('#removeClasses(element, classNames)', function () {
+        describe('#removeClasses(ELEMENT, classNames)', function () {
             it('Should return true when element parameter is an element', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
             });
 
             it('Should return true when element parameter is a filled string', () => {
-                expect(HtmlElementEngine.removeElementClasses('element-with-1-class', 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal([]);
+                expect(HtmlElementEngine.removeClasses('element-with-1-class', 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal([]);
             });
 
             it('Should return true when element parameter is a filled primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(String('element-with-2-classes'), 'class2')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.removeClasses(String('element-with-2-classes'), 'class2')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1']);
             });
 
             it('Should return true when element parameter is a filled wrapped primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(new String('element-with-3-classes'), ['class2', 'class3'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.removeClasses(new String('element-with-3-classes'), ['class2', 'class3'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1']);
             });
 
 
             it('Should return false when element parameter is an unused element ID', () => {
-                expect(HtmlElementEngine.removeElementClasses('unused-element-id', 'className')).to.equal(false)
+                expect(HtmlElementEngine.removeClasses('unused-element-id', 'className')).to.equal(false)
             });
 
             it('Should return false when element parameter is an empty string', () => {
-                expect(HtmlElementEngine.removeElementClasses('', 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses('', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a whitespace', () => {
-                expect(HtmlElementEngine.removeElementClasses(' ', 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(' ', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(new String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(new String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is null', () => {
-                expect(HtmlElementEngine.removeElementClasses(null, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(null, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is NaN', () => {
-                expect(HtmlElementEngine.removeElementClasses(NaN, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(NaN, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is undefined', () => {
-                expect(HtmlElementEngine.removeElementClasses(undefined, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(undefined, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is false boolean', () => {
-                expect(HtmlElementEngine.removeElementClasses(false, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(false, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is true boolean', () => {
-                expect(HtmlElementEngine.removeElementClasses(true, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(true, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty object', () => {
-                expect(HtmlElementEngine.insertElementClasses({}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.addClasses({}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty array', () => {
-                expect(HtmlElementEngine.removeElementClasses([], 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses([], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a function', () => {
-                expect(HtmlElementEngine.removeElementClasses(function () {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(function () {}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled object', () => {
-                expect(HtmlElementEngine.removeElementClasses({foo: 'bar'}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses({foo: 'bar'}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a number', () => {
-                expect(HtmlElementEngine.removeElementClasses(1, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(1, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a zero', () => {
-                expect(HtmlElementEngine.removeElementClasses(0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a positive zero', () => {
-                expect(HtmlElementEngine.removeElementClasses(+0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(+0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a negative zero', () => {
-                expect(HtmlElementEngine.removeElementClasses(-0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(-0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a primitive number', () => {
-                expect(HtmlElementEngine.removeElementClasses(Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.removeElementClasses(new Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(new Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is positive infinity', () => {
-                expect(HtmlElementEngine.removeElementClasses(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is negative infinity', () => {
-                expect(HtmlElementEngine.removeElementClasses(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled array', () => {
-                expect(HtmlElementEngine.removeElementClasses([1, 2, 3], 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses([1, 2, 3], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a map', () => {
-                expect(HtmlElementEngine.removeElementClasses(new Map(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(new Map(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a date', () => {
-                expect(HtmlElementEngine.removeElementClasses(new Date(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(new Date(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.removeElementClasses(new (class Class {})(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(new (class Class {})(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.removeElementClasses(new (class Class {}), 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(new (class Class {}), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class declaration', () => {
-                expect(HtmlElementEngine.removeElementClasses(class Class {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(class Class {}, 'className')).to.equal(false);
             });
         });
 
-        describe('#removeElementClasses(element, CLASSNAMES)', function () {
+        describe('#removeClasses(element, CLASSNAMES)', function () {
             it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
-            });
-
-            it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWith1Class, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal([]);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
             });
 
             it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWith2Classes, 'class3')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.removeClasses(elementWith1Class, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal([]);
             });
 
             it('Should return true when class name parameter is a string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWith3Classes, 'class4')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.removeClasses(elementWith2Classes, 'class3')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
+            });
+
+            it('Should return true when class name parameter is a string', () => {
+                expect(HtmlElementEngine.removeClasses(elementWith3Classes, 'class4')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, String('class1'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, String('class1'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWith1Class, String('class2'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.removeClasses(elementWith1Class, String('class2'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWith2Classes, String('class3'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.removeClasses(elementWith2Classes, String('class3'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return true when class name parameter is a primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWith3Classes, String('class4'))).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.removeClasses(elementWith3Classes, String('class4'))).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
             it('Should return true when class name parameter is an array with one string element', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, ['class1'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, ['class1'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
             });
 
             it('Should return true when class name parameter is an array with two string element', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWith1Class, ['class2', 'class3'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.removeClasses(elementWith1Class, ['class2', 'class3'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is an array with two string element', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWith2Classes, ['class2', 'class3'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.removeClasses(elementWith2Classes, ['class2', 'class3'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is an array with three string element', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWith3Classes, ['class1', 'class2', 'class4'])).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class3']);
+                expect(HtmlElementEngine.removeClasses(elementWith3Classes, ['class1', 'class2', 'class4'])).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class3']);
             });
 
 
             it('Should return false when class name  parameter is empty', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, )).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, )).to.equal(false);
             });
 
             it('Should return false when class name  parameter is undefined', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, undefined)).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, undefined)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty array', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, [])).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, [])).to.equal(false);
             });
 
             it('Should return false when class name parameter is a whitespace', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, '')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, '')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, String(''))).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, new String(''))).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, new String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a whitespace', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is null', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, null)).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, null)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is NaN', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, NaN)).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, NaN)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is false boolean', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, false)).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, false)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is true boolean', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, true)).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, true)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty object', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, {})).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a function', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, function () {})).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, function () {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled object', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, {foo: 'bar'})).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, {foo: 'bar'})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a number', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, 1)).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, 1)).to.equal(false);
             });
 
             it('Should return false when class name  name  parameter is a zero', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, 0)).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, 0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a positive false', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, +0)).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, +0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a negative zero', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, -0)).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, -0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a primitive number', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, new Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, new Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled array', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, [1, 2, 3])).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, [1, 2, 3])).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a map', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, new Map())).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, new Map())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a date', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, new Date())).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, new Date())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, new (class Class {})())).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, new (class Class {})())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, new (class Class {}))).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, new (class Class {}))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class declaration', () => {
-                expect(HtmlElementEngine.removeElementClasses(elementWithNoClass, class Class {})).to.equal(false);
-            });
-        });
-    });
-    // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗      ╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
-    // ╚══╗ ╔══╝║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ║      ║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
-    //    ║ ║   ║ ║   ║ ║║ ║ ╔═══╗║ ║ ╔═══╗║ ║      ║ ╚═════╗╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
-    //    ║ ║   ║ ║   ║ ║║ ║ ╚═╗ ║║ ║ ╚═╗ ║║ ║      ║ ╔═════╝╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║
-    //    ║ ║   ║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║
-    //    ╚═╝   ╚═══════╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
-
-    describe('#toggleElementClass(element, className)', function () {
-        describe('#toggleElementClass(ELEMENT, className)', function () {
-            it('Should return true when element parameter is an element', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['className']);
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
-            });
-
-            it('Should return true when element parameter is a filled string', () => {
-                expect(HtmlElementEngine.toggleElementClass('element-with-1-class', 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
-                expect(HtmlElementEngine.toggleElementClass('element-with-1-class', 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
-            });
-
-            it('Should return true when element parameter is a filled primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClass(String('element-with-2-classes'), 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
-                expect(HtmlElementEngine.toggleElementClass(String('element-with-2-classes'), 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
-            });
-
-            it('Should return true when element parameter is a filled wrapped primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClass(new String('element-with-3-classes'), 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
-                expect(HtmlElementEngine.toggleElementClass(new String('element-with-3-classes'), 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
-            });
-
-
-            it('Should return false when element parameter is an unused element ID', () => {
-                expect(HtmlElementEngine.toggleElementClass('unused-element-id', 'className')).to.equal(false)
-            });
-
-            it('Should return false when element parameter is an empty string', () => {
-                expect(HtmlElementEngine.toggleElementClass('', 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a whitespace', () => {
-                expect(HtmlElementEngine.toggleElementClass(' ', 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClass(String(''), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClass(new String(''), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is null', () => {
-                expect(HtmlElementEngine.toggleElementClass(null, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is NaN', () => {
-                expect(HtmlElementEngine.toggleElementClass(NaN, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is undefined', () => {
-                expect(HtmlElementEngine.toggleElementClass(undefined, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is false boolean', () => {
-                expect(HtmlElementEngine.toggleElementClass(false, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is true boolean', () => {
-                expect(HtmlElementEngine.toggleElementClass(true, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is an empty object', () => {
-                expect(HtmlElementEngine.toggleElementClass({}, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is an empty array', () => {
-                expect(HtmlElementEngine.toggleElementClass([], 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a function', () => {
-                expect(HtmlElementEngine.toggleElementClass(function () {}, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a filled object', () => {
-                expect(HtmlElementEngine.toggleElementClass({foo: 'bar'}, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a number', () => {
-                expect(HtmlElementEngine.toggleElementClass(1, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a zero', () => {
-                expect(HtmlElementEngine.toggleElementClass(0, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a positive zero', () => {
-                expect(HtmlElementEngine.toggleElementClass(+0, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a negative zero', () => {
-                expect(HtmlElementEngine.toggleElementClass(-0, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a primitive number', () => {
-                expect(HtmlElementEngine.toggleElementClass(Number('1'), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.toggleElementClass(new Number('1'), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is positive infinity', () => {
-                expect(HtmlElementEngine.toggleElementClass(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is negative infinity', () => {
-                expect(HtmlElementEngine.toggleElementClass(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a filled array', () => {
-                expect(HtmlElementEngine.toggleElementClass([1, 2, 3], 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a map', () => {
-                expect(HtmlElementEngine.toggleElementClass(new Map(), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a date', () => {
-                expect(HtmlElementEngine.toggleElementClass(new Date(), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.toggleElementClass(new (class Class {})(), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.toggleElementClass(new (class Class {}), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a class declaration', () => {
-                expect(HtmlElementEngine.toggleElementClass(class Class {}, 'className')).to.equal(false);
-            });
-        });
-
-        describe('#toggleElementClass(element, CLASSNAME)', function () {
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWith1Class, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal([]);
-                expect(HtmlElementEngine.toggleElementClass(elementWith1Class, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
-            });
-
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWith2Classes, 'class2')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1']);
-                expect(HtmlElementEngine.toggleElementClass(elementWith2Classes, 'class2')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
-            });
-
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWith3Classes, 'class3')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2']);
-                expect(HtmlElementEngine.toggleElementClass(elementWith3Classes, 'class3')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
-            });
-
-            it('Should return true when class name parameter is not a class in element', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['className']);
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
-            });
-
-            it('Should return true when class name parameter is not a class in element', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWith1Class, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
-                expect(HtmlElementEngine.toggleElementClass(elementWith1Class, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
-            });
-
-            it('Should return true when class name parameter is not a class in element', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWith2Classes, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
-                expect(HtmlElementEngine.toggleElementClass(elementWith2Classes, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
-            });
-
-            it('Should return true when class name parameter is not a class in element', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWith3Classes, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
-                expect(HtmlElementEngine.toggleElementClass(elementWith3Classes, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
-            });
-
-
-            it('Should return false when class name parameter is a whitespace', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, ' ')).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty string', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, '')).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, String(''))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, new String(''))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a whitespace', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, ' ')).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is empty', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, )).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is null', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, null)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is NaN', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, NaN)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is undefined', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, undefined)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is false boolean', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, false)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is true boolean', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, true)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty object', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, {})).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty array', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, [])).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a function', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, function () {})).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a filled object', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, {foo: 'bar'})).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a number', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, 1)).to.equal(false);
-            });
-
-            it('Should return false when class name  name  parameter is a zero', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, 0)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a positive false', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, +0)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a negative zero', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, -0)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a primitive number', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, Number('1'))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, new Number('1'))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a filled array', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, [1, 2, 3])).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a map', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, new Map())).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a date', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, new Date())).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, new (class Class {})())).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, new (class Class {}))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a class declaration', () => {
-                expect(HtmlElementEngine.toggleElementClass(elementWithNoClass, class Class {})).to.equal(false);
-            });
-        });
-    });
-    // ╔═══════╗╔════╗╔═╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
-    // ╚══╗ ╔══╝║ ╔╗ ║║ ║║ ╔═════╝║ ╔═════╝║ ╔═══╗ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
-    //    ║ ║   ║ ║║ ║║ ║║ ╚═════╗║ ╚═════╗║ ╚═══╝ ║   ║ ║   ╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
-    //    ║ ║   ║ ║║ ║║ ║╚═════╗ ║║ ╔═════╝║ ╔═╗ ╔═╝   ║ ║   ╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║
-    // ╔══╝ ╚══╗║ ║║ ╚╝ ║╔═════╝ ║║ ╚═════╗║ ║ ║ ╚═╗   ║ ║            ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║
-    // ╚═══════╝╚═╝╚════╝╚═══════╝╚═══════╝╚═╝ ╚═══╝   ╚═╝            ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
-
-    describe('#insertElementClass(element, className)', function () {
-        describe('#insertElementClass(ELEMENT, className)', function () {
-            it('Should return true when element parameter is an element', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['className']);
-            });
-
-            it('Should return true when element parameter is a filled string', () => {
-                expect(HtmlElementEngine.insertElementClass('element-with-1-class', 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
-            });
-
-            it('Should return true when element parameter is a filled primitive string', () => {
-                expect(HtmlElementEngine.insertElementClass(String('element-with-2-classes'), 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
-            });
-
-            it('Should return true when element parameter is a filled wrapped primitive string', () => {
-                expect(HtmlElementEngine.insertElementClass(new String('element-with-3-classes'), 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
-            });
-
-
-            it('Should return false when element parameter is an unused element ID', () => {
-                expect(HtmlElementEngine.insertElementClass('unused-element-id', 'className')).to.equal(false)
-            });
-
-            it('Should return false when element parameter is an empty string', () => {
-                expect(HtmlElementEngine.insertElementClass('', 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a whitespace', () => {
-                expect(HtmlElementEngine.insertElementClass(' ', 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.insertElementClass(String(''), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.insertElementClass(new String(''), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is null', () => {
-                expect(HtmlElementEngine.insertElementClass(null, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is NaN', () => {
-                expect(HtmlElementEngine.insertElementClass(NaN, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is undefined', () => {
-                expect(HtmlElementEngine.insertElementClass(undefined, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is false boolean', () => {
-                expect(HtmlElementEngine.insertElementClass(false, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is true boolean', () => {
-                expect(HtmlElementEngine.insertElementClass(true, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is an empty object', () => {
-                expect(HtmlElementEngine.insertElementClass({}, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is an empty array', () => {
-                expect(HtmlElementEngine.insertElementClass([], 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a function', () => {
-                expect(HtmlElementEngine.insertElementClass(function () {}, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a filled object', () => {
-                expect(HtmlElementEngine.insertElementClass({foo: 'bar'}, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a number', () => {
-                expect(HtmlElementEngine.insertElementClass(1, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a zero', () => {
-                expect(HtmlElementEngine.insertElementClass(0, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a positive zero', () => {
-                expect(HtmlElementEngine.insertElementClass(+0, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a negative zero', () => {
-                expect(HtmlElementEngine.insertElementClass(-0, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a primitive number', () => {
-                expect(HtmlElementEngine.insertElementClass(Number('1'), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.insertElementClass(new Number('1'), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is positive infinity', () => {
-                expect(HtmlElementEngine.insertElementClass(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is negative infinity', () => {
-                expect(HtmlElementEngine.insertElementClass(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a filled array', () => {
-                expect(HtmlElementEngine.insertElementClass([1, 2, 3], 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a map', () => {
-                expect(HtmlElementEngine.insertElementClass(new Map(), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a date', () => {
-                expect(HtmlElementEngine.insertElementClass(new Date(), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.insertElementClass(new (class Class {})(), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.insertElementClass(new (class Class {}), 'className')).to.equal(false);
-            });
-
-            it('Should return false when element parameter is a class declaration', () => {
-                expect(HtmlElementEngine.insertElementClass(class Class {}, 'className')).to.equal(false);
-            });
-        });
-
-        describe('#insertElementClass(ELEMENT, CLASSNAME)', function () {
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal(['className']);
-            });
-
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWith1Class, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
-            });
-
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWith2Classes, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
-            });
-
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWith3Classes, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
-            });
-
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWith3Classes, 'className')).to.equal(true);
-            });
-
-
-            it('Should return false when class name parameter is a whitespace', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, ' ')).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty string', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, '')).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, String(''))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, new String(''))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a whitespace', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, ' ')).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is empty', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, )).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is null', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, null)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is NaN', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, NaN)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is undefined', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, undefined)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is false boolean', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, false)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is true boolean', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, true)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty object', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, {})).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is an empty array', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, [])).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a function', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, function () {})).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a filled object', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, {foo: 'bar'})).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a number', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, 1)).to.equal(false);
-            });
-
-            it('Should return false when class name  name  parameter is a zero', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, 0)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a positive false', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, +0)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a negative zero', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, -0)).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a primitive number', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, Number('1'))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, new Number('1'))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a filled array', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, [1, 2, 3])).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a map', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, new Map())).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a date', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, new Date())).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, new (class Class {})())).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, new (class Class {}))).to.equal(false);
-            });
-
-            it('Should return false when class name  parameter is a class declaration', () => {
-                expect(HtmlElementEngine.insertElementClass(elementWithNoClass, class Class {})).to.equal(false);
+                expect(HtmlElementEngine.removeClasses(elementWithNoClass, class Class {})).to.equal(false);
             });
         });
     });
 
-    // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗   ╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
-    // ║ ╔═══╗ ║║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═══╗ ║║ ║   ║ ║║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
-    // ║ ╚═══╝ ║║ ╚═════╗║ ║║ ║║ ║║ ║   ║ ║║ ╚╗ ╔╝ ║║ ╚═════╗╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
-    // ║ ╔═╗ ╔═╝║ ╔═════╝║ ║║ ║║ ║║ ║   ║ ║╚╗ ║ ║ ╔╝║ ╔═════╝╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║
-    // ║ ║ ║ ╚═╗║ ╚═════╗║ ║║ ║║ ║║ ╚═══╝ ║ ║ ╚═╝ ║ ║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║
-    // ╚═╝ ╚═══╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝ ╚═════╝ ╚═══════╝         ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
+    // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗      ╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
+    // ╚══╗ ╔══╝║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ║      ║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
+    //    ║ ║   ║ ║   ║ ║║ ║ ╔═══╗║ ║ ╔═══╗║ ║      ║ ╚═════╗╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
+    //    ║ ║   ║ ║   ║ ║║ ║ ╚═╗ ║║ ║ ╚═╗ ║║ ║      ║ ╔═════╝╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║
+    //    ║ ║   ║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║
+    //    ╚═╝   ╚═══════╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
 
-    describe('#removeElementClass(element, classNames)', function () {
-        describe('#removeElementClass(ELEMENT, classNames)', function () {
+    describe('#toggleClass(element, className)', function () {
+        describe('#toggleClass(ELEMENT, className)', function () {
             it('Should return true when element parameter is an element', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['className']);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
             });
 
             it('Should return true when element parameter is a filled string', () => {
-                expect(HtmlElementEngine.removeElementClass('element-with-1-class', 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal([]);
+                expect(HtmlElementEngine.toggleClass('element-with-1-class', 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
+                expect(HtmlElementEngine.toggleClass('element-with-1-class', 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1']);
             });
 
             it('Should return true when element parameter is a filled primitive string', () => {
-                expect(HtmlElementEngine.removeElementClass(String('element-with-2-classes'), 'class2')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.toggleClass(String('element-with-2-classes'), 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
+                expect(HtmlElementEngine.toggleClass(String('element-with-2-classes'), 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return true when element parameter is a filled wrapped primitive string', () => {
-                expect(HtmlElementEngine.removeElementClass(new String('element-with-3-classes'), 'class3')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.toggleClass(new String('element-with-3-classes'), 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
+                expect(HtmlElementEngine.toggleClass(new String('element-with-3-classes'), 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
 
             it('Should return false when element parameter is an unused element ID', () => {
-                expect(HtmlElementEngine.removeElementClass('unused-element-id', 'className')).to.equal(false)
+                expect(HtmlElementEngine.toggleClass('unused-element-id', 'className')).to.equal(false)
             });
 
             it('Should return false when element parameter is an empty string', () => {
-                expect(HtmlElementEngine.removeElementClass('', 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass('', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a whitespace', () => {
-                expect(HtmlElementEngine.removeElementClass(' ', 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(' ', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.removeElementClass(String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.removeElementClass(new String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(new String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is null', () => {
-                expect(HtmlElementEngine.removeElementClass(null, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(null, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is NaN', () => {
-                expect(HtmlElementEngine.removeElementClass(NaN, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(NaN, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is undefined', () => {
-                expect(HtmlElementEngine.removeElementClass(undefined, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(undefined, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is false boolean', () => {
-                expect(HtmlElementEngine.removeElementClass(false, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(false, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is true boolean', () => {
-                expect(HtmlElementEngine.removeElementClass(true, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(true, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty object', () => {
-                expect(HtmlElementEngine.removeElementClass({}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass({}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty array', () => {
-                expect(HtmlElementEngine.removeElementClass([], 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass([], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a function', () => {
-                expect(HtmlElementEngine.removeElementClass(function () {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(function () {}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled object', () => {
-                expect(HtmlElementEngine.removeElementClass({foo: 'bar'}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass({foo: 'bar'}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a number', () => {
-                expect(HtmlElementEngine.removeElementClass(1, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(1, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a zero', () => {
-                expect(HtmlElementEngine.removeElementClass(0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a positive zero', () => {
-                expect(HtmlElementEngine.removeElementClass(+0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(+0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a negative zero', () => {
-                expect(HtmlElementEngine.removeElementClass(-0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(-0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a primitive number', () => {
-                expect(HtmlElementEngine.removeElementClass(Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.removeElementClass(new Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(new Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is positive infinity', () => {
-                expect(HtmlElementEngine.removeElementClass(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is negative infinity', () => {
-                expect(HtmlElementEngine.removeElementClass(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled array', () => {
-                expect(HtmlElementEngine.removeElementClass([1, 2, 3], 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass([1, 2, 3], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a map', () => {
-                expect(HtmlElementEngine.removeElementClass(new Map(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(new Map(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a date', () => {
-                expect(HtmlElementEngine.removeElementClass(new Date(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(new Date(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.removeElementClass(new (class Class {})(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(new (class Class {})(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.removeElementClass(new (class Class {}), 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(new (class Class {}), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class declaration', () => {
-                expect(HtmlElementEngine.removeElementClass(class Class {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(class Class {}, 'className')).to.equal(false);
             });
         });
 
-        describe('#removeElementClass(element, CLASSNAME)', function () {
+        describe('#toggleClass(element, CLASSNAME)', function () {
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+                expect(HtmlElementEngine.toggleClass(elementWith1Class, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal([]);
+                expect(HtmlElementEngine.toggleClass(elementWith1Class, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWith1Class, 'class1')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal([]);
+                expect(HtmlElementEngine.toggleClass(elementWith2Classes, 'class2')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.toggleClass(elementWith2Classes, 'class2')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWith2Classes, 'class2')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.toggleClass(elementWith3Classes, 'class3')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.toggleClass(elementWith3Classes, 'class3')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWith3Classes, 'class3')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2']);
+            it('Should return true when class name parameter is not a class in element', () => {
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['className']);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
             });
 
-            it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWith3Classes, 'className')).to.equal(true);
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+            it('Should return true when class name parameter is not a class in element', () => {
+                expect(HtmlElementEngine.toggleClass(elementWith1Class, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
+                expect(HtmlElementEngine.toggleClass(elementWith1Class, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1']);
+            });
+
+            it('Should return true when class name parameter is not a class in element', () => {
+                expect(HtmlElementEngine.toggleClass(elementWith2Classes, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
+                expect(HtmlElementEngine.toggleClass(elementWith2Classes, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
+            });
+
+            it('Should return true when class name parameter is not a class in element', () => {
+                expect(HtmlElementEngine.toggleClass(elementWith3Classes, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
+                expect(HtmlElementEngine.toggleClass(elementWith3Classes, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
 
             it('Should return false when class name parameter is a whitespace', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty string', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, '')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, '')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, String(''))).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, new String(''))).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, new String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a whitespace', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is empty', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, )).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, )).to.equal(false);
             });
 
             it('Should return false when class name  parameter is null', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, null)).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, null)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is NaN', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, NaN)).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, NaN)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is undefined', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, undefined)).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, undefined)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is false boolean', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, false)).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, false)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is true boolean', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, true)).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, true)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty object', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, {})).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty array', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, [])).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, [])).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a function', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, function () {})).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, function () {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled object', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, {foo: 'bar'})).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, {foo: 'bar'})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a number', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, 1)).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, 1)).to.equal(false);
             });
 
             it('Should return false when class name  name  parameter is a zero', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, 0)).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, 0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a positive false', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, +0)).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, +0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a negative zero', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, -0)).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, -0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a primitive number', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, new Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, new Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled array', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, [1, 2, 3])).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, [1, 2, 3])).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a map', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, new Map())).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, new Map())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a date', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, new Date())).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, new Date())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, new (class Class {})())).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, new (class Class {})())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, new (class Class {}))).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, new (class Class {}))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class declaration', () => {
-                expect(HtmlElementEngine.removeElementClass(elementWithNoClass, class Class {})).to.equal(false);
+                expect(HtmlElementEngine.toggleClass(elementWithNoClass, class Class {})).to.equal(false);
             });
         });
     });
-    // ╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
-    // ║ ╔═══╗ ║║ ╔═══╗ ║║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
-    // ║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═════╗╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
-    // ║ ╔═══╗ ║║ ╔═╗ ╔═╝║ ╔═════╝╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
-    // ║ ║   ║ ║║ ║ ║ ╚═╗║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
-    // ╚═╝   ╚═╝╚═╝ ╚═══╝╚═══════╝         ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-    describe('#areElementClasses(element, classNames)', function () {
-        describe('#areElementClasses(ELEMENT, classNames)', function () {
+    // ╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
+    // ║ ╔═══╗ ║╚╗ ╔══╗ ║╚╗ ╔══╗ ║         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
+    // ║ ╚═══╝ ║ ║ ║  ║ ║ ║ ║  ║ ║╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
+    // ║ ╔═══╗ ║ ║ ║  ║ ║ ║ ║  ║ ║╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║
+    // ║ ║   ║ ║╔╝ ╚══╝ ║╔╝ ╚══╝ ║         ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║
+    // ╚═╝   ╚═╝╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
+
+    describe('#addClass(element, className)', function () {
+        describe('#addClass(ELEMENT, className)', function () {
+            it('Should return true when element parameter is an element', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['className']);
+            });
+
             it('Should return true when element parameter is a filled string', () => {
-                expect(HtmlElementEngine.areElementClasses('element-with-1-class', ['class1'])).to.equal(true);
+                expect(HtmlElementEngine.addClass('element-with-1-class', 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
             });
 
             it('Should return true when element parameter is a filled primitive string', () => {
-                expect(HtmlElementEngine.areElementClasses(String('element-with-2-classes'), ['class2'])).to.equal(true);
+                expect(HtmlElementEngine.addClass(String('element-with-2-classes'), 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
             });
 
             it('Should return true when element parameter is a filled wrapped primitive string', () => {
-                expect(HtmlElementEngine.areElementClasses(new String('element-with-3-classes'), ['class3'])).to.equal(true);
-            });
-
-            it('Should return true when element parameter is an element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith1Class, ['class1'])).to.equal(true);
+                expect(HtmlElementEngine.addClass(new String('element-with-3-classes'), 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
             });
 
 
             it('Should return false when element parameter is an unused element ID', () => {
-                expect(HtmlElementEngine.areElementClasses('unused-element-id', ['className'])).to.equal(false)
+                expect(HtmlElementEngine.addClass('unused-element-id', 'className')).to.equal(false)
             });
 
             it('Should return false when element parameter is an empty string', () => {
-                expect(HtmlElementEngine.areElementClasses('', ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass('', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a whitespace', () => {
-                expect(HtmlElementEngine.areElementClasses(' ', ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(' ', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.areElementClasses(String(''), ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.areElementClasses(new String(''), ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(new String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is null', () => {
-                expect(HtmlElementEngine.areElementClasses(null, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(null, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is NaN', () => {
-                expect(HtmlElementEngine.areElementClasses(NaN, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(NaN, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is undefined', () => {
-                expect(HtmlElementEngine.areElementClasses(undefined, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(undefined, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is false boolean', () => {
-                expect(HtmlElementEngine.areElementClasses(false, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(false, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is true boolean', () => {
-                expect(HtmlElementEngine.areElementClasses(true, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(true, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty object', () => {
-                expect(HtmlElementEngine.areElementClasses({}, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass({}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty array', () => {
-                expect(HtmlElementEngine.areElementClasses([], ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass([], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a function', () => {
-                expect(HtmlElementEngine.areElementClasses(function () {}, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(function () {}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled object', () => {
-                expect(HtmlElementEngine.areElementClasses({foo: 'bar'}, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass({foo: 'bar'}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a number', () => {
-                expect(HtmlElementEngine.areElementClasses(1, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(1, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a zero', () => {
-                expect(HtmlElementEngine.areElementClasses(0, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a positive zero', () => {
-                expect(HtmlElementEngine.areElementClasses(+0, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(+0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a negative zero', () => {
-                expect(HtmlElementEngine.areElementClasses(-0, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(-0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a primitive number', () => {
-                expect(HtmlElementEngine.areElementClasses(Number('1'), ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.areElementClasses(new Number('1'), ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(new Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is positive infinity', () => {
-                expect(HtmlElementEngine.areElementClasses(Number.POSITIVE_INFINITY, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is negative infinity', () => {
-                expect(HtmlElementEngine.areElementClasses(Number.NEGATIVE_INFINITY, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled array', () => {
-                expect(HtmlElementEngine.areElementClasses([1, 2, 3], ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass([1, 2, 3], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a map', () => {
-                expect(HtmlElementEngine.areElementClasses(new Map(), ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(new Map(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a date', () => {
-                expect(HtmlElementEngine.areElementClasses(new Date(), ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(new Date(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.areElementClasses(new (class Class {})(), ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(new (class Class {})(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.areElementClasses(new (class Class {}), ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(new (class Class {}), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class declaration', () => {
-                expect(HtmlElementEngine.areElementClasses(class Class {}, ['className'])).to.equal(false);
+                expect(HtmlElementEngine.addClass(class Class {}, 'className')).to.equal(false);
             });
         });
 
-        describe('#areElementClasses(element, CLASSNAMES)', function () {
+        describe('#addClass(ELEMENT, CLASSNAME)', function () {
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['className']);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.addClass(elementWith1Class, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1', 'className']);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.addClass(elementWith2Classes, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2', 'className']);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.addClass(elementWith3Classes, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3', 'className']);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.addClass(elementWith3Classes, 'className')).to.equal(true);
+            });
+
+
+            it('Should return false when class name parameter is a whitespace', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, ' ')).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty string', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, '')).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty primitive string', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, String(''))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, new String(''))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a whitespace', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, ' ')).to.equal(false);
+            });
+
             it('Should return false when class name  parameter is empty', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith1Class)).to.equal(true);
+                expect(HtmlElementEngine.addClass(elementWithNoClass, )).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is null', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, null)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is NaN', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, NaN)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is undefined', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith1Class, undefined)).to.equal(true);
+                expect(HtmlElementEngine.addClass(elementWithNoClass, undefined)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is false boolean', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, false)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is true boolean', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, true)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty object', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty array', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith1Class, [])).to.equal(true);
+                expect(HtmlElementEngine.addClass(elementWithNoClass, [])).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a function', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, function () {})).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a filled object', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, {foo: 'bar'})).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a number', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, 1)).to.equal(false);
+            });
+
+            it('Should return false when class name  name  parameter is a zero', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, 0)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a positive false', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, +0)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a negative zero', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, -0)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a primitive number', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a wrapped primitive number', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, new Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a filled array', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, [1, 2, 3])).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a map', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, new Map())).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a date', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, new Date())).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a class instance', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, new (class Class {})())).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a class instance', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, new (class Class {}))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a class declaration', () => {
+                expect(HtmlElementEngine.addClass(elementWithNoClass, class Class {})).to.equal(false);
+            });
+        });
+    });
+
+    // ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═╗   ╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
+    // ║ ╔═══╗ ║║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═══╗ ║║ ║   ║ ║║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
+    // ║ ╚═══╝ ║║ ╚═════╗║ ║║ ║║ ║║ ║   ║ ║║ ╚╗ ╔╝ ║║ ╚═════╗╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
+    // ║ ╔═╗ ╔═╝║ ╔═════╝║ ║║ ║║ ║║ ║   ║ ║╚╗ ║ ║ ╔╝║ ╔═════╝╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║
+    // ║ ║ ║ ╚═╗║ ╚═════╗║ ║║ ║║ ║║ ╚═══╝ ║ ║ ╚═╝ ║ ║ ╚═════╗         ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║
+    // ╚═╝ ╚═══╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝ ╚═════╝ ╚═══════╝         ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
+
+    describe('#removeClass(element, classNames)', function () {
+        describe('#removeClass(ELEMENT, classNames)', function () {
+            it('Should return true when element parameter is an element', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
+            });
+
+            it('Should return true when element parameter is a filled string', () => {
+                expect(HtmlElementEngine.removeClass('element-with-1-class', 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal([]);
+            });
+
+            it('Should return true when element parameter is a filled primitive string', () => {
+                expect(HtmlElementEngine.removeClass(String('element-with-2-classes'), 'class2')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1']);
+            });
+
+            it('Should return true when element parameter is a filled wrapped primitive string', () => {
+                expect(HtmlElementEngine.removeClass(new String('element-with-3-classes'), 'class3')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2']);
+            });
+
+
+            it('Should return false when element parameter is an unused element ID', () => {
+                expect(HtmlElementEngine.removeClass('unused-element-id', 'className')).to.equal(false)
+            });
+
+            it('Should return false when element parameter is an empty string', () => {
+                expect(HtmlElementEngine.removeClass('', 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a whitespace', () => {
+                expect(HtmlElementEngine.removeClass(' ', 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty primitive string', () => {
+                expect(HtmlElementEngine.removeClass(String(''), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty wrapped primitive string', () => {
+                expect(HtmlElementEngine.removeClass(new String(''), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is null', () => {
+                expect(HtmlElementEngine.removeClass(null, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is NaN', () => {
+                expect(HtmlElementEngine.removeClass(NaN, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is undefined', () => {
+                expect(HtmlElementEngine.removeClass(undefined, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is false boolean', () => {
+                expect(HtmlElementEngine.removeClass(false, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is true boolean', () => {
+                expect(HtmlElementEngine.removeClass(true, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty object', () => {
+                expect(HtmlElementEngine.removeClass({}, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty array', () => {
+                expect(HtmlElementEngine.removeClass([], 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a function', () => {
+                expect(HtmlElementEngine.removeClass(function () {}, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a filled object', () => {
+                expect(HtmlElementEngine.removeClass({foo: 'bar'}, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a number', () => {
+                expect(HtmlElementEngine.removeClass(1, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a zero', () => {
+                expect(HtmlElementEngine.removeClass(0, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a positive zero', () => {
+                expect(HtmlElementEngine.removeClass(+0, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a negative zero', () => {
+                expect(HtmlElementEngine.removeClass(-0, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a primitive number', () => {
+                expect(HtmlElementEngine.removeClass(Number('1'), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a wrapped primitive number', () => {
+                expect(HtmlElementEngine.removeClass(new Number('1'), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is positive infinity', () => {
+                expect(HtmlElementEngine.removeClass(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is negative infinity', () => {
+                expect(HtmlElementEngine.removeClass(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a filled array', () => {
+                expect(HtmlElementEngine.removeClass([1, 2, 3], 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a map', () => {
+                expect(HtmlElementEngine.removeClass(new Map(), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a date', () => {
+                expect(HtmlElementEngine.removeClass(new Date(), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a class instance', () => {
+                expect(HtmlElementEngine.removeClass(new (class Class {})(), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a class instance', () => {
+                expect(HtmlElementEngine.removeClass(new (class Class {}), 'className')).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a class declaration', () => {
+                expect(HtmlElementEngine.removeClass(class Class {}, 'className')).to.equal(false);
+            });
+        });
+
+        describe('#removeClass(element, CLASSNAME)', function () {
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith1Class, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.removeClass(elementWith1Class, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal([]);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith2Classes, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.removeClass(elementWith2Classes, 'class2')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1']);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith2Classes, 'class2')).to.equal(true);
+                expect(HtmlElementEngine.removeClass(elementWith3Classes, 'class3')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith3Classes, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.removeClass(elementWith3Classes, 'className')).to.equal(true);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+            });
+
+
+            it('Should return false when class name parameter is a whitespace', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, ' ')).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty string', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, '')).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty primitive string', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, String(''))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, new String(''))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a whitespace', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, ' ')).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is empty', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, )).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is null', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, null)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is NaN', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, NaN)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is undefined', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, undefined)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is false boolean', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, false)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is true boolean', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, true)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty object', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, {})).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is an empty array', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, [])).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a function', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, function () {})).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a filled object', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, {foo: 'bar'})).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a number', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, 1)).to.equal(false);
+            });
+
+            it('Should return false when class name  name  parameter is a zero', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, 0)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a positive false', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, +0)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a negative zero', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, -0)).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a primitive number', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a wrapped primitive number', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, new Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a filled array', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, [1, 2, 3])).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a map', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, new Map())).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a date', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, new Date())).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a class instance', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, new (class Class {})())).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a class instance', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, new (class Class {}))).to.equal(false);
+            });
+
+            it('Should return false when class name  parameter is a class declaration', () => {
+                expect(HtmlElementEngine.removeClass(elementWithNoClass, class Class {})).to.equal(false);
+            });
+        });
+    });
+
+    // ╔═╗   ╔═╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
+    // ║ ║   ║ ║║ ╔═══╗ ║║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
+    // ║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═════╗╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
+    // ║ ╔═══╗ ║║ ╔═══╗ ║╚═════╗ ║╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
+    // ║ ║   ║ ║║ ║   ║ ║╔═════╝ ║         ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
+    // ╚═╝   ╚═╝╚═╝   ╚═╝╚═══════╝         ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
+
+    describe('#hasClasses(element, classNames)', function () {
+        describe('#hasClasses(ELEMENT, classNames)', function () {
+            it('Should return true when element parameter is a filled string', () => {
+                expect(HtmlElementEngine.hasClasses('element-with-1-class', ['class1'])).to.equal(true);
+            });
+
+            it('Should return true when element parameter is a filled primitive string', () => {
+                expect(HtmlElementEngine.hasClasses(String('element-with-2-classes'), ['class2'])).to.equal(true);
+            });
+
+            it('Should return true when element parameter is a filled wrapped primitive string', () => {
+                expect(HtmlElementEngine.hasClasses(new String('element-with-3-classes'), ['class3'])).to.equal(true);
+            });
+
+            it('Should return true when element parameter is an element', () => {
+                expect(HtmlElementEngine.hasClasses(elementWith1Class, ['class1'])).to.equal(true);
+            });
+
+
+            it('Should return false when element parameter is an unused element ID', () => {
+                expect(HtmlElementEngine.hasClasses('unused-element-id', ['className'])).to.equal(false)
+            });
+
+            it('Should return false when element parameter is an empty string', () => {
+                expect(HtmlElementEngine.hasClasses('', ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a whitespace', () => {
+                expect(HtmlElementEngine.hasClasses(' ', ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty primitive string', () => {
+                expect(HtmlElementEngine.hasClasses(String(''), ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty wrapped primitive string', () => {
+                expect(HtmlElementEngine.hasClasses(new String(''), ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is null', () => {
+                expect(HtmlElementEngine.hasClasses(null, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is NaN', () => {
+                expect(HtmlElementEngine.hasClasses(NaN, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is undefined', () => {
+                expect(HtmlElementEngine.hasClasses(undefined, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is false boolean', () => {
+                expect(HtmlElementEngine.hasClasses(false, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is true boolean', () => {
+                expect(HtmlElementEngine.hasClasses(true, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty object', () => {
+                expect(HtmlElementEngine.hasClasses({}, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is an empty array', () => {
+                expect(HtmlElementEngine.hasClasses([], ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a function', () => {
+                expect(HtmlElementEngine.hasClasses(function () {}, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a filled object', () => {
+                expect(HtmlElementEngine.hasClasses({foo: 'bar'}, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a number', () => {
+                expect(HtmlElementEngine.hasClasses(1, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a zero', () => {
+                expect(HtmlElementEngine.hasClasses(0, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a positive zero', () => {
+                expect(HtmlElementEngine.hasClasses(+0, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a negative zero', () => {
+                expect(HtmlElementEngine.hasClasses(-0, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a primitive number', () => {
+                expect(HtmlElementEngine.hasClasses(Number('1'), ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a wrapped primitive number', () => {
+                expect(HtmlElementEngine.hasClasses(new Number('1'), ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is positive infinity', () => {
+                expect(HtmlElementEngine.hasClasses(Number.POSITIVE_INFINITY, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is negative infinity', () => {
+                expect(HtmlElementEngine.hasClasses(Number.NEGATIVE_INFINITY, ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a filled array', () => {
+                expect(HtmlElementEngine.hasClasses([1, 2, 3], ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a map', () => {
+                expect(HtmlElementEngine.hasClasses(new Map(), ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a date', () => {
+                expect(HtmlElementEngine.hasClasses(new Date(), ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a class instance', () => {
+                expect(HtmlElementEngine.hasClasses(new (class Class {})(), ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a class instance', () => {
+                expect(HtmlElementEngine.hasClasses(new (class Class {}), ['className'])).to.equal(false);
+            });
+
+            it('Should return false when element parameter is a class declaration', () => {
+                expect(HtmlElementEngine.hasClasses(class Class {}, ['className'])).to.equal(false);
+            });
+        });
+
+        describe('#hasClasses(element, CLASSNAMES)', function () {
+            it('Should return false when class name  parameter is empty', () => {
+                expect(HtmlElementEngine.hasClasses(elementWith1Class)).to.equal(true);
+            });
+
+            it('Should return false when class name  parameter is undefined', () => {
+                expect(HtmlElementEngine.hasClasses(elementWith1Class, undefined)).to.equal(true);
+            });
+
+            it('Should return false when class name  parameter is an empty array', () => {
+                expect(HtmlElementEngine.hasClasses(elementWith1Class, [])).to.equal(true);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith3Classes, 'class2')).to.equal(true);
+                expect(HtmlElementEngine.hasClasses(elementWith1Class, 'class1')).to.equal(true);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith3Classes, 'class3')).to.equal(true);
+                expect(HtmlElementEngine.hasClasses(elementWith2Classes, 'class1')).to.equal(true);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.hasClasses(elementWith2Classes, 'class2')).to.equal(true);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.hasClasses(elementWith3Classes, 'class1')).to.equal(true);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.hasClasses(elementWith3Classes, 'class2')).to.equal(true);
+            });
+
+            it('Should return true when class name parameter is a class in element', () => {
+                expect(HtmlElementEngine.hasClasses(elementWith3Classes, 'class3')).to.equal(true);
             });
 
             it('Should return true when class name parameter are classes in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith1Class, ['class1'])).to.equal(true);
+                expect(HtmlElementEngine.hasClasses(elementWith1Class, ['class1'])).to.equal(true);
             });
 
             it('Should return true when class name parameter are classes in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith2Classes, ['class1'])).to.equal(true);
+                expect(HtmlElementEngine.hasClasses(elementWith2Classes, ['class1'])).to.equal(true);
             });
 
             it('Should return true when class name parameter are classes in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith2Classes, ['class1', 'class2'])).to.equal(true);
+                expect(HtmlElementEngine.hasClasses(elementWith2Classes, ['class1', 'class2'])).to.equal(true);
             });
 
             it('Should return true when class name parameter are classes in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith3Classes, ['class1'])).to.equal(true);
+                expect(HtmlElementEngine.hasClasses(elementWith3Classes, ['class1'])).to.equal(true);
             });
 
             it('Should return true when class name parameter are classes in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith3Classes, ['class1', 'class2'])).to.equal(true);
+                expect(HtmlElementEngine.hasClasses(elementWith3Classes, ['class1', 'class2'])).to.equal(true);
             });
 
             it('Should return true when class name parameter are classes in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith3Classes, ['class1', 'class3'])).to.equal(true);
+                expect(HtmlElementEngine.hasClasses(elementWith3Classes, ['class1', 'class3'])).to.equal(true);
             });
 
 
             it('Should return false when class name parameter is not a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, 'class1')).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, 'class1')).to.equal(false);
             });
 
             it('Should return false when class name parameter are classes that are not all in class', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, ['class1'])).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, ['class1'])).to.equal(false);
             });
 
             it('Should return false when class name parameter are classes in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith1Class, ['class4'])).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWith1Class, ['class4'])).to.equal(false);
             });
 
             it('Should return false when class name parameter are classes that are not all in class', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith2Classes, ['class3', 'class2', 'class1'])).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWith2Classes, ['class3', 'class2', 'class1'])).to.equal(false);
             });
 
             it('Should return false when class name parametera are classes that are not all in class', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith2Classes, ['class1', 'class2', 'class3'])).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWith2Classes, ['class1', 'class2', 'class3'])).to.equal(false);
             });
 
             it('Should return false when class name parameter are classes that are not all in class', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith3Classes, ['class4', 'class5', 'class6'])).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWith3Classes, ['class4', 'class5', 'class6'])).to.equal(false);
             });
 
             it('Should return false when class name parameter are classes that are not all in class', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith3Classes, ['class1', 'class2', 'class3', 'class4'])).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWith3Classes, ['class1', 'class2', 'class3', 'class4'])).to.equal(false);
             });
 
             it('Should return false when class name parameter is not a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith1Class, 'class2')).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWith1Class, 'class2')).to.equal(false);
             });
 
             it('Should return false when class name parameter is not a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith2Classes, 'class3')).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWith2Classes, 'class3')).to.equal(false);
             });
 
             it('Should return false when class name parameter is not a class in element', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWith3Classes, 'class4')).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWith3Classes, 'class4')).to.equal(false);
             });
 
             it('Should return false when class name parameter is a whitespace', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty string', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, '')).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, '')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, String(''))).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, new String(''))).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, new String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a whitespace', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is null', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, null)).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, null)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is NaN', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, NaN)).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, NaN)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is false boolean', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, false)).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, false)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is true boolean', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, true)).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, true)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty object', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, {})).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a function', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, function () {})).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, function () {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled object', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, {foo: 'bar'})).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, {foo: 'bar'})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a number', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, 1)).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, 1)).to.equal(false);
             });
 
             it('Should return false when class name  name  parameter is a zero', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, 0)).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, 0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a positive false', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, +0)).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, +0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a negative zero', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, -0)).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, -0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a primitive number', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, new Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, new Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled array', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, [1, 2, 3])).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, [1, 2, 3])).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a map', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, new Map())).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, new Map())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a date', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, new Date())).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, new Date())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, new (class Class {})())).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, new (class Class {})())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, new (class Class {}))).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, new (class Class {}))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class declaration', () => {
-                expect(HtmlElementEngine.areElementClasses(elementWithNoClass, class Class {})).to.equal(false);
+                expect(HtmlElementEngine.hasClasses(elementWithNoClass, class Class {})).to.equal(false);
             });
         });
     });
 
-    // ╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
-    // ╚══╗ ╔══╝║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
-    //    ║ ║   ║ ╚═════╗╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
-    //    ║ ║   ╚═════╗ ║╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║
-    // ╔══╝ ╚══╗╔═════╝ ║         ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║
-    // ╚═══════╝╚═══════╝         ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
+    // ╔═╗   ╔═╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗
+    // ║ ║   ║ ║║ ╔═══╗ ║║ ╔═════╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝
+    // ║ ╚═══╝ ║║ ╚═══╝ ║║ ╚═════╗╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗
+    // ║ ╔═══╗ ║║ ╔═══╗ ║╚═════╗ ║╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║
+    // ║ ║   ║ ║║ ║   ║ ║╔═════╝ ║         ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║
+    // ╚═╝   ╚═╝╚═╝   ╚═╝╚═══════╝         ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝
 
-    describe('#isElementClass(element, className)', function () {
-        describe('#isElementClass(ELEMENT, className)', function () {
+    describe('#hasClass(element, className)', function () {
+        describe('#hasClass(ELEMENT, className)', function () {
             it('Should return true when element parameter is a filled string', () => {
-                expect(HtmlElementEngine.isElementClass('element-with-1-class', 'class1')).to.equal(true);
+                expect(HtmlElementEngine.hasClass('element-with-1-class', 'class1')).to.equal(true);
             });
 
             it('Should return true when element parameter is a filled primitive string', () => {
-                expect(HtmlElementEngine.isElementClass(String('element-with-2-classes'), 'class2')).to.equal(true);
+                expect(HtmlElementEngine.hasClass(String('element-with-2-classes'), 'class2')).to.equal(true);
             });
 
             it('Should return true when element parameter is a filled wrapped primitive string', () => {
-                expect(HtmlElementEngine.isElementClass(new String('element-with-3-classes'), 'class3')).to.equal(true);
+                expect(HtmlElementEngine.hasClass(new String('element-with-3-classes'), 'class3')).to.equal(true);
             });
 
             it('Should return true when element parameter is an element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith1Class, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.hasClass(elementWith1Class, 'class1')).to.equal(true);
             });
 
             it('Should return false when element parameter is an unused element ID', () => {
-                expect(HtmlElementEngine.isElementClass('unused-element-id', 'className')).to.equal(false)
+                expect(HtmlElementEngine.hasClass('unused-element-id', 'className')).to.equal(false)
             });
 
             it('Should return false when element parameter is an empty string', () => {
-                expect(HtmlElementEngine.isElementClass('', 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass('', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a whitespace', () => {
-                expect(HtmlElementEngine.isElementClass(' ', 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(' ', 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.isElementClass(String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.isElementClass(new String(''), 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(new String(''), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is null', () => {
-                expect(HtmlElementEngine.isElementClass(null, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(null, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is NaN', () => {
-                expect(HtmlElementEngine.isElementClass(NaN, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(NaN, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is undefined', () => {
-                expect(HtmlElementEngine.isElementClass(undefined, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(undefined, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is false boolean', () => {
-                expect(HtmlElementEngine.isElementClass(false, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(false, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is true boolean', () => {
-                expect(HtmlElementEngine.isElementClass(true, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(true, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty object', () => {
-                expect(HtmlElementEngine.isElementClass({}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass({}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is an empty array', () => {
-                expect(HtmlElementEngine.isElementClass([], 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass([], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a function', () => {
-                expect(HtmlElementEngine.isElementClass(function () {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(function () {}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled object', () => {
-                expect(HtmlElementEngine.isElementClass({foo: 'bar'}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass({foo: 'bar'}, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a number', () => {
-                expect(HtmlElementEngine.isElementClass(1, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(1, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a zero', () => {
-                expect(HtmlElementEngine.isElementClass(0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a positive zero', () => {
-                expect(HtmlElementEngine.isElementClass(+0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(+0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a negative zero', () => {
-                expect(HtmlElementEngine.isElementClass(-0, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(-0, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a primitive number', () => {
-                expect(HtmlElementEngine.isElementClass(Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.isElementClass(new Number('1'), 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(new Number('1'), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is positive infinity', () => {
-                expect(HtmlElementEngine.isElementClass(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(Number.POSITIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is negative infinity', () => {
-                expect(HtmlElementEngine.isElementClass(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(Number.NEGATIVE_INFINITY, 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a filled array', () => {
-                expect(HtmlElementEngine.isElementClass([1, 2, 3], 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass([1, 2, 3], 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a map', () => {
-                expect(HtmlElementEngine.isElementClass(new Map(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(new Map(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a date', () => {
-                expect(HtmlElementEngine.isElementClass(new Date(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(new Date(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.isElementClass(new (class Class {})(), 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(new (class Class {})(), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.isElementClass(new (class Class {}), 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(new (class Class {}), 'className')).to.equal(false);
             });
 
             it('Should return false when element parameter is a class declaration', () => {
-                expect(HtmlElementEngine.isElementClass(class Class {}, 'className')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(class Class {}, 'className')).to.equal(false);
             });
         });
 
-        describe('#isElementClass(element, CLASSNAME)', function () {
+        describe('#hasClass(element, CLASSNAME)', function () {
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith1Class, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.hasClass(elementWith1Class, 'class1')).to.equal(true);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith2Classes, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.hasClass(elementWith2Classes, 'class1')).to.equal(true);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith2Classes, 'class2')).to.equal(true);
+                expect(HtmlElementEngine.hasClass(elementWith2Classes, 'class2')).to.equal(true);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith3Classes, 'class1')).to.equal(true);
+                expect(HtmlElementEngine.hasClass(elementWith3Classes, 'class1')).to.equal(true);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith3Classes, 'class2')).to.equal(true);
+                expect(HtmlElementEngine.hasClass(elementWith3Classes, 'class2')).to.equal(true);
             });
 
             it('Should return true when class name parameter is a class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith3Classes, 'class3')).to.equal(true);
+                expect(HtmlElementEngine.hasClass(elementWith3Classes, 'class3')).to.equal(true);
             });
 
 
             it('Should return false when class name parameter is a not class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, 'class1')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, 'class1')).to.equal(false);
             });
 
             it('Should return false when class name parameter is a not class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith1Class, 'class2')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWith1Class, 'class2')).to.equal(false);
             });
 
             it('Should return false when class name parameter is a not class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith2Classes, 'class3')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWith2Classes, 'class3')).to.equal(false);
             });
 
             it('Should return false when class name parameter is a not class in element', () => {
-                expect(HtmlElementEngine.isElementClass(elementWith3Classes, 'class4')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWith3Classes, 'class4')).to.equal(false);
             });
 
             it('Should return false when class name parameter is a whitespace', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty string', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, '')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, '')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, String(''))).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, new String(''))).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, new String(''))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a whitespace', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, ' ')).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, ' ')).to.equal(false);
             });
 
             it('Should return false when class name  parameter is empty', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, )).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, )).to.equal(false);
             });
 
             it('Should return false when class name  parameter is null', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, null)).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, null)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is NaN', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, NaN)).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, NaN)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is undefined', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, undefined)).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, undefined)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is false boolean', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, false)).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, false)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is true boolean', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, true)).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, true)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty object', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, {})).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is an empty array', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, [])).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, [])).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a function', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, function () {})).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, function () {})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled object', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, {foo: 'bar'})).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, {foo: 'bar'})).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a number', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, 1)).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, 1)).to.equal(false);
             });
 
             it('Should return false when class name  name  parameter is a zero', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, 0)).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, 0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a positive false', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, +0)).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, +0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a negative zero', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, -0)).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, -0)).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a primitive number', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, new Number('1'))).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, new Number('1'))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a filled array', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, [1, 2, 3])).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, [1, 2, 3])).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a map', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, new Map())).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, new Map())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a date', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, new Date())).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, new Date())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, new (class Class {})())).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, new (class Class {})())).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class instance', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, new (class Class {}))).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, new (class Class {}))).to.equal(false);
             });
 
             it('Should return false when class name  parameter is a class declaration', () => {
-                expect(HtmlElementEngine.isElementClass(elementWithNoClass, class Class {})).to.equal(false);
+                expect(HtmlElementEngine.hasClass(elementWithNoClass, class Class {})).to.equal(false);
             });
         });
     });
@@ -2611,7 +2614,7 @@ describe('Class', function() {
             });
 
             it('Should return false when value parameter is a filled array', () => {
-                expect(HtmlElementEngine.isValidElementId([1, 2, 3])).to.equal(false);
+                expect(HtmlElementEngine.isValidClassName([1, 2, 3])).to.equal(false);
             });
 
             it('Should return false when value parameter is a map', () => {
@@ -2636,161 +2639,161 @@ describe('Class', function() {
         });
     });
 
-    // ╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔════╗╔═╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
-    // ║ ╔═════╝║ ╔═════╝╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═════╝║ ╔╗ ╔╗ ║║ ╔═════╝║ ╔╗ ║║ ║╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
-    // ║ ║ ╔═══╗║ ╚═════╗   ║ ║   ╔═══════╗║ ╚═════╗║ ║      ║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ║║ ║   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
-    // ║ ║ ╚═╗ ║║ ╔═════╝   ║ ║   ╚═══════╝║ ╔═════╝║ ║      ║ ╔═════╝║ ║║ ║║ ║║ ╔═════╝║ ║║ ║║ ║   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
-    // ║ ╚═══╝ ║║ ╚═════╗   ║ ║            ║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ║║ ║║ ║║ ╚═════╗║ ║║ ╚╝ ║   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
-    // ╚═══════╝╚═══════╝   ╚═╝            ╚═══════╝╚═══════╝╚═══════╝╚═╝╚═╝╚═╝╚═══════╝╚═╝╚════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
+    // ╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═╗      ╔═══════╗╔═══════╗╔═══════╗╔═══════╗╔═══════╗
+    // ║ ╔═════╝║ ╔═════╝╚══╗ ╔══╝         ║ ╔═════╝║ ║      ║ ╔═══╗ ║║ ╔═════╝║ ╔═════╝║ ╔═════╝║ ╔═════╝
+    // ║ ║ ╔═══╗║ ╚═════╗   ║ ║   ╔═══════╗║ ║      ║ ║      ║ ╚═══╝ ║║ ╚═════╗║ ╚═════╗║ ╚═════╗║ ╚═════╗
+    // ║ ║ ╚═╗ ║║ ╔═════╝   ║ ║   ╚═══════╝║ ║      ║ ║      ║ ╔═══╗ ║╚═════╗ ║╚═════╗ ║║ ╔═════╝╚═════╗ ║
+    // ║ ╚═══╝ ║║ ╚═════╗   ║ ║            ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
+    // ╚═══════╝╚═══════╝   ╚═╝            ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-    describe('#getElementClasses(element)', function () {
-        describe('#getElementClasses(ELEMENT)', function () {
+    describe('#getClasses(element)', function () {
+        describe('#getClasses(ELEMENT)', function () {
             it('Should return class array when element parameter is an elementID with one or more classes', () => {
-                expect(HtmlElementEngine.getElementClasses('element-with-3-classes')).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.getClasses('element-with-3-classes')).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
             it('Should return class array when element parameter is an elementID with one or more classes', () => {
-                expect(HtmlElementEngine.getElementClasses('element-with-2-classes')).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.getClasses('element-with-2-classes')).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return class array when element parameter is an elementID with one or more classes', () => {
-                expect(HtmlElementEngine.getElementClasses('element-with-1-class')).to.deep.equal(['class1',]);
+                expect(HtmlElementEngine.getClasses('element-with-1-class')).to.deep.equal(['class1',]);
             });
 
             it('Should return class array when element parameter is a elementID with one or more classes', () => {
-                expect(HtmlElementEngine.getElementClasses('element-with-3-classes')).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.getClasses('element-with-3-classes')).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
             it('Should return empty array when element parameter is an elementID with no class', () => {
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
             });
 
             it('Should return class array when element parameter is an element with one or more classes', () => {
-                expect(HtmlElementEngine.getElementClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
+                expect(HtmlElementEngine.getClasses(elementWith3Classes)).to.deep.equal(['class1', 'class2', 'class3']);
             });
 
             it('Should return class array when element parameter is an element with one or more classes', () => {
-                expect(HtmlElementEngine.getElementClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
+                expect(HtmlElementEngine.getClasses(elementWith2Classes)).to.deep.equal(['class1', 'class2']);
             });
 
             it('Should return class array when element parameter is an element with one or more classes', () => {
-                expect(HtmlElementEngine.getElementClasses(elementWith1Class)).to.deep.equal(['class1']);
+                expect(HtmlElementEngine.getClasses(elementWith1Class)).to.deep.equal(['class1']);
             });
 
             it('Should return empty array when element parameter is an element with no class', () => {
-                expect(HtmlElementEngine.getElementClasses(elementWithNoClass)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a unused identifier', () => {
-                expect(HtmlElementEngine.getElementClasses('unused-element-id')).to.deep.equal([])
+                expect(HtmlElementEngine.getClasses('unused-element-id')).to.deep.equal([])
             });
 
             it('Should return empty array when element parameter is an empty string', () => {
-                expect(HtmlElementEngine.getElementClasses('')).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses('')).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a whitespace', () => {
-                expect(HtmlElementEngine.getElementClasses(' ')).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(' ')).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is an empty primitive string', () => {
-                expect(HtmlElementEngine.getElementClasses(String(''))).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(String(''))).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is an empty wrapped primitive string', () => {
-                expect(HtmlElementEngine.getElementClasses(new String(''))).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(new String(''))).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is null', () => {
-                expect(HtmlElementEngine.getElementClasses(null)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(null)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is NaN', () => {
-                expect(HtmlElementEngine.getElementClasses(NaN)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(NaN)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is undefined', () => {
-                expect(HtmlElementEngine.getElementClasses(undefined)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(undefined)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is false boolean', () => {
-                expect(HtmlElementEngine.getElementClasses(false)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(false)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is true boolean', () => {
-                expect(HtmlElementEngine.getElementClasses(true)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(true)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is an empty object', () => {
-                expect(HtmlElementEngine.getElementClasses({})).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses({})).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is an empty array', () => {
-                expect(HtmlElementEngine.getElementClasses([])).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses([])).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a function', () => {
-                expect(HtmlElementEngine.getElementClasses(function () {})).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(function () {})).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a filled object', () => {
-                expect(HtmlElementEngine.getElementClasses({foo: 'bar'})).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses({foo: 'bar'})).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a number', () => {
-                expect(HtmlElementEngine.getElementClasses(1)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(1)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a zero', () => {
-                expect(HtmlElementEngine.getElementClasses(0)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(0)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a positive zero', () => {
-                expect(HtmlElementEngine.getElementClasses(+0)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(+0)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a negative zero', () => {
-                expect(HtmlElementEngine.getElementClasses(-0)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(-0)).to.deep.equal([]);
             });
 
             it('Should return empty array array when element parameter is a primitive number', () => {
-                expect(HtmlElementEngine.getElementClasses(Number('1'))).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(Number('1'))).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a wrapped primitive number', () => {
-                expect(HtmlElementEngine.getElementClasses(new Number('1'))).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(new Number('1'))).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is positive infinity', () => {
-                expect(HtmlElementEngine.getElementClasses(Number.POSITIVE_INFINITY)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(Number.POSITIVE_INFINITY)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is negative infinity', () => {
-                expect(HtmlElementEngine.getElementClasses(Number.NEGATIVE_INFINITY)).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(Number.NEGATIVE_INFINITY)).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a filled array', () => {
-                expect(HtmlElementEngine.getElementClasses([1, 2, 3])).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses([1, 2, 3])).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a map', () => {
-                expect(HtmlElementEngine.getElementClasses(new Map())).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(new Map())).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a date', () => {
-                expect(HtmlElementEngine.getElementClasses(new Date())).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(new Date())).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.getElementClasses(new (class Class {})())).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(new (class Class {})())).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a class instance', () => {
-                expect(HtmlElementEngine.getElementClasses(new (class Class {}))).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(new (class Class {}))).to.deep.equal([]);
             });
 
             it('Should return empty array when element parameter is a class declaration', () => {
-                expect(HtmlElementEngine.getElementClasses(class Class {})).to.deep.equal([]);
+                expect(HtmlElementEngine.getClasses(class Class {})).to.deep.equal([]);
             });
         });
     });
