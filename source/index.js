@@ -103,9 +103,9 @@ export function insertElementClasses(element, classNames) {             //
     classNames = UtilityEngine.toArray(classNames);                     //
 
     return UtilityEngine.isFilledArray(classNames) &&                   //
-            classNames.every((className) => {                           //
-                return insertElementClass(element, className);          //
-            });
+        classNames.every((className) => {                               //
+            return insertElementClass(element, className);              //
+        });
 }
 
 export function removeElementClasses(element, classNames) {             //
@@ -119,8 +119,15 @@ export function removeElementClasses(element, classNames) {             //
         });
 }
 
-export function toggleElementClasses(element, classNames) {                 //
-    throw new Error('The provided function has not yet been implemented');  //
+export function toggleElementClasses(element, classNames) {             //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    classNames = UtilityEngine.toArray(classNames);                     //
+
+    return UtilityEngine.isFilledArray(classNames) &&                   //
+        classNames.every((className) => {                               //
+            return toggleElementClass(element, className);              //
+        });
 }
 
 export function insertElementClass(element, className) {                //
