@@ -71,10 +71,6 @@ export function isElement(value) {      //
         value instanceof HTMLDocument;  //
 }
 
-function _getElement(value = {}) {                              //
-    return isElement(value) ? value : getElementById(value);    //
-}
-
 // ╔═╗   ╔═╗╔═══════╗╔═╗      ╔═╗   ╔═╗╔═══════╗
 // ║ ║   ║ ║║ ╔═══╗ ║║ ║      ║ ║   ║ ║║ ╔═════╝
 // ║ ╚╗ ╔╝ ║║ ╚═══╝ ║║ ║      ║ ║   ║ ║║ ╚═════╗
@@ -101,8 +97,15 @@ export function getElementValue(element) {                              //
 // ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
 // ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function insertElementClasses(element, classNames) {                 //
-    throw new Error('The provided function has not yet been implemented');  //
+export function insertElementClasses(element, classNames) {             //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    classNames = UtilityEngine.toArray(classNames);                     //
+
+    return UtilityEngine.isFilledArray(classNames) &&                   //
+            classNames.every((className) => {                           //
+                return insertElementClass(element, className);          //
+            });
 }
 
 export function removeElementClasses(element, classNames) {                 //
