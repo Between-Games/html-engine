@@ -108,8 +108,15 @@ export function insertElementClasses(element, classNames) {             //
             });
 }
 
-export function removeElementClasses(element, classNames) {                 //
-    throw new Error('The provided function has not yet been implemented');  //
+export function removeElementClasses(element, classNames) {             //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    classNames = UtilityEngine.toArray(classNames);                     //
+
+    return UtilityEngine.isFilledArray(classNames) &&                   //
+        classNames.every((className) => {                               //
+            return removeElementClass(element, className);              //
+        });
 }
 
 export function toggleElementClasses(element, classNames) {                 //
