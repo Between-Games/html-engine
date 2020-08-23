@@ -1,4 +1,4 @@
-# Html-Engine
+# Html-Element-Engine
 
 Upcoming details...
 
@@ -20,7 +20,7 @@ Upcoming details...
 
 * Gabriel Roy - Repository Owner - [S-A-R-C](https://github.com/S-A-R-C)
 
-See also the list of [contributors](https://github.com/S-A-R-C/html-engine/graphs/contributors) who are linked to this project.
+See also the list of [contributors](https://github.com/S-A-R-C/html-element-engine/graphs/contributors) who are linked to this project.
 
 ## License
 
