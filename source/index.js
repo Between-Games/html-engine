@@ -71,10 +71,6 @@ export function isElement(value) {      //
         value instanceof HTMLDocument;  //
 }
 
-function _getElement(value = {}) {                              //
-    return isElement(value) ? value : getElementById(value);    //
-}
-
 // ╔═╗   ╔═╗╔═══════╗╔═╗      ╔═╗   ╔═╗╔═══════╗
 // ║ ║   ║ ║║ ╔═══╗ ║║ ║      ║ ║   ║ ║║ ╔═════╝
 // ║ ╚╗ ╔╝ ║║ ╚═══╝ ║║ ║      ║ ║   ║ ║║ ╚═════╗
@@ -101,40 +97,81 @@ export function getElementValue(element) {                              //
 // ║ ╚═════╗║ ╚═════╗║ ║   ║ ║╔═════╝ ║╔═════╝ ║║ ╚═════╗╔═════╝ ║
 // ╚═══════╝╚═══════╝╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝╚═══════╝
 
-export function insertElementClasses(element, classNames) {                 //
-    throw new Error('The provided function has not yet been implemented');  //
+export function insertElementClasses(element, classNames) {             //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    classNames = UtilityEngine.toArray(classNames);                     //
+
+    return UtilityEngine.isFilledArray(classNames) &&                   //
+        classNames.every((className) => {                               //
+            return insertElementClass(element, className);              //
+        });
 }
 
-export function removeElementClasses(element, classNames) {                 //
-    throw new Error('The provided function has not yet been implemented');  //
+export function removeElementClasses(element, classNames) {             //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    classNames = UtilityEngine.toArray(classNames);                     //
+
+    return UtilityEngine.isFilledArray(classNames) &&                   //
+        classNames.every((className) => {                               //
+            return removeElementClass(element, className);              //
+        });
 }
 
-export function toggleElementClasses(element, classNames) {                 //
-    throw new Error('The provided function has not yet been implemented');  //
+export function toggleElementClasses(element, classNames) {             //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    classNames = UtilityEngine.toArray(classNames);                     //
+
+    return UtilityEngine.isFilledArray(classNames) &&                   //
+        classNames.every((className) => {                               //
+            return toggleElementClass(element, className);              //
+        });
 }
 
-export function insertElementClass(element, className) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
+export function insertElementClass(element, className) {                //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    return isElement(element) && isValidClassName(className) ?          //
+        element.classList.add(className) || true :                      //
+        false;                                                          //
 }
 
-export function removeElementClass(element, className) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
+export function removeElementClass(element, className) {                //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    return isElement(element) && isValidClassName(className) ?          //
+        element.classList.remove(className) || true :                   //
+        false;                                                          //
 }
 
-export function toggleElementClass(element, className) {                    //
-    throw new Error('The provided function has not yet been implemented');  //
+export function toggleElementClass(element, className) {    //
+    return isElementClass(element, className) ?             //
+        removeElementClass(element, className) :            //
+        insertElementClass(element, className);             //
 }
 
-export function isElementClasses(element, classNames) {                     //
-    throw new Error('The provided function has not yet been implemented');  //
+export function areElementClasses(element, classNames = []) {           //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    return !UtilityEngine.toArray(classNames).some((className) => {     //
+        return !isElementClass(element, className);                     //
+    });
 }
 
-export function isElementClass(element, className) {                        //
-    throw new Error('The provided function has not yet been implemented');  //
+export function isElementClass(element, className) {        //
+    return getElementClasses(element).includes(className);  //
 }
 
-export function isValidClassName(value) {                                   //
-    throw new Error('The provided function has not yet been implemented');  //
+export function isValidClassName(value) {       //
+    return UtilityEngine.isFilledString(value); //
+}
+
+export function getElementClasses(element) {                            //
+    if (isValidElementId(element)) element = getElementById(element);   //
+
+    return isElement(element) ? Array.from(element.classList) : [];     //
 }
 
 // ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗╔═══════╗
@@ -291,9 +328,10 @@ export default {
     insertElementClass,
     removeElementClass,
     toggleElementClass,
-    isElementClasses,
+    areElementClasses,
     isElementClass,
     isValidClassName,
+    getElementClasses,
 
     insertElementStyles,
     removeElementStyles,

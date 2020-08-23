@@ -66,9 +66,10 @@ export function toggleElementClasses(element: any, classNames: string[]): boolea
 export function insertElementClass(element: any, className: string): boolean;
 export function removeElementClass(element: any, className: string): boolean;
 export function toggleElementClass(element: any, className: string): boolean;
-export function isElementClasses(element: any, classNames: string[]): boolean;
+export function areElementClasses(element: any, classNames: string[]): boolean;
 export function isElementClass(element: any, className: string): boolean;
 export function isValidClassName(value: any): boolean;
+export function getElementClasses(element: any): string[];
 
 // ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝║ ╔═════╝
@@ -159,7 +160,7 @@ declare module 'HtmlEngine' {
     export function insertElementClass(element: any, className: string): boolean;
     export function removeElementClass(element: any, className: string): boolean;
     export function toggleElementClass(element: any, className: string): boolean;
-    export function isElementClasses(element: any, classNames: string[]): boolean;
+    export function areElementClasses(element: any, classNames: string[]): boolean;
     export function isElementClass(element: any, className: string): boolean;
     export function isValidClassName(value: any): boolean;
 
