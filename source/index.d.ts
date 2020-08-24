@@ -98,7 +98,7 @@ export function isValidStyleValue(value: any): boolean;
 export function isValidStyleName(value: any): boolean;
 
 export function getStyleValue(element: object): string;
-export function getStyles(element: object): any;
+export function getStyles(element: object): object;
 
 // ╔═══════╗╔════╗╔═╗╔═══════╗╔══════╗ ╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝║ ╔╗ ║║ ║║ ╔═══╗ ║║ ╔══╗ ║ ║ ║      ║ ╔═════╝╚╗ ╔══╗ ║
@@ -247,7 +247,7 @@ declare module 'HtmlElementEngine' {
     export function isValidStyleName(value: any): boolean;
 
     export function getStyleValue(element: object): string;
-    export function getStyles(element: object): any;
+    export function getStyles(element: object): object;
 
 // ╔═══════╗╔════╗╔═╗╔═══════╗╔══════╗ ╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝║ ╔╗ ║║ ║║ ╔═══╗ ║║ ╔══╗ ║ ║ ║      ║ ╔═════╝╚╗ ╔══╗ ║

@@ -1462,7 +1462,7 @@ describe('Class', function() {
             });
         });
 
-        describe('#addClass(ELEMENT, CLASSNAME)', function () {
+        describe('#addClass(element, CLASSNAME)', function () {
             it('Should return true when class name parameter is a class in element', () => {
                 expect(HtmlElementEngine.addClass(elementWithNoClass, 'className')).to.equal(true);
                 expect(HtmlElementEngine.getClasses(elementWithNoClass)).to.deep.equal(['className']);

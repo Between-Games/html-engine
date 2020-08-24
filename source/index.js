@@ -211,20 +211,24 @@ export function hasStyle(element, styleName) {                              //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function isValidStyleValue(value) {                                  //
-    throw new Error('The provided function has not yet been implemented');  //
+export function isValidStyleValue(value) {      //
+    return UtilityEngine.isFilledString(value); //
 }
 
-export function isValidStyleName(value) {                                   //
-    throw new Error('The provided function has not yet been implemented');  //
-}
-
-export function getStyleValue(element) {                                    //
-    throw new Error('The provided function has not yet been implemented');  //
+export function isValidStyleName(value) {       //
+    return UtilityEngine.isFilledString(value); //
 }
 
 export function getStyles(element) {                                        //
     throw new Error('The provided function has not yet been implemented');  //
+}
+
+export function getStyle(element, styleName) {                  //
+    if (isValidId(element)) element = getById(element);         //
+
+    return isElement(element) && isValidStyleName(styleName) ?  //
+        element.style[styleName] :                              //
+        null;                                                   //
 }
 
 // ╔═══════╗╔════╗╔═╗╔═══════╗╔══════╗ ╔═╗      ╔═══════╗╔═══════╗
@@ -407,8 +411,8 @@ export default {
     isValidStyleValue,
     isValidStyleName,
 
-    getStyleValue,
     getStyles,
+    getStyle,
 
     // ╔═══════╗╔════╗╔═╗╔═══════╗╔══════╗ ╔═╗      ╔═══════╗╔═══════╗
     // ║ ╔═════╝║ ╔╗ ║║ ║║ ╔═══╗ ║║ ╔══╗ ║ ║ ║      ║ ╔═════╝╚╗ ╔══╗ ║
