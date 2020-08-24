@@ -72,7 +72,118 @@ describe('Style', function() {
 
     describe('#isValidStyleValue(value)', function () {
         describe('#isValidStyleValue(VALUE)', function () {
+            it('Should return true when style value parameter is valid', () => {
+                expect(HtmlElementEngine.isValidStyleValue('rgb(255, 0, 0)')).to.equal(true);
+            });
 
+
+            it('Should return false when style value parameter is a whitespace', () => {
+                expect(HtmlElementEngine.isValidStyleValue(' ')).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is an empty string', () => {
+                expect(HtmlElementEngine.isValidStyleValue('')).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is an empty primitive string', () => {
+                expect(HtmlElementEngine.isValidStyleValue(String(''))).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is an empty wrapped primitive string', () => {
+                expect(HtmlElementEngine.isValidStyleValue(new String(''))).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a whitespace', () => {
+                expect(HtmlElementEngine.isValidStyleValue(' ')).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is empty', () => {
+                expect(HtmlElementEngine.isValidStyleValue()).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is null', () => {
+                expect(HtmlElementEngine.isValidStyleValue(null)).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is NaN', () => {
+                expect(HtmlElementEngine.isValidStyleValue(NaN)).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is undefined', () => {
+                expect(HtmlElementEngine.isValidStyleValue(undefined)).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is false boolean', () => {
+                expect(HtmlElementEngine.isValidStyleValue(false)).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is true boolean', () => {
+                expect(HtmlElementEngine.isValidStyleValue(true)).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is an empty object', () => {
+                expect(HtmlElementEngine.isValidStyleValue({})).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is an empty array', () => {
+                expect(HtmlElementEngine.isValidStyleValue([])).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a function', () => {
+                expect(HtmlElementEngine.isValidStyleValue(function () {})).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a filled object', () => {
+                expect(HtmlElementEngine.isValidStyleValue({foo: 'bar'})).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a number', () => {
+                expect(HtmlElementEngine.isValidStyleValue(1)).to.equal(false);
+            });
+
+            it('Should return false when style value  name parameter is a zero', () => {
+                expect(HtmlElementEngine.isValidStyleValue(0)).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a positive false', () => {
+                expect(HtmlElementEngine.isValidStyleValue(+0)).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a negative zero', () => {
+                expect(HtmlElementEngine.isValidStyleValue(-0)).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a primitive number', () => {
+                expect(HtmlElementEngine.isValidStyleValue(Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a wrapped primitive number', () => {
+                expect(HtmlElementEngine.isValidStyleValue(new Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a filled array', () => {
+                expect(HtmlElementEngine.isValidStyleValue([1, 2, 3])).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a map', () => {
+                expect(HtmlElementEngine.isValidStyleValue(new Map())).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a date', () => {
+                expect(HtmlElementEngine.isValidStyleValue(new Date())).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a class instance', () => {
+                expect(HtmlElementEngine.isValidStyleValue(new (class Class {})())).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a class instance', () => {
+                expect(HtmlElementEngine.isValidStyleValue(new (class Class {}))).to.equal(false);
+            });
+
+            it('Should return false when style value parameter is a class declaration', () => {
+                expect(HtmlElementEngine.isValidStyleValue(class Class {})).to.equal(false);
+            });
         });
     });
 
