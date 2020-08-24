@@ -219,8 +219,10 @@ export function isValidStyleName(value) {       //
     return UtilityEngine.isFilledString(value); //
 }
 
-export function getStyles(element) {                                        //
-    throw new Error('The provided function has not yet been implemented');  //
+export function getStyles(element) {                    //
+    if (isValidId(element)) element = getById(element); //
+
+    return isElement(element) ? element.style : {};     //
 }
 
 export function getStyle(element, styleName) {                  //

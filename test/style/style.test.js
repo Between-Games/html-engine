@@ -29,6 +29,9 @@ describe('Style', function() {
     let elementWith2Styles;
     let elementWith3Styles;
 
+    const styleSet1 = {display: "none"};
+    const styleSet2 = {display: "block", opacity: "1.0"};
+    const styleSet3 = {display: "inline", opacity: "0.0", color: "rgb(255, 0, 0)"};
 
     beforeEach(function () {
         elementWithNoStyle = document.createElement('button');
@@ -41,14 +44,14 @@ describe('Style', function() {
         elementWith2Styles.setAttribute('id', 'element-with-2-styles');
         elementWith3Styles.setAttribute('id', 'element-with-3-styles');
 
-        elementWith1Style.style.display = "none";
+        elementWith1Style.style.display = styleSet1.display;
 
-        elementWith2Styles.style.opacity = "1.0";
-        elementWith2Styles.style.display = "block";
+        elementWith2Styles.style.display = styleSet2.display;
+        elementWith2Styles.style.opacity = styleSet2.opacity;
 
-        elementWith3Styles.style.opacity = "0.0";
-        elementWith3Styles.style.display = "inline";
-        elementWith3Styles.style.color = "#ff0000";
+        elementWith3Styles.style.display = styleSet3.display;
+        elementWith3Styles.style.opacity = styleSet3.opacity;
+        elementWith3Styles.style.color = styleSet3.color;
 
         document.body.appendChild(elementWithNoStyle);
         document.body.appendChild(elementWith1Style);
@@ -311,6 +314,158 @@ describe('Style', function() {
         });
     });
 
+    // ╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗╔═══════╗
+    // ║ ╔═════╝║ ╔═════╝╚══╗ ╔══╝         ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝║ ╔═════╝
+    // ║ ║ ╔═══╗║ ╚═════╗   ║ ║   ╔═══════╗║ ╚═════╗   ║ ║   ║ ╚═══╝ ║║ ║      ║ ╚═════╗║ ╚═════╗
+    // ║ ║ ╚═╗ ║║ ╔═════╝   ║ ║   ╚═══════╝╚═════╗ ║   ║ ║   ╚═════╗ ║║ ║      ║ ╔═════╝╚═════╗ ║
+    // ║ ╚═══╝ ║║ ╚═════╗   ║ ║            ╔═════╝ ║   ║ ║   ╔═════╝ ║║ ╚═════╗║ ╚═════╗╔═════╝ ║
+    // ╚═══════╝╚═══════╝   ╚═╝            ╚═══════╝   ╚═╝   ╚═══════╝╚═══════╝╚═══════╝╚═══════╝
+
+    describe('#getStyles(element)', function () {
+        describe('#getStyles(ELEMENT)', function () {
+            it('Should return style when element parameter is an element', () => {
+                expect(HtmlElementEngine.getStyles(elementWithNoStyle)['display']).to.equal('');
+                expect(HtmlElementEngine.getStyles(elementWithNoStyle)['opacity']).to.equal('');
+                expect(HtmlElementEngine.getStyles(elementWithNoStyle)['color']).to.equal('');
+                expect(HtmlElementEngine.getStyles(elementWithNoStyle)['undefined']).to.equal(undefined);
+            });
+
+
+            it('Should return style when element parameter is a filled string', () => {
+                expect(HtmlElementEngine.getStyles(elementWith1Style)['display']).to.equal('none');
+                expect(HtmlElementEngine.getStyles(elementWith1Style)['opacity']).to.equal('');
+                expect(HtmlElementEngine.getStyles(elementWith1Style)['color']).to.equal('');
+                expect(HtmlElementEngine.getStyles(elementWith1Style)['undefined']).to.equal(undefined);
+            });
+
+            it('Should return style when element parameter is a filled primitive string', () => {
+                expect(HtmlElementEngine.getStyles(elementWith2Styles)['display']).to.equal('block');
+                expect(HtmlElementEngine.getStyles(elementWith2Styles)['opacity']).to.equal('1');
+                expect(HtmlElementEngine.getStyles(elementWith2Styles)['color']).to.equal('');
+                expect(HtmlElementEngine.getStyles(elementWith2Styles)['undefined']).to.equal(undefined);
+            });
+
+            it('Should return style when element parameter is a filled wrapped primitive string', () => {
+                expect(HtmlElementEngine.getStyles(elementWith3Styles)['display']).to.equal('inline');
+                expect(HtmlElementEngine.getStyles(elementWith3Styles)['opacity']).to.equal('0');
+                expect(HtmlElementEngine.getStyles(elementWith3Styles)['color']).to.equal('rgb(255, 0, 0)');
+                expect(HtmlElementEngine.getStyles(elementWith3Styles)['undefined']).to.equal(undefined);
+            });
+
+
+            it('Should return null when element parameter is an unused element ID', () => {
+                expect(HtmlElementEngine.getStyles('unused-element-id')).to.deep.equal({})
+            });
+
+            it('Should return null when element parameter is an empty string', () => {
+                expect(HtmlElementEngine.getStyles('')).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a whitespace', () => {
+                expect(HtmlElementEngine.getStyles(' ')).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is an empty primitive string', () => {
+                expect(HtmlElementEngine.getStyles(String(''))).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is an empty wrapped primitive string', () => {
+                expect(HtmlElementEngine.getStyles(new String(''))).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is null', () => {
+                expect(HtmlElementEngine.getStyles(null)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is NaN', () => {
+                expect(HtmlElementEngine.getStyles(NaN)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is undefined', () => {
+                expect(HtmlElementEngine.getStyles(undefined)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is false boolean', () => {
+                expect(HtmlElementEngine.getStyles(false)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is true boolean', () => {
+                expect(HtmlElementEngine.getStyles(true)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is an empty object', () => {
+                expect(HtmlElementEngine.getStyles({})).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is an empty array', () => {
+                expect(HtmlElementEngine.getStyles([])).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a function', () => {
+                expect(HtmlElementEngine.getStyles(function () {})).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a filled object', () => {
+                expect(HtmlElementEngine.getStyles({foo: 'bar'})).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a number', () => {
+                expect(HtmlElementEngine.getStyles(1)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a zero', () => {
+                expect(HtmlElementEngine.getStyles(0)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a positive zero', () => {
+                expect(HtmlElementEngine.getStyles(+0)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a negative zero', () => {
+                expect(HtmlElementEngine.getStyles(-0)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a primitive number', () => {
+                expect(HtmlElementEngine.getStyles(Number('1'))).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a wrapped primitive number', () => {
+                expect(HtmlElementEngine.getStyles(new Number('1'))).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is positive infinity', () => {
+                expect(HtmlElementEngine.getStyles(Number.POSITIVE_INFINITY)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is negative infinity', () => {
+                expect(HtmlElementEngine.getStyles(Number.NEGATIVE_INFINITY)).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a filled array', () => {
+                expect(HtmlElementEngine.getStyles([1, 2, 3])).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a map', () => {
+                expect(HtmlElementEngine.getStyles(new Map())).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a date', () => {
+                expect(HtmlElementEngine.getStyles(new Date())).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a class instance', () => {
+                expect(HtmlElementEngine.getStyles(new (class Class {})())).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a class instance', () => {
+                expect(HtmlElementEngine.getStyles(new (class Class {}))).to.deep.equal({});
+            });
+
+            it('Should return null when element parameter is a class declaration', () => {
+                expect(HtmlElementEngine.getStyles(class Class {})).to.deep.equal({});
+            });
+        });
+    });
     // ╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗
     // ║ ╔═════╝║ ╔═════╝╚══╗ ╔══╝         ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝
     // ║ ║ ╔═══╗║ ╚═════╗   ║ ║   ╔═══════╗║ ╚═════╗   ║ ║   ║ ╚═══╝ ║║ ║      ║ ╚═════╗
@@ -322,18 +477,26 @@ describe('Style', function() {
         describe('#getStyle(ELEMENT, styleName)', function () {
             it('Should return style when element parameter is an element', () => {
                 expect(HtmlElementEngine.getStyle(elementWithNoStyle, 'display')).to.equal('');
+                expect(HtmlElementEngine.getStyle(elementWithNoStyle, 'opacity')).to.equal('');
+                expect(HtmlElementEngine.getStyle(elementWithNoStyle, 'color')).to.equal('');
             });
 
             it('Should return style when element parameter is a filled string', () => {
                 expect(HtmlElementEngine.getStyle('element-with-1-style', 'display')).to.equal('none');
+                expect(HtmlElementEngine.getStyle('element-with-1-style', 'opacity')).to.equal('');
+                expect(HtmlElementEngine.getStyle('element-with-1-style', 'color')).to.equal('');
             });
 
             it('Should return style when element parameter is a filled primitive string', () => {
-                expect(HtmlElementEngine.getStyle(String('element-with-2-styles'), 'display')).to.equal('block');
+                expect(HtmlElementEngine.getStyle('element-with-2-styles', 'display')).to.equal('block');
+                expect(HtmlElementEngine.getStyle('element-with-2-styles', 'opacity')).to.equal('1');
+                expect(HtmlElementEngine.getStyle('element-with-2-styles', 'color')).to.equal('');
             });
 
             it('Should return style when element parameter is a filled wrapped primitive string', () => {
-                expect(HtmlElementEngine.getStyle(new String('element-with-3-styles'), 'display')).to.equal('inline');
+                expect(HtmlElementEngine.getStyle('element-with-3-styles', 'display')).to.equal('inline');
+                expect(HtmlElementEngine.getStyle('element-with-3-styles', 'opacity')).to.equal('0');
+                expect(HtmlElementEngine.getStyle('element-with-3-styles', 'color')).to.equal('rgb(255, 0, 0)');
             });
 
 
