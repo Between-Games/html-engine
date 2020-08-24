@@ -16,12 +16,12 @@
 
 const expect = chai.expect;
 
-// ╔═══════╗╔═══════╗
-// ╚══╗ ╔══╝╚╗ ╔══╗ ║
-//    ║ ║    ║ ║  ║ ║
-//    ║ ║    ║ ║  ║ ║
-// ╔══╝ ╚══╗╔╝ ╚══╝ ║
-// ╚═══════╝╚═══════╝
+// ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗
+// ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝
+// ║ ╚═════╗   ║ ║   ║ ╚═══╝ ║║ ║      ║ ╚═════╗
+// ╚═════╗ ║   ║ ║   ╚═════╗ ║║ ║      ║ ╔═════╝
+// ╔═════╝ ║   ║ ║   ╔═════╝ ║║ ╚═════╗║ ╚═════╗
+// ╚═══════╝   ╚═╝   ╚═══════╝╚═══════╝╚═══════╝
 
 describe('Style', function() {
     let elementWithNoStyle;
@@ -61,6 +61,143 @@ describe('Style', function() {
         elementWith1Style.remove();
         elementWith2Styles.remove();
         elementWith3Styles.remove();
+    });
+
+    // ╔═══════╗╔═══════╗         ╔═╗   ╔═╗╔═══════╗╔═╗      ╔═══════╗╔═══════╗         ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗         ╔═╗   ╔═╗╔═══════╗╔═╗      ╔═╗   ╔═╗╔═══════╗
+    // ╚══╗ ╔══╝║ ╔═════╝         ║ ║   ║ ║║ ╔═══╗ ║║ ║      ╚══╗ ╔══╝╚╗ ╔══╗ ║         ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝         ║ ║   ║ ║║ ╔═══╗ ║║ ║      ║ ║   ║ ║║ ╔═════╝
+    //    ║ ║   ║ ╚═════╗╔═══════╗║ ╚╗ ╔╝ ║║ ╚═══╝ ║║ ║         ║ ║    ║ ║  ║ ║╔═══════╗║ ╚═════╗   ║ ║   ║ ╚═══╝ ║║ ║      ║ ╚═════╗╔═══════╗║ ╚╗ ╔╝ ║║ ╚═══╝ ║║ ║      ║ ║   ║ ║║ ╚═════╗
+    //    ║ ║   ╚═════╗ ║╚═══════╝╚╗ ║ ║ ╔╝║ ╔═══╗ ║║ ║         ║ ║    ║ ║  ║ ║╚═══════╝╚═════╗ ║   ║ ║   ╚═════╗ ║║ ║      ║ ╔═════╝╚═══════╝╚╗ ║ ║ ╔╝║ ╔═══╗ ║║ ║      ║ ║   ║ ║║ ╔═════╝
+    // ╔══╝ ╚══╗╔═════╝ ║          ║ ╚═╝ ║ ║ ║   ║ ║║ ╚═════╗╔══╝ ╚══╗╔╝ ╚══╝ ║         ╔═════╝ ║   ║ ║   ╔═════╝ ║║ ╚═════╗║ ╚═════╗          ║ ╚═╝ ║ ║ ║   ║ ║║ ╚═════╗║ ╚═══╝ ║║ ╚═════╗
+    // ╚═══════╝╚═══════╝          ╚═════╝ ╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝         ╚═══════╝   ╚═╝   ╚═══════╝╚═══════╝╚═══════╝          ╚═════╝ ╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝
+
+    describe('#isValidStyleValue(value)', function () {
+        describe('#isValidStyleValue(VALUE)', function () {
+
+        });
+    });
+
+    // ╔═══════╗╔═══════╗         ╔═╗   ╔═╗╔═══════╗╔═╗      ╔═══════╗╔═══════╗         ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗         ╔════╗╔═╗╔═══════╗╔═══════╗╔═══════╗
+    // ╚══╗ ╔══╝║ ╔═════╝         ║ ║   ║ ║║ ╔═══╗ ║║ ║      ╚══╗ ╔══╝╚╗ ╔══╗ ║         ║ ╔═════╝╚══╗ ╔══╝║ ║   ║ ║║ ║      ║ ╔═════╝         ║ ╔╗ ║║ ║║ ╔═══╗ ║║ ╔╗ ╔╗ ║║ ╔═════╝
+    //    ║ ║   ║ ╚═════╗╔═══════╗║ ╚╗ ╔╝ ║║ ╚═══╝ ║║ ║         ║ ║    ║ ║  ║ ║╔═══════╗║ ╚═════╗   ║ ║   ║ ╚═══╝ ║║ ║      ║ ╚═════╗╔═══════╗║ ║║ ║║ ║║ ╚═══╝ ║║ ║║ ║║ ║║ ╚═════╗
+    //    ║ ║   ╚═════╗ ║╚═══════╝╚╗ ║ ║ ╔╝║ ╔═══╗ ║║ ║         ║ ║    ║ ║  ║ ║╚═══════╝╚═════╗ ║   ║ ║   ╚═════╗ ║║ ║      ║ ╔═════╝╚═══════╝║ ║║ ║║ ║║ ╔═══╗ ║║ ║║ ║║ ║║ ╔═════╝
+    // ╔══╝ ╚══╗╔═════╝ ║          ║ ╚═╝ ║ ║ ║   ║ ║║ ╚═════╗╔══╝ ╚══╗╔╝ ╚══╝ ║         ╔═════╝ ║   ║ ║   ╔═════╝ ║║ ╚═════╗║ ╚═════╗         ║ ║║ ╚╝ ║║ ║   ║ ║║ ║║ ║║ ║║ ╚═════╗
+    // ╚═══════╝╚═══════╝          ╚═════╝ ╚═╝   ╚═╝╚═══════╝╚═══════╝╚═══════╝         ╚═══════╝   ╚═╝   ╚═══════╝╚═══════╝╚═══════╝         ╚═╝╚════╝╚═╝   ╚═╝╚═╝╚═╝╚═╝╚═══════╝
+
+    describe('#isValidStyleName(value)', function () {
+        describe('#isValidStyleName(VALUE)', function () {
+            it('Should return true when style name parameter is valid', () => {
+                expect(HtmlElementEngine.isValidStyleName('margin')).to.equal(true);
+            });
+
+
+            it('Should return false when style name parameter is a whitespace', () => {
+                expect(HtmlElementEngine.isValidStyleName(' ')).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is an empty string', () => {
+                expect(HtmlElementEngine.isValidStyleName('')).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is an empty primitive string', () => {
+                expect(HtmlElementEngine.isValidStyleName(String(''))).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is an empty wrapped primitive string', () => {
+                expect(HtmlElementEngine.isValidStyleName(new String(''))).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a whitespace', () => {
+                expect(HtmlElementEngine.isValidStyleName(' ')).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is empty', () => {
+                expect(HtmlElementEngine.isValidStyleName()).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is null', () => {
+                expect(HtmlElementEngine.isValidStyleName(null)).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is NaN', () => {
+                expect(HtmlElementEngine.isValidStyleName(NaN)).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is undefined', () => {
+                expect(HtmlElementEngine.isValidStyleName(undefined)).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is false boolean', () => {
+                expect(HtmlElementEngine.isValidStyleName(false)).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is true boolean', () => {
+                expect(HtmlElementEngine.isValidStyleName(true)).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is an empty object', () => {
+                expect(HtmlElementEngine.isValidStyleName({})).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is an empty array', () => {
+                expect(HtmlElementEngine.isValidStyleName([])).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a function', () => {
+                expect(HtmlElementEngine.isValidStyleName(function () {})).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a filled object', () => {
+                expect(HtmlElementEngine.isValidStyleName({foo: 'bar'})).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a number', () => {
+                expect(HtmlElementEngine.isValidStyleName(1)).to.equal(false);
+            });
+
+            it('Should return false when style name  name parameter is a zero', () => {
+                expect(HtmlElementEngine.isValidStyleName(0)).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a positive false', () => {
+                expect(HtmlElementEngine.isValidStyleName(+0)).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a negative zero', () => {
+                expect(HtmlElementEngine.isValidStyleName(-0)).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a primitive number', () => {
+                expect(HtmlElementEngine.isValidStyleName(Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a wrapped primitive number', () => {
+                expect(HtmlElementEngine.isValidStyleName(new Number('1'))).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a filled array', () => {
+                expect(HtmlElementEngine.isValidStyleName([1, 2, 3])).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a map', () => {
+                expect(HtmlElementEngine.isValidStyleName(new Map())).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a date', () => {
+                expect(HtmlElementEngine.isValidStyleName(new Date())).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a class instance', () => {
+                expect(HtmlElementEngine.isValidStyleName(new (class Class {})())).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a class instance', () => {
+                expect(HtmlElementEngine.isValidStyleName(new (class Class {}))).to.equal(false);
+            });
+
+            it('Should return false when style name parameter is a class declaration', () => {
+                expect(HtmlElementEngine.isValidStyleName(class Class {})).to.equal(false);
+            });
+        });
     });
 
     // ╔═══════╗╔═══════╗╔═══════╗         ╔═══════╗╔═══════╗╔═╗   ╔═╗╔═╗      ╔═══════╗
@@ -203,23 +340,27 @@ describe('Style', function() {
         });
 
         describe('#getStyle(element, STYLENAME)', function () {
-            it('Should return true when style name parameter is a class in element', () => {
+            it('Should return empty string when style name parameter is style with undefined value', () => {
                 expect(HtmlElementEngine.getStyle(elementWithNoStyle, 'display')).to.equal('');
             });
 
-            it('Should return true when style name parameter is a class in element', () => {
+            it('Should return undefined when style name parameter is a undefined style name', () => {
+                expect(HtmlElementEngine.getStyle(elementWith1Style, 'unusedStyleName')).to.equal(undefined);
+            });
+
+            it('Should return style value when style name parameter is a valid style name', () => {
                 expect(HtmlElementEngine.getStyle(elementWith1Style, 'display')).to.equal('none');
             });
 
-            it('Should return true when style name parameter is a class in element', () => {
+            it('Should return style value when style name parameter is a valid style name', () => {
                 expect(HtmlElementEngine.getStyle(elementWith2Styles, 'display')).to.equal('block');
             });
 
-            it('Should return true when style name parameter is a class in element', () => {
+            it('Should return style value when style name parameter is a valid style name', () => {
                 expect(HtmlElementEngine.getStyle(elementWith3Styles, 'display')).to.equal('inline');
             });
 
-            it('Should return true when style name parameter is a class in element', () => {
+            it('Should return style value when style name parameter is a valid style name', () => {
                 expect(HtmlElementEngine.getStyle(elementWith3Styles, 'color')).to.equal('rgb(255, 0, 0)');
             });
 
