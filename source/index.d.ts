@@ -91,14 +91,15 @@ export function removeStyles(element: object, styleNames: string[]): boolean;
 export function addStyle(element: object, style: object): boolean;
 export function removeStyle(element: object, styleName: string): boolean;
 
-export function hasStyleValue(element: object, styleName: string, styleValue: string): boolean;
-export function hasStyle(element: string, styleName: string): boolean;
+export function hasStyles(element: string, styles: object[]): boolean;
+export function hasStyle(element: string, styleName: string, styleValue: string): boolean;
 
 export function isValidStyleValue(value: any): boolean;
 export function isValidStyleName(value: any): boolean;
 
 export function getStyleValue(element: object): string;
 export function getStyles(element: object): object;
+export function getStyle(element: object): any;
 
 // ╔═══════╗╔════╗╔═╗╔═══════╗╔══════╗ ╔═╗      ╔═══════╗╔═══════╗
 // ║ ╔═════╝║ ╔╗ ║║ ║║ ╔═══╗ ║║ ╔══╗ ║ ║ ║      ║ ╔═════╝╚╗ ╔══╗ ║
