@@ -8,6 +8,17 @@ Upcoming details...
 * Upcoming details...
 * Upcoming details...
 
+## Usage
+
+### Styles
+
+##### hasStyle(element, styleName, styleValue)
+
+```
+hasStyle('element-id', 'display');
+hasStyle('element-id', 'display', 'none');
+```
+
 ## Contributing
 
 Upcoming details...

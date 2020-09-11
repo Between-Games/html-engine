@@ -203,28 +203,44 @@ export function removeStyle(element, styleName) {                           //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function hasStyleValue(element, styleName, styleValue) {             //
+export function hasStyles(element, styles) {                                //
     throw new Error('The provided function has not yet been implemented');  //
 }
 
-export function hasStyle(element, styleName) {                              //
-    throw new Error('The provided function has not yet been implemented');  //
+export function hasStyle(element, styleName, styleValue) {  //
+    if (isValidId(element)) element = getById(element);     //
+
+    return isElement(element) &&                            //
+        (isValidStyleName(styleName) ?                      //
+        getStyle(element, styleName) === styleValue :       //
+        isValidStyleValue(getStyle(element, styleName)));   //
+
 }
 
-export function isValidStyleValue(value) {                                  //
-    throw new Error('The provided function has not yet been implemented');  //
+export function isValidStyleValue(value) {      //
+    return UtilityEngine.isFilledString(value); //
 }
 
-export function isValidStyleName(value) {                                   //
-    throw new Error('The provided function has not yet been implemented');  //
+export function isValidStyleName(value) {       //
+    return UtilityEngine.isFilledString(value); //
 }
 
-export function getStyleValue(element) {                                    //
-    throw new Error('The provided function has not yet been implemented');  //
+export function getStyles(element) {                    //
+    if (isValidId(element)) element = getById(element); //
+
+    return isElement(element) ?
+        Object.fromEntries(Object.entries(element.style)
+            .filter(([ , value]) => isValidStyleValue(value))) : {};
 }
 
-export function getStyles(element) {                                        //
-    throw new Error('The provided function has not yet been implemented');  //
+export function getStyle(element, styleName) {          //
+    if (isValidId(element)) element = getById(element); //
+
+    return isElement(element) &&                        //
+        isValidStyleName(styleName) &&                  //
+        isValidStyleValue(element.style[styleName]) ?   //
+        element.style[styleName] :                      //
+        undefined;                                      //
 }
 
 // ╔═══════╗╔════╗╔═╗╔═══════╗╔══════╗ ╔═╗      ╔═══════╗╔═══════╗
@@ -401,14 +417,14 @@ export default {
     addStyle,
     removeStyle,
 
-    hasStyleValue,
+    hasStyles,
     hasStyle,
 
     isValidStyleValue,
     isValidStyleName,
 
-    getStyleValue,
     getStyles,
+    getStyle,
 
     // ╔═══════╗╔════╗╔═╗╔═══════╗╔══════╗ ╔═╗      ╔═══════╗╔═══════╗
     // ║ ╔═════╝║ ╔╗ ║║ ║║ ╔═══╗ ║║ ╔══╗ ║ ║ ║      ║ ╔═════╝╚╗ ╔══╗ ║
