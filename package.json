@@ -1,5 +1,5 @@
 {
-  "name": "html-element-engine",
+  "name": "html-engine",
   "version": "0.1.0",
   "description": "A collection of mixed HTML-related functionalities",
   "main": "build/index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/S-A-R-C/html-element-engine.git"
+    "url": "git+https://github.com/S-A-R-C/html-engine.git"
   },
   "author": "S-A-R-C",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/S-A-R-C/html-element-engine/issues"
+    "url": "https://github.com/S-A-R-C/html-engine/issues"
   },
-  "homepage": "https://github.com/S-A-R-C/html-element-engine#readme",
+  "homepage": "https://github.com/S-A-R-C/html-engine#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "copy-webpack-plugin": "^6.0.3",
