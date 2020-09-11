@@ -16,6 +16,7 @@ module.exports = {
         filename: 'index.js',
         library: 'htmlEngine',
         libraryTarget: 'umd',
+        libraryExport: 'default',
         globalObject: 'this',
         path: path.resolve(__dirname, 'build'),
     },

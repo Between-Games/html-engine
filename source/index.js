@@ -331,5 +331,32 @@ export function getOuterHtml(element) {                                     //
 // ╚═══════╝╚═══════╝╚═╝      ╚═╝   ╚═╝╚═══════╝╚═══════╝   ╚═╝
 
 export default function(querySelector) {
+    return {
+        setId,
+        getById,
 
+        isElement,
+
+        setValue,
+        getValue,
+
+        addClass,
+        addClasses,
+        removeClass,
+        removeClasses,
+        toggleClasses,
+        toggleClass,
+        getClasses,
+        hasClasses,
+        hasClass,
+
+        hasStyle,
+        getStyles,
+        getStyle,
+
+        isValidStyleValue,
+        isValidStyleName,
+        isValidClassName,
+        isValidId,
+    }
 }
